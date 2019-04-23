@@ -1,0 +1,10 @@
+edu.neu.ece.devicedescriptiongenerator
+edu.neu.ece.devicedescriptiongenerator.controller
+edu.neu.ece.devicedescriptiongenerator.entity.classes
+edu.neu.ece.devicedescriptiongenerator.entity.properties
+edu.neu.ece.devicedescriptiongenerator.extractor
+edu.neu.ece.devicedescriptiongenerator.generator
+edu.neu.ece.devicedescriptiongenerator.main
+edu.neu.ece.devicedescriptiongenerator.metric
+edu.neu.ece.devicedescriptiongenerator.utility
+edu.neu.ece.devicedescriptiongenerator.visitor

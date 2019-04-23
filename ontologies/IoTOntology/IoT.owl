@@ -1,0 +1,1278 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#"
+     xml:base="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl"
+     xmlns:qudt="http://qudt.org/1.1/schema/qudt#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:align="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"
+     xmlns:ssn="http://purl.oclc.org/NET/ssnx/ssn#"
+     xmlns:iot="http://purl.org/IoT/iot#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:ace_lexicon="http://attempto.ifi.uzh.ch/ace_lexicon#"
+     xmlns:dul="http://www.loa-cnr.it/ontologies/DUL.owl#"
+     xmlns:sweet="http://sweet.jpl.nasa.gov/2.2/sweetAll.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl">
+        <owl:versionIRI rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology-v2.1.owl"/>
+        <owl:imports rdf:resource="http://purl.oclc.org/NET/ssnx/ssn"/>
+        <dc:creator>Kotis K.</dc:creator>
+        <iot:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.1</iot:versionInfo>
+        <rdfs:label>IoT-ontology</rdfs:label>
+        <dc:creator>Katasonov A.</dc:creator>
+        <dc:subject>
+The aim of the ontology is to provide a clear understanding of the new research domain of IoT in respect to the need for ‘true’ (i.e. semantic) interoperability of smart entities and other kind of entities (control, physical) that may be plugged in it anytime, by anyone and from anyplace. The objective is not to focus in sensor and observation data descriptions as in SSN ontology, but instead to emphasize the notion of interconnected, clustered andaligned smart entities towards supporting their semantic registration, coordination and retrieval in a Web of Things.
+</dc:subject>
+        <dc:title>
+Internet of Things (IoT) reference ontology for data integration and semantic coordination of smart entities.
+</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg -->
+
+    <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#versionInfo"/>
+    
+
+
+    <!-- http://purl.org/IoT/iot#versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/IoT/iot#versionInfo"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/author -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/author"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/identifier -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/identifier"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/subject"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#seeAlso -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral -->
+
+    <rdfs:Datatype rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Literal -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#anyURI -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#float -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#float"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#string -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#aligns -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#aligns">
+        <rdfs:domain rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#OntologyAlignment"/>
+        <rdfs:range rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Ontology"/>
+        <ace_lexicon:TV_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">aligns</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">alignses</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">alignsed</ace_lexicon:TV_vbg>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#attachedTo -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#attachedTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#hasLocation"/>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+        <rdfs:range rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">attached to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasAlignmentCell -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasAlignmentCell">
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">has alignment cell</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasGlobalIdentifier -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasGlobalIdentifier">
+        <rdfs:subPropertyOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#topObjectProperty"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">has part UCODE</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasIPv6 -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasIPv6">
+        <rdfs:subPropertyOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasGlobalIdentifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasOwner -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasOwner">
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Object"/>
+        <rdfs:range rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Agent"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">has owner</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasUCODE -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasUCODE">
+        <rdfs:subPropertyOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasGlobalIdentifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasURI -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasURI">
+        <rdfs:subPropertyOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasGlobalIdentifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasVendor -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasVendor">
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#DesignedArtifact"/>
+        <rdfs:range rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Organization"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">has Vendor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#modifies -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#modifies"/>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#providesService -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#providesService">
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isAgentIncludedIn"/>
+        <owl:inverseOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#serviceProvidedBy"/>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Agent"/>
+        <rdfs:range rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#resourceUsedIn -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#resourceUsedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isObjectIncludedIn"/>
+        <owl:inverseOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#usesResource"/>
+        <rdfs:domain rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Resource"/>
+        <rdfs:range rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">accessed by service</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#serviceProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#serviceProvidedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#includesAgent"/>
+        <rdfs:domain rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+        <rdfs:range rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#topObjectProperty"/>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#usesResource -->
+
+    <owl:ObjectProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#usesResource">
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#includesObject"/>
+        <rdfs:domain rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+        <rdfs:range rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Resource"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">access resource</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#featureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://purl.oclc.org/NET/ssnx/ssn#featureOfInterest"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://purl.oclc.org/NET/ssnx/ssn#hasInput"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://purl.oclc.org/NET/ssnx/ssn#hasOutput"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#conceptualizes -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#conceptualizes"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#defines -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#defines"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#expresses -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#expresses"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#hasComponent -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#hasComponent"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#hasLocation"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#includesAgent -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#includesAgent"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#includesObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#includesObject"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#isAbout -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isAbout"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#isAgentIncludedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isAgentIncludedIn"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#isConceptualizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isConceptualizedBy"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#isObjectIncludedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isObjectIncludedIn"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#isRealizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isRealizedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity1 -->
+
+    <owl:DatatypeProperty rdf:about="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity1">
+        <rdfs:subPropertyOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#alignmentProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity2 -->
+
+    <owl:DatatypeProperty rdf:about="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity2">
+        <rdfs:subPropertyOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#alignmentProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knowledgeweb.semanticweb.org/heterogeneity/alignment#measure -->
+
+    <owl:DatatypeProperty rdf:about="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#measure">
+        <rdfs:subPropertyOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#alignmentProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">hasMeasureValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knowledgeweb.semanticweb.org/heterogeneity/alignment#relation -->
+
+    <owl:DatatypeProperty rdf:about="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#relation">
+        <rdfs:subPropertyOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#alignmentProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">hasRelationValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#alignmentProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#alignmentProperty">
+        <rdfs:domain rdf:resource="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#Cell"/>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">hasAlignmentCellValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasAccessAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasAccessAddress">
+        <rdfs:domain rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasTarget -->
+
+    <owl:DatatypeProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasTarget">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasTemplate -->
+
+    <owl:DatatypeProperty rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasTemplate">
+        <rdfs:domain rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#DataObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://knowledgeweb.semanticweb.org/heterogeneity/alignment#Cell -->
+
+    <owl:Class rdf:about="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#Cell">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#relation"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity2"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#measure"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+The result is expressed in the Alignment format. This format, in RDF/XML, is made of a header containing &quot;metadata&quot; about the alignment and of a set of alignment cells (correspondences). Each correspondence is made of two references to the aligned entities, the relation holding between the entities (=) and a confidence measure (1.0) in this correspondence.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Alignment cell</rdfs:label>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Alignment correspondence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ActuatingDevice -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ActuatingDevice">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Actuator"/>
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectronicDevice"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Actuating_devices</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Actuating_device</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+An electronic device that is responsible for acting in order to execute a task, after the related reception of commands.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Actuating device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ActuationService -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ActuationService">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Actuator -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#modifies"/>
+                <owl:allValuesFrom rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#AlignmentCell -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#AlignmentCell">
+        <rdfs:subClassOf rdf:resource="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#Cell"/>
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Description"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Application -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Application">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#SoftwareAgent"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Applications</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Application</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#BarCode -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#BarCode">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Identifier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#CommandMessage -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#CommandMessage">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RequestMessage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#CommunicationBandwidth -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#CommunicationBandwidth">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Resource"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Communication_bandwidths</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Communication_bandwidth</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#CommunicationMessage -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#CommunicationMessage">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#DataObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasTemplate"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ComputingDevice -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ComputingDevice">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectronicDevice"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Computing_devices</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Computing_device</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+An electronic device that performs any kind of compuation.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Computing device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ControlEntity -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ControlEntity">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IoT_Entity"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Control_Entities</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Control_Entity</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+A control entity is an entity with some control behavior/application logic. These entities include a piece of software (application) . A control entity uses one or more smart entities in order to achieve a specific goal e.g. to monitor and adjust temperature in a room based on sensed data.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#DataObject -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#DataObject">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#DesignedArtifact"/>
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Database -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Database">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#DataObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectricHomeAppliance -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectricHomeAppliance">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectricMechanicDevice"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Electric_home_applianceses</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Electric_home_appliances</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+Home appliances are electrical/mechanical machines which accomplish some household functions, such as cooking or cleaning. Home appliances can be classified into: Major appliances, or White goods, Small appliances, or Brown goods.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Home Appliances</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectricMechanicDevice -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectricMechanicDevice">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Device"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Electric_and_mechanic_devices</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Electric_and_mechanic_device</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+Electrical or mechanical machines which accomplish some functions.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Electrical and Mechanical Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectronicDevice -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectronicDevice">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Device"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Electronic_devices</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Electronic_device</ace_lexicon:CN_sg>
+        <dc:source rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">http://www.vtt.fi/ontologies/IoT.owl</dc:source>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+Any device that has some electronics integrated in it
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Electronic Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#EmbeddedDevice -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#EmbeddedDevice">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectronicDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#hasComponent"/>
+                <owl:someValuesFrom rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ActuatingDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#hasComponent"/>
+                <owl:someValuesFrom rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Processor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#hasComponent"/>
+                <owl:someValuesFrom rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#SensingDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Embedded_devices</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Embedded_device</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+An electronic device that embeds other devices such as sensors, actuators and processors.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Embeded device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#File -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#File">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#DataObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Identifier -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Identifier">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IdentityCommunication -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IdentityCommunication">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IdentityDevice -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IdentityDevice">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ElectronicDevice"/>
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Identifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#attachedTo"/>
+                <owl:someValuesFrom rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Attached_Devices</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Attached_Device</ace_lexicon:CN_sg>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+An electronic device that is capable of be attached on other devices e.g. RFID tag.
+</rdfs:label>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Attached device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#InformMessage -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#InformMessage">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Message"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IoT_Entity -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IoT_Entity">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#featureOfInterest"/>
+                <owl:someValuesFrom rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isConceptualizedBy"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#SoftwareAgent"/>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#providesService"/>
+                                        <owl:someValuesFrom rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#conceptualizes"/>
+                                        <owl:someValuesFrom rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Ontology"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Entities</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Entity</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+An Internet of Things entity that has a distinct, separate existence, situation or view and is consistent with (&apos;satisfying&apos;) a description on a set of entities.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#MemorySpace -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#MemorySpace">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Resource"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Memories</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Memory</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Message -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Message">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isRealizedBy"/>
+                <owl:someValuesFrom rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#CommunicationMessage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ObservationService -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ObservationService">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Ontology -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Ontology">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#defines"/>
+                <owl:someValuesFrom rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Concept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#OntologyAlignment -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#OntologyAlignment">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasAlignmentCell"/>
+                <owl:allValuesFrom rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#AlignmentCell"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasAlignmentCell"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#AlignmentCell"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#aligns"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Ontology"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Ontology_alignments</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Ontology_alignment</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#PersonalComputer -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#PersonalComputer">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ComputingDevice"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Personal_computers</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Personal_computer</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ProcessingPower -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ProcessingPower">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Resource"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Processing_times</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Processing_time</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Processor -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Processor">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ComputingDevice"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Processors</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Processor</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#QueryMessage -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#QueryMessage">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RequestMessage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RFID_tag -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RFID_tag">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IdentityDevice"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">RFID_tags</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">RFID_tag</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RegisterPlate -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RegisterPlate">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Identifier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RequestMessage -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RequestMessage">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Message"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasTarget"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Resource -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Resource">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Resources</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Resource</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+Devices contain two types of resources i.e. data and software resources.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Server -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Server">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#ComputingDevice"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Servers</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Server</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#hasInput"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#InformMessage"/>
+                            <rdf:Description rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RequestMessage"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#hasOutput"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#InformMessage"/>
+                            <rdf:Description rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#RequestMessage"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#hasAccessAddress"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Services</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Service</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+The access to devices (resources) from the &apos;outside&apos; world is performed via services.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Service</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#SmartEntity -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#SmartEntity">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#IoT_Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#includesObject"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Actuator"/>
+                            <rdf:Description rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#EmbeddedDevice"/>
+                            <rdf:Description rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Identifier"/>
+                            <rdf:Description rdf:about="http://purl.oclc.org/NET/ssnx/ssn#Sensor"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#featureOfInterest"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Smart_Entities</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Smart_Entity</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+A smart entity is an IoT entity that represents the abstract/virtualization of the association between physical entities and other entities that are used to sense or act on them i.e. sensors, actuators, embedded devices. In some cases a smart entity may include an identifier object to associate with a physical object, e.g. an RFID tag.
+</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Smart Object</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Virtual Object (an iCore/Alcatel‐Lucent concept)</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#SmartPhone -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#SmartPhone">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#EmbeddedDevice"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Smart_Phones</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Smart_Phone</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Software -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Software">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#DesignedArtifact"/>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Softwares</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Software</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+Control and Smart entities integrate software (application or software agents) for enabling them to communicate between each other e.g. for smart-housing applications developed by some vendor (application software) or for communicating the entity’s domain knowledge as well as its abilities, goals, current and intended actions (software agent).
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#SoftwareAgent -->
+
+    <owl:Class rdf:about="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#SoftwareAgent">
+        <rdfs:subClassOf rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Software"/>
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalAgent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#providesService"/>
+                <owl:someValuesFrom rdf:resource="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#Service"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Software_agents</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Software_agent</ace_lexicon:CN_sg>
+        <rdfs:comment rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">
+A piece of software that acts for a user or other program in a relationship of agency. The main points that distinguish agents from arbitrary programs are: reaction to the environment, autonomy, goal-orientation and persistence.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Device -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#Device"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Observation -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#Observation"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Property -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#Property"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#SensingDevice -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#SensingDevice">
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Sensing_devices</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Sensing_device</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/NET/ssnx/ssn#Sensor -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#Sensor">
+        <ace_lexicon:CN_pl rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Sensors</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg rdf:datatype="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl#rdf;PlainLiteral">Sensor</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#Agent -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Agent"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#Concept -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Concept"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#Description -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Description"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#DesignedArtifact -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#DesignedArtifact"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#Object -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Object"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#Organization -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Organization"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalAgent -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalAgent"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#Situation -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Situation"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

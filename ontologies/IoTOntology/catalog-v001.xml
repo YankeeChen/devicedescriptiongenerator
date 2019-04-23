@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://purl.oclc.org/NET/ssnx/ssn" uri="SSN.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1555442094679" name="http://kotis.epizy.com/Ontologies/IoT/IoT-ontology.owl" uri="IoT.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1555442094679" name="http://purl.oclc.org/NET/ssnx/ssn" uri="SSN.owl"/>
+    </group>
+</catalog>
