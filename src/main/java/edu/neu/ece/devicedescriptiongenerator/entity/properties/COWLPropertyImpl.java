@@ -9,12 +9,11 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 
 /**
- * This class defines conceptual model of OWL property.
+ * This class defines customization of the OWL API interface OWLProperty.
  * 
  * @author Yanji Chen
  * @version 1.0
  * @since 2018-09-29
- *
  */
 public class COWLPropertyImpl implements HasIRI {
 
@@ -24,49 +23,50 @@ public class COWLPropertyImpl implements HasIRI {
 	protected IRI iri;
 
 	/**
-	 * Detect whether the property is visited.
+	 * Detect whether this object is visited.
 	 */
 	protected boolean isVisited = false;
 
 	/**
-	 * Direct super properties of the property
+	 * Direct super properties of this object.
 	 */
 	protected Set<COWLPropertyImpl> directSuperOWLProperties = new HashSet<>();
 
 	/**
-	 * Super properties (direct and inferred) of the property.
+	 * Super properties (direct and inferred) of this object.
 	 */
 	protected Set<COWLPropertyImpl> superOWLProperties = new HashSet<>();
 
 	/**
-	 * Direct subproperties of the property.
+	 * Direct subproperties of this object.
 	 */
 	protected Set<COWLPropertyImpl> directSubOWLProperties = new HashSet<>();
 
 	/**
-	 * Subproperties (direct and inferred) of the property.
+	 * Subproperties (direct and inferred) of this object.
 	 */
 	protected Set<COWLPropertyImpl> subOWLProperties = new HashSet<>();
 
 	/**
-	 * Equivalent properties (direct and inferred) of the property.
+	 * Equivalent properties (direct and inferred) of this object.
 	 */
 	protected Set<COWLPropertyImpl> equivalentProperties = new HashSet<>();
 
 	/**
-	 * Direct disjoint properties of the property.
+	 * Direct disjoint properties of this object.
 	 */
 	protected Set<COWLPropertyImpl> directDisjointProperties = new HashSet<>();
 
 	/**
-	 * Disjoint properties (direct and inferred) of the property.
+	 * Disjoint properties (direct and inferred) of this object.
 	 */
 	protected Set<COWLPropertyImpl> disjointProperties = new HashSet<>();
 
 	/**
 	 * Characteristics of the property. For object properties, supported
-	 * characteristics include Functional and Symmetric property axioms, whereas
-	 * Function property axioms for data properties.
+	 * characteristics include functional, symmetric property, asymmetric property,
+	 * reflexive and irreflexive property axioms, whereas Function property axioms
+	 * for data properties.
 	 */
 	protected Set<AxiomType<? extends OWLAxiom>> propertyAttributes = new HashSet<>();
 
@@ -86,87 +86,93 @@ public class COWLPropertyImpl implements HasIRI {
 	}
 
 	/**
-	 * Get visit status of the property
+	 * Get visit status of this object.
 	 * 
-	 * @return Visit status of the property
+	 * @return Visit status of this object.
 	 */
 	public boolean isVisited() {
 		return isVisited;
 	}
 
 	/**
-	 * Set visit status of the property.
+	 * Set visit status of this object.
 	 * 
 	 * @param visited
-	 *            Visit status of the property.
+	 *            Visit status of this object.
 	 */
 	public void setVisited(boolean visited) {
 		isVisited = visited;
 	}
 
 	/**
-	 * Get direct super properties of the property.
+	 * Get direct super properties of this object.
 	 * 
-	 * @return Direct super properties of the property.
+	 * @return Direct super properties of this object.
 	 */
 	public Set<COWLPropertyImpl> getDirectSuperOWLProperties() {
 		return directSuperOWLProperties;
 	}
 
 	/**
-	 * Get super properties of the property.
+	 * Get super properties of this object.
 	 * 
-	 * @return Super properties (direct and inferred) of the property.
+	 * @return Super properties (direct and inferred) of this object.
 	 */
 	public Set<COWLPropertyImpl> getSuperOWLProperties() {
 		return superOWLProperties;
 	}
 
 	/**
-	 * Get direct subproperties of the property.
+	 * Get direct subproperties of this object.
 	 * 
-	 * @return Direct subproperties of the property.
+	 * @return Direct subproperties of this object.
 	 */
 	public Set<COWLPropertyImpl> getDirectSubOWLProperties() {
 		return directSubOWLProperties;
 	}
 
 	/**
-	 * Get subproperties (direct and inferred) of the property.
+	 * Get subproperties (direct and inferred) of this object.
 	 * 
-	 * @return Subproperties of the property.
+	 * @return Subproperties of this object.
 	 */
 	public Set<COWLPropertyImpl> getSubOWLProperties() {
 		return subOWLProperties;
 	}
 
 	/**
-	 * Get equivalent properties (direct and inferred) of the property.
+	 * Get equivalent properties (direct and inferred) of this object.
 	 * 
-	 * @return Equivalent properties (direct and inferred) of the property.
+	 * @return Equivalent properties (direct and inferred) of this object.
 	 */
 	public Set<COWLPropertyImpl> getEquivalentProperties() {
 		return equivalentProperties;
 	}
 
 	/**
-	 * Get direct disjoint properties of the property.
+	 * Get direct disjoint properties of this object.
 	 *
-	 * @return Direct disjoint properties of the property.
+	 * @return Direct disjoint properties of this object.
 	 */
 	public Set<COWLPropertyImpl> getDirectDisjointProperties() {
 		return directDisjointProperties;
 	}
 
 	/**
-	 * Get disjoint properties (direct and inferred) of the property.
+	 * Get disjoint properties (direct and inferred) of this object.
 	 * 
-	 * @return Disjoint properties (direct and inferred) of the property.
+	 * @return Disjoint properties (direct and inferred) of this object.
 	 */
 	public Set<COWLPropertyImpl> getDisjointProperties() {
 		return disjointProperties;
 	}
 
+	/**
+	 * Set disjoint properties (directed and inferred) of this object.
+	 * 
+	 * @param disjointProperties
+	 *            Disjoint properties.
+	 */
 	public void setDisjointProperties(Set<COWLPropertyImpl> disjointProperties) {
 		this.disjointProperties = disjointProperties;
 	}
@@ -187,7 +193,7 @@ public class COWLPropertyImpl implements HasIRI {
 	 * Add a characteristic into the property.
 	 * 
 	 * @param type
-	 *            Target charactertic intended to be added into the property.
+	 *            Target characteristic intended to be added into the property.
 	 */
 	public void addAPropertyAttribute(AxiomType<? extends OWLAxiom> type) {
 		propertyAttributes.add(type);

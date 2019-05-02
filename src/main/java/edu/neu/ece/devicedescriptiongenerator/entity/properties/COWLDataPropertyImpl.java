@@ -4,7 +4,7 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLDataRange;
 
 /**
- * This class defines conceptual model of OWL data property.
+ * This class defines customization of the OWL API class OWLDataPropertImpl.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -13,7 +13,7 @@ import org.semanticweb.owlapi.model.OWLDataRange;
 public class COWLDataPropertyImpl extends COWLPropertyImpl {
 
 	/**
-	 * OWL data range.
+	 * Data property range.
 	 */
 	private OWLDataRange range;
 
@@ -28,19 +28,19 @@ public class COWLDataPropertyImpl extends COWLPropertyImpl {
 	}
 
 	/**
-	 * Get OWL data range.
+	 * Get data property range.
 	 * 
-	 * @return OWL data range of the property.
+	 * @return Data property range.
 	 */
 	public OWLDataRange getOWLDataRange() {
 		return range;
 	}
 
 	/**
-	 * Set OWL data range.
+	 * Set data property range.
 	 * 
 	 * @param range
-	 *            OWL data range of the property.
+	 *            Data property range.
 	 */
 	public void setOWLDataRange(OWLDataRange range) {
 		this.range = range;

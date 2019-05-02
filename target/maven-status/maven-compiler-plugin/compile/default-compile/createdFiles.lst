@@ -21,3 +21,4 @@ edu/neu/ece/devicedescriptiongenerator/entity/properties/COWLObjectPropertyImpl.
 edu/neu/ece/devicedescriptiongenerator/entity/classes/COWLClassImpl.class
 edu/neu/ece/devicedescriptiongenerator/utility/FileUtil.class
 edu/neu/ece/devicedescriptiongenerator/visitor/COWLDataRangeVisitor$1.class
+edu/neu/ece/devicedescriptiongenerator/evaluator/SpaceCoverageEvaluator.class

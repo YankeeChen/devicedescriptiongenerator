@@ -14,9 +14,10 @@ import edu.neu.ece.devicedescriptiongenerator.entity.properties.COWLDataProperty
 import edu.neu.ece.devicedescriptiongenerator.extractor.OntologyExtractor;
 
 /**
- * An instance of this class visits OWL data property axioms during ontology
- * extraction process, including SubPropertyOf axiom, EquivalentDataProperties
- * axiom and FunctionalDataProperty axiom.
+ * An instance of this class processes OWL data property axioms that form the
+ * definitions/descriptions of the specified data property, including
+ * SubPropertyOf axiom, EquivalentDataProperties axiom and
+ * FunctionalDataProperty axiom.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -30,7 +31,7 @@ public class COWLDataPropertyAxiomVisitor extends COWLPropertyAxiomVisitor {
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Conceptual model of target OWL data property.
+	 * Customization of the specified OWL data property.
 	 */
 	private final COWLDataPropertyImpl cowlDataPropertyImpl;
 
@@ -38,7 +39,7 @@ public class COWLDataPropertyAxiomVisitor extends COWLPropertyAxiomVisitor {
 	 * Constructor
 	 * 
 	 * @param oe
-	 *            Ontology extractor used for extracting OWL axioms from input
+	 *            Ontology extractor used for processing OWL axioms from input
 	 *            ontology.
 	 * @param owlProperty
 	 *            OWL data property

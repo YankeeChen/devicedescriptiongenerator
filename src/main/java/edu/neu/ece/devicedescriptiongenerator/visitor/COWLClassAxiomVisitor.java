@@ -14,9 +14,9 @@ import edu.neu.ece.devicedescriptiongenerator.entity.classes.COWLClassImpl;
 import edu.neu.ece.devicedescriptiongenerator.extractor.OntologyExtractor;
 
 /**
- * Instances of this class visit class expression axioms during ontology
- * extraction process, including SubClassOf axiom, EquivalentClasses axiom and
- * DisjointClasses axiom.
+ * An instances of this class processes class expression axioms that form the
+ * definitions/descriptions of the specified OWL class, which includes
+ * SubClassOf axiom, EquivalentClasses axiom and DisjointClasses axiom.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -30,18 +30,18 @@ public class COWLClassAxiomVisitor implements OWLAxiomVisitor {
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Defines ontology extractor used for extracting OWL axioms from input
+	 * Defines ontology extractor used for processing OWL axioms from input
 	 * ontology.
 	 */
 	private final OntologyExtractor oe;
 
 	/**
-	 * Target OWL named class.
+	 * Specified OWL class.
 	 */
 	private final OWLClass owlClass;
 
 	/**
-	 * Conceptual model of the target OWL named class.
+	 * Customization of the specified OWL class.
 	 */
 	private final COWLClassImpl cowlClassImpl;
 
@@ -49,10 +49,10 @@ public class COWLClassAxiomVisitor implements OWLAxiomVisitor {
 	 * Constructor
 	 * 
 	 * @param oe
-	 *            Defines ontology extractor used for extracting OWL axioms from
-	 *            input ontology.
+	 *            Ontology extractor used to process OWL axioms of the input
+	 *            ontology.
 	 * @param owlClass
-	 *            Target OWL named class.
+	 *            Specified OWL class.
 	 */
 	public COWLClassAxiomVisitor(OntologyExtractor oe, OWLClass owlClass) {
 		this.oe = oe;

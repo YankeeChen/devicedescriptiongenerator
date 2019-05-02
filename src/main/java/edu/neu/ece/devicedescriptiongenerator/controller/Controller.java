@@ -39,17 +39,17 @@ public class Controller {
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Input IRI
+	 * Input ontology IRI.
 	 */
 	private IRI ontologyIRI;
 
 	/**
-	 * Input ontology file
+	 * Input ontology file.
 	 */
 	private File inputFile;
 
 	/**
-	 * Ontology root IRI as string.
+	 * Ontology root class IRI as string.
 	 */
 	private String rootIRIString;
 
@@ -64,36 +64,35 @@ public class Controller {
 	private long seed;
 
 	/**
-	 * Generated output ontology as file.
+	 * The generated device descriptions as file.
 	 */
 	private File outputFile;
 
 	/**
-	 * The probability of selecting an OWL class constraint (anonymous class
-	 * expression) of an OWL named class; 0.9 by default.
+	 * The probability of selecting an OWL class constraint (anonymous super class
+	 * expression) of an OWL class; 0.9 by default.
 	 */
 	private final double classConstraintSelectionProbability;
 
 	/**
-	 * The probability of creating a new OWL named individual; 0.5 by default.
+	 * The probability of creating an OWL named individual; 0.5 by default.
 	 */
 	private final double newIndividualProbability;
 
 	/**
-	 * The probability of generating class assertion axiom for each named
+	 * The probability of generating class assertion axioms for each named
 	 * individual; 0.5 by default.
 	 */
 	private final double classAssertionProbability;
 
 	/**
-	 * The probability of creating a new object property assertion axiom; 0.5 by
+	 * The probability of creating an object property assertion axiom; 0.5 by
 	 * default.
 	 */
 	private final double objectPropertyAssertionProbability;
 
 	/**
-	 * The probability of creating a new data property assertion axiom; 0.5 by
-	 * default.
+	 * The probability of creating a data property assertion axiom; 0.5 by default.
 	 */
 	private final double dataPropertyAssertionProbability;
 
@@ -105,62 +104,65 @@ public class Controller {
 
 	/**
 	 * The probability of selecting an equivalent object property (direct or
-	 * inferred) of a property for object property assertion generation; 0.5 by
-	 * default.
+	 * inferred) of an object property for object property assertion generation; 0.5
+	 * by default.
 	 */
 	private final double equivalentObjectPropertySelectionProbability;
 
 	/**
 	 * The probability of selecting an equivalent data property (direct or inferred)
-	 * of a property for data property assertion generation; 0.5 by default.
+	 * of a data property for data property assertion generation; 0.5 by default.
 	 */
 	private final double equivalentDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a disjoint object property for negative object
-	 * property assertion generation; 0.8 by default.
+	 * The probability of selecting a disjoint object property (direct or inferred)
+	 * of an object property for negative object property assertion generation; 0.8
+	 * by default.
 	 */
 	private final double disjointObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a disjoint data property for negative data
-	 * property assertion generation; 0.8 by default.
+	 * The probability of selecting a disjoint data property (directed or inferred)
+	 * of a data property for negative data property assertion generation; 0.8 by
+	 * default.
 	 */
 	private final double disjointDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a super object property while generating object
-	 * property assertion; 0.5 by default.
+	 * The probability of selecting a super object property (directed or inferred)
+	 * of an object property for object property assertion generation; 0.5 by
+	 * default.
 	 */
 	private final double superObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a super data property while generating data
-	 * property assertion; 0.5 by default.
+	 * The probability of selecting a super data property (directed or inferred) of
+	 * a data property for data property assertion generation; 0.5 by default.
 	 */
 	private final double superDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting an inverse property (direct or inferred) of a
-	 * property when generating datasets; 0.8 by default.
+	 * The probability of selecting an inverse property (direct or inferred) of an
+	 * object property for object property assertion generation; 0.8 by default.
 	 */
 	private final double inverseObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a symmetric object property when generating
-	 * datasets; 0.8 by default.
+	 * The probability of selecting symmetric characteristic of an object property
+	 * for object property assertion generation; 0.8 by default.
 	 */
 	private final double symmetricObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting an asymmetric object property when generating
-	 * datasets; 0.8 by default.
+	 * The probability of selecting asymmetric characteristic of an object property
+	 * for negative object property assertion generation; 0.8 by default.
 	 */
 	private final double asymmetricObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting an irreflexive object property when generating
-	 * datasets; 0.8 by default.
+	 * The probability of selecting irreflexive characteristic of an object property
+	 * for negative object property assertion generation; 0.8 by default.
 	 */
 	private final double irreflexiveObjectPropertySelectionProbability;
 
@@ -193,7 +195,7 @@ public class Controller {
 	 * @param seed
 	 *            Random seed for generating randomized device descriptions.
 	 * @param outputFile
-	 *            Device description ontology.
+	 *            The generated device description datasets.
 	 * @param classConstraintSelectionProbability
 	 *            The probability of selecting an OWL class constraint (anonymous
 	 *            class expression) of an OWL named class.
@@ -211,35 +213,41 @@ public class Controller {
 	 *            a class for class assertion generation.
 	 * @param equivalentObjectPropertySelectionProbability
 	 *            The probability of selecting an equivalent object property (direct
-	 *            or inferred) of a property for object property assertion
+	 *            or inferred) of an object property for object property assertion
 	 *            generation.
 	 * @param equivalentDataPropertySelectionProbability
 	 *            The probability of selecting an equivalent data property (direct
-	 *            or inferred) of a property for data property assertion generation.
+	 *            or inferred) of a data property for data property assertion
+	 *            generation.
 	 * @param disjointObjectPropertySelectionProbability
-	 *            The probability of selecting a disjoint object property for
-	 *            negative object property assertion generation.
+	 *            The probability of selecting a disjoint object property (direct or
+	 *            inferred) of an object property for negative object property
+	 *            assertion generation.
 	 * @param disjointDataPropertySelectionProbability
-	 *            The probability of selecting a disjoint data property for negative
-	 *            object property assertion generation.
+	 *            The probability of selecting a disjoint data property (direct or
+	 *            inferred) of a data property for negative object property
+	 *            assertion generation.
 	 * @param superObjectPropertySelectionProbability
-	 *            The probability of selecting a super object property while
-	 *            generating object property assertion.
+	 *            The probability of selecting a super object property (direct or
+	 *            inferred) of an object property for object property assertion
+	 *            generation.
 	 * @param superDataPropertySelectionProbability
-	 *            The probability of selecting a super data property while
-	 *            generating data property assertion.
+	 *            The probability of selecting a super data property (direct or
+	 *            inferred) of a data property for data property assertion
+	 *            generation.
 	 * @param inverseObjectPropertySelectionProbability
 	 *            The probability of selecting an inverse property (direct or
-	 *            inferred) of a property when generating datasets.
+	 *            inferred) of an object property for object property assertion
+	 *            generation.
 	 * @param symmetricObjectPropertySelectionProbability
-	 *            The probability of selecting a symmetric object property when
-	 *            generating datasets.
+	 *            The probability of selecting symmetric characteristic of an object
+	 *            property for object property assertion generation.
 	 * @param asymmetricObjectPropertySelectionProbability
-	 *            The probability of selecting an asymmetric object property when
-	 *            generating datasets.
+	 *            The probability of selecting asymmetric characteristic of an
+	 *            object property for negative object property assertion generation.
 	 * @param irreflexiveObjectPropertySelectionProbability
-	 *            The probability of selecting an irreflexive object property when
-	 *            generating datasets.
+	 *            The probability of selecting irreflexive characteristic of an
+	 *            object property for negative object property assertion generation.
 	 */
 	public Controller(IRI ontologyIRI, File inputFile, String rootIRIString, int devNumber, long seed, File outputFile,
 			double classConstraintSelectionProbability, double newIndividualProbability,
@@ -275,8 +283,8 @@ public class Controller {
 	}
 
 	/**
-	 * This function processes the whole control flow of device description
-	 * generation process.
+	 * This function defines the whole control flow of device description generation
+	 * process.
 	 */
 	public void generateDeviceDescriptions() {
 		try {
@@ -308,7 +316,8 @@ public class Controller {
 	}
 
 	/**
-	 * This function loads input ontology and checks consistency of the ontology.
+	 * This function loads input ontology and checks consistency of the ontology
+	 * using a build-in reasoner.
 	 * 
 	 * @throws OWLOntologyCreationException
 	 *             if failed to load input ontology.

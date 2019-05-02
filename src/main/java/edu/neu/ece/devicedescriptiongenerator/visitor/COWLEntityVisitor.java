@@ -14,9 +14,9 @@ import edu.neu.ece.devicedescriptiongenerator.entity.properties.COWLObjectProper
 import edu.neu.ece.devicedescriptiongenerator.extractor.OntologyExtractor;
 
 /**
- * An instance of this class visits OWL entities during ontology extraction
- * process, including OWL named class, OWL object property, OWL data property
- * and OWL named individual.
+ * An instance of this class processes OWL entities of the input ontology,
+ * including OWL class, OWL object property, OWL data property and OWL named
+ * individual.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -26,7 +26,8 @@ public class COWLEntityVisitor implements OWLObjectVisitor {
 	// private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Ontology extractor used for extracting OWL axioms from input ontology.
+	 * Defines ontology extractor used for processing OWL axioms from input
+	 * ontology.
 	 */
 	private final OntologyExtractor oe;
 
@@ -34,7 +35,7 @@ public class COWLEntityVisitor implements OWLObjectVisitor {
 	 * Constructor
 	 * 
 	 * @param oe
-	 *            Ontology extractor used for extracting OWL axioms from input
+	 *            Ontology extractor used for processing OWL axioms from input
 	 *            ontology.
 	 */
 	public COWLEntityVisitor(OntologyExtractor oe) {

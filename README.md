@@ -1,77 +1,100 @@
-# Benchmark on Metrics-based Comparison of XML and OWL based Approaches to Representing and Querying Cognitive Radio Capabilities 
+# RDDG - Random Device Description Generator
+RDDG is a generic RDF instance generator. It is implemented in Java with the use of the OWL API, a high level Application Programming Interface for working with OWL  ontologies. It is able to generate large numbers of synthetic random RF device descriptions in RDF/XML from an RF ontology schema.
 
-Version 1.0
+## RDFUnit Command Line Interface
 
+#### Download RDDG
+You can get a copy of it stored in Github repository with the following command:
+```console
+$ git clone https://github.com/YankeeChen/devicedescriptiongenerator.git
+```
 
-Requirements
----
-*   Java 8 (or higher)
-*   Maven
+#### Usage
+```console
+# argument help to see all available options
+$ java -jar devicedescriptiongenerator-1.0-SNAPSHOT.jar -h
 
-Instructions for using evaluationframework JAR
----
+# Simple call (Load input ontology from ontology IRI or a local file)
+$ java -jar devicedescriptiongenerator-1.0-SNAPSHOT.jar -rootIRI <IRI> {-inputFilePath <PATH> | -inputIRI <IRI>} [-devNumber <NUMBER>] [-outputFilePath <PATH>] [-ramSeed <SEED>] [-newIndividualProbability <PROBABILITY>] [-classConstraintSelectionProbability <PROBABILITY>] [-dataPropertyAssertionProbability <PROBABILITY>] [-objectPropertyAssertionProbability <PROBABILITY>] [-classAssertionProbability <PROBABILITY>] [-superClassSelectionProbability <PROBABILITY>] [-superDataPropertySelectionProbability <PROBABILITY>] [-superObjectPropertySelectionProbability <PROBABILITY>] [-disjointDataPropertySelectionProbability <PROBABILITY>] [-disjointObjectPropertySelectionProbability <PROBABILITY>] [-equivalentDataPropertySelectionProbability <PROBABILITY>] [-equivalentObjectPropertySelectionProbability <PROBABILITY>] [-inverseObjectPropertySelectionProbability <PROBABILITY>] [-asymmetricObjectPropertySelectionProbability <PROBABILITY>] [-symmetricObjectPropertySelectionProbability <PROBABILITY>] [-irreflexiveObjectPropertySelectionProbability <PROBABILITY>] 
 
-## Step 1: Initialize repositories
+```
+`-rootIRI <IRI>` e.g. http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject 
+is required in all cases and states a IRI that relates to the root class of the input ontology. 
 
-### 1.1 Install, setup and run Fuseki2
+`-inputFilePath <PATH> | -inputIRI <IRI>` e.g. ontologies/IoTOntology/IoT.owl, http://ontology.tno.nl/saref.ttl
+is required in all cases and states an ontology IRI **OR** a local path that relates to the input ontology.
 
-* Download a binary distribution of [Fuseki2](https://jena.apache.org/download/)
+`-devNumber <NUMBER>` 
+is optional and states the number of device descriptions; 1 by default.
 
-* Unpack the archive
+`-outputFilePath <PATH>` 
+is optional and states a local path that relates to the output ontology that describes device descriptons; instancedata/DeviceDescription<NUMBER>.rdf by default.
 
-* Navigate to the unpacked directory
+`-ramSeed <SEED>` 
+is optional and states random seed used for random device description generation; 0 by default.
 
-* Create a directory, e.g. tmp
+`-newIndividualProbability <PROBABILITY>`
+is optional and states the probability of creating an OWL named individual; 0.5 by default.
 
-* Run the Fuseki2 server using the following command (replace `<dir>` with the name of the directory created above):
+`-classConstraintSelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting an OWL class constraint (anonymous super class expression) of an OWL class; 0.9 by default.
 
-  In UNIX/Linux:
-`java -jar fuseki-server.jar -update -loc ./<dir> /ds`
+`-dataPropertyAssertionProbability <PROBABILITY>`
+is optional and states the probability of creating a data property assertion axiom; 0.5 by default.
 
-  In Windows:
-`java -jar fuseki-server.jar -update -loc .\<dir> /ds`
+`-objectPropertyAssertionProbability <PROBABILITY>`
+is optional and states the probability of creating an object property assertion axiom; 0.5 by default.
 
-### 1.2 Run DeVISor
+`-classAssertionProbability <PROBABILITY>`
+is optional and states the probablity of generating class assertion axioms for each named individual; 1.0 by default.
 
-* Run DeVISor-1.1.2.jar which is located in ./divisor by default
+`-superClassSelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting a super class (direct or inferred) of a class for generating class assertion axioms for each named individual; 0.5 by default.
 
-  **Example**: `java -jar deVISor-1.1.2.jar`
+`-superDataPropertySelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting a super data property (direct or inferred) of a data property for data property assertion generation; 0.5 by default.
 
-### 1.3 Install, setup and run BaseX
+`-superObjectPropertySelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting a super object property (direct or inferred) of an object property for object property assertion generation; 0.5 by default.
 
-* Download the latest version of [BaseX](http://basex.org/products/download/all-downloads/) jar file
+`-disjointDataPropertySelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting a disjoint data property (direct or inferred) of a data property for negative data property assertion generation; 0.8 by default. 
 
-* Run BaseX jar file
+`-disjointObjectPropertySelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting a disjoint object property (direct or inferred) of an object property for negative object property assertion generation; 0.8 by default. 
 
-  **Example**: `java -cp BaseX841.jar org.basex.BaseXServer`
+`-equivalentDataPropertySelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting an equivalent data property (direct or inferred) of a data property for data property assertion generation; 0.5 by default.
 
-## Step 2: Run benchmark
+`-equivalentObjectPropertySelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting an equivalent object property (direct or inferred) of an object property for object property assertion generation; 0.5 by default.
 
-* Run evaluationframework-1.0.jar with the following parameters:
+`-inverseObjectPropertySelectionProbability <PROBABILITY>`
+is optional and states the probability of selecting an inverse property (direct or inferred) of an object property for object property assertion generation; 0.8 by default.
 
-  `java -jar evaluationframework-1.0.jar -file <path> -devNumber <devNum> -queryNumber <queryNum> -seed <seed>`
+`-asymmetricObjectPropertySelectionProbability <PROBABILITY>`
+is optional and states the probabilty of selecting asymmetric characteristic of an object property for negative object property assertion generation; 0.8 by default.
 
-* Options:
+`-symmetricObjectPropertySelectionProbability <PROBABILITY>`
+is optional and states the probabilty of selecting symmetric characteristic of an object property for object property assertion generation; 0.8 by default.
 
-  -file: The path to the loaded ontology, which must be .\devisor\onts\<file name> format
-   
-  -devNumber: Number of device descriptions needed to generate; 1 by default
-   
-  -queryNumber: Number of queries needed to generate; 10 by default
-   
-  -seed: Random seed used for random device description generation; 0 by default
-   
-  **Example**: `java -jar evaluationframework-1.0.jar -file ontologies/Groundtruth_Ontology/USRPTest.owl -devNumber 50 -queryNumber 50 -seed 0`
+`-irreflexiveObjectPropertySelectionProbability <PROBABILITY>`
+is optional and states the probabilty of selecting irreflexive characteristic of an object property for negative object property assertion generation; 0.8 by default.
 
+What RDDG will do is:
+1. Load ontology.
+2. Process ontology (that includes Process Entities, Process Axioms and Infer New Knowledge). 
+3. Generate device descriptions.
+4. Collect space coverage evaluation metrics and dump them into file with local path evaluationresults/SpaceCoverageEvaluationResults_DeviceDescription<DEVICE-NUMBER>.txt
 
-Contact
----
-Yanji Chen 
+## Contact
+Yanji Chen
 
-Lab of Info and Software Fusion 
+Lab of Info and Software Fusion
 
 ECE Department, Northeastern University, MA, USA
 
 Email:chen.yanj@husky.neu.edu
 
 Personal website: https://sites.google.com/view/yanjichen0101/home?authuser=0
+

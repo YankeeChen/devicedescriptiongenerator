@@ -13,19 +13,21 @@ import edu.neu.ece.devicedescriptiongenerator.entity.classes.COWLClassImpl;
  * @since 2018-10-02
  */
 public class IRIGenerator {
-	// private static final String OUTPUT_ONTOLOGY_IRI_IN_STRING =
-	// "http://ece.neu.edu/ontologies/DeviceDescription";
-
-	// The last index of created OWL named individual of anonymous super classes
-	// type.
+	/**
+	 * The last index of the created OWL named individual of anonymous super classes
+	 * type.
+	 */
 	private static long individualIndex = 0;
 
 	/**
 	 * Generate an OWL named individual of type of an OWL anonymous class.
 	 * 
 	 * @param OUTPUT_ONTOLOGY_IRI_IN_STRING
+	 *            Output ontology IRI in string.
 	 * @param factory
-	 * @return An OWL named individual.
+	 *            OWL data factory used to create entities, class expressions and
+	 *            axioms.
+	 * @return OWL named individual.
 	 */
 	public static OWLNamedIndividual generateOWLIndividual(final String OUTPUT_ONTOLOGY_IRI_IN_STRING,
 			OWLDataFactory factory) {
@@ -33,16 +35,16 @@ public class IRIGenerator {
 	}
 
 	/**
-	 * Generate an OWL named individual of type of an OWL named class.
+	 * Generate an OWL named individual of type of an OWL class.
 	 * 
 	 * @param OUTPUT_ONTOLOGY_IRI_IN_STRING
 	 *            Output ontology IRI in string.
 	 * @param factory
-	 *            An OWL data factory object used for creating entities, class
-	 *            expressions and axioms.
+	 *            OWL data factory used to create entities, class expressions and
+	 *            axioms.
 	 * @param cls
-	 *            The OWL named class.
-	 * @return An OWL named individual.
+	 *            OWL class.
+	 * @return OWL named individual.
 	 */
 	public static OWLNamedIndividual generateOWLIndividual(final String OUTPUT_ONTOLOGY_IRI_IN_STRING,
 			OWLDataFactory factory, COWLClassImpl cls) {

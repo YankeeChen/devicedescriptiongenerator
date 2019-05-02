@@ -11,8 +11,9 @@ import edu.neu.ece.devicedescriptiongenerator.entity.classes.COWLClassImpl;
 import edu.neu.ece.devicedescriptiongenerator.extractor.OntologyExtractor;
 
 /**
- * An instance of this class visits assertion axioms during ontology extraction
- * process, including class assertion axiom.
+ * An instance of this class processes assertion axioms that form the
+ * definitions/descriptions of the specified OWL named individual, including
+ * class assertion axiom.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -26,12 +27,12 @@ public class COWLIndividualAxiomVisitor implements OWLAxiomVisitor {
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Target OWL named individual.
+	 * Specified OWL named individual.
 	 */
 	private final OWLNamedIndividual ind;
 
 	/**
-	 * Ontology extractor used for extracting OWL axioms from input ontology.
+	 * Ontology extractor used for processing OWL axioms from input ontology.
 	 */
 	private final OntologyExtractor oe;
 
@@ -39,10 +40,10 @@ public class COWLIndividualAxiomVisitor implements OWLAxiomVisitor {
 	 * Constructor
 	 * 
 	 * @param oe
-	 *            Ontology extractor used for extracting OWL axioms from input
+	 *            Ontology extractor used for processing OWL axioms from input
 	 *            ontology.
 	 * @param ind
-	 *            Target OWL named individual.
+	 *            OWL named individual.
 	 */
 	public COWLIndividualAxiomVisitor(OntologyExtractor oe, OWLNamedIndividual ind) {
 		this.ind = ind;

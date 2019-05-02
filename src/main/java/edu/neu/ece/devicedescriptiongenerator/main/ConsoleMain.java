@@ -97,57 +97,60 @@ public class ConsoleMain {
 	private static final String DATA_PROPERTY_ASSERTION_PROBABILITY = "dataPropertyAssertionProbability";
 
 	/**
-	 * Super class selection option name on console.
+	 * Super class selection probability option name on console.
 	 */
 	private static final String SUPER_CLASS_SELECTION_PROBABILITY = "superClassSelectionProbability";
 
 	/**
-	 * Equivalent object property selection option name on console.
+	 * Equivalent object property selection probability option name on console.
 	 */
 	private static final String EQUIVALENT_OBJECT_PROPERTY_SELECTION_PROBABILITY = "equivalentObjectPropertySelectionProbability";
 
 	/**
-	 * Equivalent data property selection option name on console.
+	 * Equivalent data property selection probability option name on console.
 	 */
 	private static final String EQUIVALENT_DATA_PROPERTY_SELECTION_PROBABILITY = "equivalentDataPropertySelectionProbability";
 
 	/**
-	 * Disjoint object property selection option name on console.
+	 * Disjoint object property selection probability option name on console.
 	 */
 	private static final String DISJOINT_OBJECT_PROPERTY_SELECTION_PROBABILITY = "disjointObjectPropertySelectionProbability";
 
 	/**
-	 * Disjoint data property selection option name on console.
+	 * Disjoint data property selection probability option name on console.
 	 */
 	private static final String DISJOINT_DATA_PROPERTY_SELECTION_PROBABILITY = "disjointDataPropertySelectionProbability";
 
 	/**
-	 * Super object property selection option name on console.
+	 * Super object property selection probability option name on console.
 	 */
 	private static final String SUPER_OBJECT_PROPERTY_SELECTION_PROBABILITY = "superObjectPropertySelectionProbability";
 
 	/**
-	 * Super data property selection option name on console.
+	 * Super data property selection probability option name on console.
 	 */
 	private static final String SUPER_DATA_PROPERTY_SELECTION_PROBABILITY = "superDataPropertySelectionProbability";
 
 	/**
-	 * Inverse object property selection option name on console.
+	 * Inverse object property selection probability option name on console.
 	 */
 	private static final String INVERSE_OBJECT_PROPERTY_SELECTION_PROBABILITY = "inverseObjectPropertySelectionProbability";
 
 	/**
-	 * Object property symmetric selection option name on console.
+	 * Object property symmetric characteristic selection probability option name on
+	 * console.
 	 */
 	private static final String SYMMETRIC_OBJECT_PROPERTY_SELECTION_PROBABILITY = "symmetricObjectPropertySelectionProbability";
 
 	/**
-	 * Object property asymmetric characteristic selection option name on console.
+	 * Object property asymmetric characteristic selection probability option name
+	 * on console.
 	 */
 	private static final String ASYMMETRIC_OBJECT_PROPERTY_SELECTION_PROBABILITY = "asymmetricObjectPropertySelectionProbability";
 
 	/**
-	 * Object property irreflexive characteristic selection option name on console.
+	 * Object property irreflexive characteristic selection probability option name
+	 * on console.
 	 */
 	private static final String IRREFLEXIVE_OBJECT_PROPERTY_SELECTION_PROBABILITY = "irreflexiveObjectPropertySelectionProbability";
 

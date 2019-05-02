@@ -18,7 +18,8 @@ public class COWLPropertyAxiomVisitor implements OWLAxiomVisitor {
 	// private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Ontology extractor used for extracting OWL axioms from input ontology.
+	 * Defines ontology extractor used for processing OWL axioms from input
+	 * ontology.
 	 */
 	protected final OntologyExtractor oe;
 
@@ -31,7 +32,7 @@ public class COWLPropertyAxiomVisitor implements OWLAxiomVisitor {
 	 * Constructor
 	 * 
 	 * @param oe
-	 *            Ontology extractor used for extracting OWL axioms from input
+	 *            Ontology extractor used for processing OWL axioms from input
 	 *            ontology.
 	 * @param owlProperty
 	 *            OWL property.

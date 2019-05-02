@@ -6,17 +6,16 @@ import java.util.Set;
 import org.semanticweb.owlapi.model.IRI;
 
 /**
- * This class defines conceptual model of OWL object property.
+ * This class defines customization of the OWL API class OWLObjectPropertImpl.
  * 
  * @author Yanji Chen
  * @version 1.0
  * @since 2018-09-29
- *
  */
 public class COWLObjectPropertyImpl extends COWLPropertyImpl {
 
 	/**
-	 * Inverse properties of the property.
+	 * Inverse properties of this object.
 	 */
 	private Set<COWLObjectPropertyImpl> inverseProperties = new HashSet<>();
 
@@ -31,9 +30,9 @@ public class COWLObjectPropertyImpl extends COWLPropertyImpl {
 	}
 
 	/**
-	 * Get inverse properties of the property.
+	 * Get inverse properties of this object.
 	 * 
-	 * @return Inverse properties of the property.
+	 * @return Inverse properties of this object.
 	 */
 	public Set<COWLObjectPropertyImpl> getInverseProperties() {
 		return inverseProperties;

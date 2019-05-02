@@ -18,10 +18,11 @@ import edu.neu.ece.devicedescriptiongenerator.entity.properties.COWLObjectProper
 import edu.neu.ece.devicedescriptiongenerator.extractor.OntologyExtractor;
 
 /**
- * An instance of this class visits OWL object property axioms during ontology
- * extraction process, including SubObjectPropertyOf axiom,
- * EquivalentObjectProperties axiom, InverseObjectProperties axiom,
- * FunctionalObjectProperty axiom and SymmetricObjectProperty axiom.
+ * An instance of this class processes object property axioms that form the
+ * definitions/descriptions of the specified object property, including
+ * SubObjectPropertyOf axiom, EquivalentObjectProperties axiom,
+ * InverseObjectProperties axiom, FunctionalObjectProperty axiom and
+ * SymmetricObjectProperty axiom.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -35,7 +36,7 @@ public class COWLObjectPropertyAxiomVisitor extends COWLPropertyAxiomVisitor {
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Conceptual model of target OWL object property.
+	 * Customization of the specified object property.
 	 */
 	private final COWLObjectPropertyImpl cowlObjectPropertyImpl;
 

@@ -55,8 +55,8 @@ import edu.neu.ece.devicedescriptiongenerator.utility.CollectionUtil;
 import edu.neu.ece.devicedescriptiongenerator.utility.MathUtil;
 
 /**
- * Instances of this class visit class expressions during dataset generation
- * process, including ObjectIntersectionOf axiom, ObjectUnionOf axiom,
+ * Instances of this class generates datasets based on specified class
+ * expression axiom, including ObjectIntersectionOf axiom, ObjectUnionOf axiom,
  * ObjectComplementOf axiom, ObjectOneOf axiom, ObjectSomeValuesFrom axiom,
  * ObjectAllValuesFrom axiom, ObjectHasValue axiom, ObjectHasSelf axiom,
  * ObjectMinCardinality axiom, ObjectMaxCardinality axiom,
@@ -86,22 +86,23 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 	private final String OUTPUT_ONTOLOGY_IRI_IN_STRING;
 
 	/**
-	 * Target OWL named individual of the type of the class expression.
+	 * OWL named individual of type of the specified class expression.
 	 */
 	private final OWLNamedIndividual ind;
 
 	/**
-	 * The type of ind, null if anonymous.
+	 * RDF type of the OWL named individual ind, null if not known.
 	 */
 	private OWLClass owlCls;
 
 	/**
-	 * The probability of creating a new object property assertion axiom.
+	 * The probability of creating an object property assertion axiom; 0.5 by
+	 * default.
 	 */
 	private final double objectPropertyAssertionProbability;
 
 	/**
-	 * The probability of creating a new data property assertion axiom.
+	 * The probability of creating a data property assertion axiom; 0.5 by default.
 	 */
 	private final double dataPropertyAssertionProbability;
 
@@ -112,7 +113,7 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 	private COWLClassImpl rootClass;
 
 	/**
-	 * A Random object used to generate a stream of pesudorandom numbers.
+	 * Used to generate a stream of pesudorandom numbers.
 	 */
 	private final Random ran;
 
@@ -122,7 +123,7 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 	private final OWLOntologyManager manager;
 
 	/**
-	 * An OWL data factory object used for creating entities, class expressions and
+	 * An OWL data factory object used to create entities, class expressions and
 	 * axioms.
 	 */
 	private final OWLDataFactory factory;
@@ -133,7 +134,8 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 	private final OWLOntology outputOntology;
 
 	/**
-	 * Mapping from OWL named class to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface OWLClass is
+	 * the key and the customized class COWLClassImpl is the value.
 	 */
 	private final Map<OWLClass, COWLClassImpl> classMap;
 
@@ -146,7 +148,9 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 	 * Constructor
 	 * 
 	 * @param ind
-	 *            Target OWL named individual of the type of the class expression.
+	 *            OWL named individual of type of the specified class expression.
+	 * @param owlClass
+	 *            RDF type of the OWL named individual ind.
 	 * @param generator
 	 *            Device description generator.
 	 */
@@ -189,11 +193,11 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 	}
 
 	/**
-	 * This function processes nary boolean class expression, including
+	 * This function defines how to process nary boolean class expression, including
 	 * OWLObjectIntersectionOf axiom and OWLObjectUnionOf axiom.
 	 * 
 	 * @param exp
-	 *            An OWL class expression
+	 *            Nary boolean class expression.
 	 */
 	private void processNaryBooleanClassExpression(OWLClassExpression exp) {
 		if (owlCls != null) {
@@ -206,26 +210,18 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 			COWLClassImpl owlClassImpl = classMap.get(owlClass);
 			if (rootClass.getSubClassesandItself().contains(owlClassImpl)) {
 				/*
-				if (owlCls != null) {
-					OWLClassAssertionAxiom classAssertionAxiom = factory.getOWLClassAssertionAxiom(exp.asOWLClass(),
-							ind);
-					manager.addAxiom(outputOntology, classAssertionAxiom);
-					return;
-				} else {
-					for (COWLClassImpl sub : owlClassImpl.getSubClassesandItself()) {
-						if (!sub.getNamedIndividuals().isEmpty()) {
-							OWLNamedIndividual individual = CollectionUtil
-									.getARandomElementFromList(sub.getNamedIndividuals(), ran);
-							OWLSameIndividualAxiom sameIndividualAxiom = factory.getOWLSameIndividualAxiom(ind,
-									individual);
-							manager.addAxiom(outputOntology, sameIndividualAxiom);
-							return;
-						}
-					}
-					return;
-					
-				}
-				*/
+				 * if (owlCls != null) { OWLClassAssertionAxiom classAssertionAxiom =
+				 * factory.getOWLClassAssertionAxiom(exp.asOWLClass(), ind);
+				 * manager.addAxiom(outputOntology, classAssertionAxiom); return; } else { for
+				 * (COWLClassImpl sub : owlClassImpl.getSubClassesandItself()) { if
+				 * (!sub.getNamedIndividuals().isEmpty()) { OWLNamedIndividual individual =
+				 * CollectionUtil .getARandomElementFromList(sub.getNamedIndividuals(), ran);
+				 * OWLSameIndividualAxiom sameIndividualAxiom =
+				 * factory.getOWLSameIndividualAxiom(ind, individual);
+				 * manager.addAxiom(outputOntology, sameIndividualAxiom); return; } } return;
+				 * 
+				 * }
+				 */
 				return;
 			}
 			if (owlCls == null)
@@ -272,12 +268,13 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 	}
 
 	/**
-	 * Process object property quantification restriction, including
-	 * ObjectSomeValuesFrom axiom, ObjectAllValuesFrom axiom, ObjectMinCardinality
-	 * axiom, ObjectMaxCardinality axiom and ObjectExactCardinality axiom.
+	 * This function defines how to process cardinality-based data property
+	 * restriction, including ObjectSomeValuesFrom axiom, ObjectAllValuesFrom axiom,
+	 * ObjectMinCardinality axiom, ObjectMaxCardinality axiom and
+	 * ObjectExactCardinality axiom.
 	 * 
 	 * @param ce
-	 *            An OWL quantified object restriction.
+	 *            Cardinality-based object property restriction.
 	 */
 	private void processObjectPropertyQuantificationRestriction(OWLQuantifiedObjectRestriction ce) {
 		if (ran.nextDouble() < objectPropertyAssertionProbability) {
@@ -347,7 +344,7 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 												// axiom =
 												// generator.getFactory().getOWLObjectPropertyAssertionAxiom(objectProp,
 												// localInd1, localInd2);
-												flag = generator.containsRelaventObjectPropertyAssertionAxiom(
+												flag = generator.containsRelevantObjectPropertyAssertionAxiom(
 														generator.getObjectPropertyMap().get(objectProp), localInd1,
 														localInd2, new HashSet<OWLObjectPropertyAssertionAxiom>());
 												/*
@@ -548,12 +545,13 @@ public class COWLClassExpressionVisitor implements OWLClassExpressionVisitor {
 	}
 
 	/**
-	 * Process OWL data property quantification restriction, including
-	 * DataSomeValuesFrom axiom, DataAllValuesFrom axiom, DataMinCardinality axiom,
-	 * DataMaxCardinality axiom and DataExactCardinality axiom.
+	 * This function defines how to process cardinality-based data property
+	 * restriction, including DataSomeValuesFrom axiom, DataAllValuesFrom axiom,
+	 * DataMinCardinality axiom, DataMaxCardinality axiom and DataExactCardinality
+	 * axiom.
 	 * 
 	 * @param ce
-	 *            An OWL object quantified data restriction.
+	 *            Cardinality-based data property restriction.
 	 */
 	private void processDataPropertyQuantificationRestriction(OWLQuantifiedDataRestriction ce) {
 		if (ran.nextDouble() < dataPropertyAssertionProbability

@@ -1,8 +1,8 @@
 package edu.neu.ece.devicedescriptiongenerator.metric;
 
 /**
- * The instance of this class records the number of OWL named class, data
- * properties, object properties and individuals.
+ * The instance of this class records the number of OWL class, data properties,
+ * object properties and individuals of the input ontology.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -11,7 +11,7 @@ package edu.neu.ece.devicedescriptiongenerator.metric;
 public class OntologyMetric {
 
 	/**
-	 * The number of OWL named class.
+	 * The number of OWL class.
 	 */
 	private int namedClassCount = 0;
 
@@ -31,9 +31,9 @@ public class OntologyMetric {
 	private int namedIndividualCount = 0;
 
 	/**
-	 * Get the number of OWL named class.
+	 * Get the number of OWL class.
 	 * 
-	 * @return The number of OWL named class.
+	 * @return The number of OWL class.
 	 */
 	public int getNamedClassCount() {
 		return namedClassCount;
@@ -67,7 +67,7 @@ public class OntologyMetric {
 	}
 
 	/**
-	 * Increase the number of OWL named class by 1.
+	 * Increase the number of OWL class by 1.
 	 */
 	public void increaseClassCountByOne() {
 		namedClassCount++;

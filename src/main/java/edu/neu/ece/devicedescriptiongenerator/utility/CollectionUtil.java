@@ -17,19 +17,21 @@ import java.util.Set;
 public final class CollectionUtil {
 
 	/**
-	 * Don't let anyone instantiate this class.
+	 * This class cannot be instantiated.
 	 */
 	private CollectionUtil() {
 	}
 
 	/**
-	 * Get a random element with T type from a list
+	 * Get a random element from a list.
 	 * 
+	 * @param <T>
+	 *            The class of the objects in the list.
 	 * @param typeList
-	 *            A list contains elements of T type
+	 *            List that contains elements of T type.
 	 * @param random
-	 *            Used to generate a stream of pseudorandom numbers
-	 * @return A random element from typeList of T type
+	 *            Used to generate a stream of pseudorandom numbers.
+	 * @return Element of T type.
 	 */
 	public static <T> T getARandomElementFromList(List<T> typeList, Random random) {
 		int index = random.nextInt(typeList.size());
@@ -38,13 +40,15 @@ public final class CollectionUtil {
 	}
 
 	/**
-	 * Get a random element with T type from a set
+	 * Get a random element from a set.
 	 * 
+	 * @param <T>
+	 *            The class of the objects in the set.
 	 * @param typeSet
-	 *            A set of type T
+	 *            Set of elements of T type.
 	 * @param random
-	 *            Used to generate a stream of pseudorandom numbers
-	 * @return A T type object
+	 *            Used to generate a stream of pseudorandom numbers.
+	 * @return Element of T type.
 	 */
 	public static <T> T getARandomElementFromSet(Set<T> typeSet, Random random) {
 		int index = random.nextInt(typeSet.size());
@@ -54,11 +58,15 @@ public final class CollectionUtil {
 	}
 
 	/**
-	 * Generate all subset of a set of entries
+	 * Generate all subset of a set of entries.
 	 * 
+	 * @param <T1>
+	 *            The class of the key of the entry of the set.
+	 * @param <T2>
+	 *            The class of the value of the entry of the set.
 	 * @param set
-	 *            A set
-	 * @return A list containing all subset of set
+	 *            A set.
+	 * @return A list containing all subset of set.
 	 * @deprecated
 	 */
 	public <T1, T2> List<Set<Entry<T1, T2>>> getAllSubSetsOfASetOfEntries(Set<Entry<T1, T2>> set) {
@@ -96,11 +104,13 @@ public final class CollectionUtil {
 	}
 
 	/**
-	 * Generate all subset of a set
+	 * Generate all subset of a set.
 	 * 
+	 * @param <T>
+	 *            The class of the objects in the set.
 	 * @param set
-	 *            A set
-	 * @return A list containing all subset of set
+	 *            Set of elements of T type.
+	 * @return List that contains all subset of the set.
 	 */
 	public static <T> ArrayList<Set<T>> getAllSubSetsOfASet(Set<T> set) {
 		int eleNumber = set.size();

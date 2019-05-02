@@ -70,7 +70,7 @@ public class DeviceDescriptionGenerator {
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Ontology IRI in string of generated RDF device descriptions.
+	 * Output ontology IRI in string.
 	 */
 	private final String OUTPUT_ONTOLOGY_IRI_IN_STRING;
 
@@ -80,7 +80,7 @@ public class DeviceDescriptionGenerator {
 	private int devNumber;
 
 	/**
-	 * A Random object used to generate a stream of pesudorandom numbers.
+	 * Used to generate a stream of pesudorandom numbers.
 	 */
 	private Random ran;
 
@@ -100,7 +100,7 @@ public class DeviceDescriptionGenerator {
 	private OWLReasoner reasoner;
 
 	/**
-	 * An OWL data factory object used for creating entities, class expressions and
+	 * An OWL data factory object used to create entities, class expressions and
 	 * axioms.
 	 */
 	private OWLDataFactory factory;
@@ -116,114 +116,125 @@ public class DeviceDescriptionGenerator {
 	private OWLOntology outputOntology = null;
 
 	/**
-	 * The probability of selecting an OWL class constraint (anonymous class
-	 * expression) of an OWL named class.
+	 * The probability of selecting an OWL class constraint (anonymous super class
+	 * expression) of an OWL class; 0.9 by default.
 	 */
 	private final double classConstraintSelectionProbability;
 
 	/**
-	 * The probability of creating a new OWL named individual.
+	 * The probability of creating an OWL named individual; 0.5 by default.
 	 */
 	private final double newIndividualProbability;
 
 	/**
-	 * The probability of creating a new class assertion axiom.
+	 * The probability of generating class assertion axioms for each named
+	 * individual; 0.5 by default.
 	 */
 	private final double classAssertionProbability;
 
 	/**
-	 * The probability of creating a new object property assertion axiom.
+	 * The probability of creating an object property assertion axiom; 0.5 by
+	 * default.
 	 */
 	private final double objectPropertyAssertionProbability;
 
 	/**
-	 * The probability of creating a new data property assertion axiom.
+	 * The probability of creating a data property assertion axiom; 0.5 by default.
 	 */
 	private final double dataPropertyAssertionProbability;
 
 	/**
 	 * The probability of selecting a super class (direct or inferred) of a class
-	 * for class assertion generation.
+	 * for class assertion generation; 0.5 by default.
 	 */
 	private final double superClassSelectionProbability;
 
 	/**
 	 * The probability of selecting an equivalent object property (direct or
-	 * inferred) of a property for object property assertion generation.
+	 * inferred) of an object property for object property assertion generation; 0.5
+	 * by default.
 	 */
 	private final double equivalentObjectPropertySelectionProbability;
 
 	/**
 	 * The probability of selecting an equivalent data property (direct or inferred)
-	 * of a property for data property assertion generation.
+	 * of a data property for data property assertion generation; 0.5 by default..
 	 */
 	private final double equivalentDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a disjoint object property for negative object
-	 * property assertion generation.
+	 * The probability of selecting a disjoint object property (direct or inferred)
+	 * of an object property for negative object property assertion generation; 0.8
+	 * by default.
 	 */
 	private final double disjointObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a disjoint data property for negative data
-	 * property assertion generation.
+	 * The probability of selecting a disjoint data property (directed or inferred)
+	 * of a data property for negative data property assertion generation; 0.8 by
+	 * default.
 	 */
 	private final double disjointDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a super object property while generating object
-	 * property assertion.
+	 * The probability of selecting a super object property (directed or inferred)
+	 * of an object property for object property assertion generation; 0.5 by
+	 * default.
 	 */
 	private final double superObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a super data property while generating data
-	 * property assertion.
+	 * The probability of selecting a super data property (directed or inferred) of
+	 * a data property for data property assertion generation; 0.5 by default.
 	 */
 	private final double superDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting an inverse property (direct or inferred) of a
-	 * property when generating datasets.
+	 * The probability of selecting an inverse property (direct or inferred) of an
+	 * object property for object property assertion generation; 0.8 by default.
 	 */
 	private final double inverseObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a symmetric object property when generating
-	 * datasets.
+	 * The probability of selecting symmetric characteristic of an object property
+	 * for object property assertion generation; 0.8 by default.
 	 */
 	private final double symmetricObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of considering asymmetric object property when generating
-	 * datasets.
+	 * The probability of selecting asymmetric characteristic of an object property
+	 * for negative object property assertion generation; 0.8 by default.
 	 */
 	private final double asymmetricObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of considering irreflexive object property when generating
-	 * datasets.
+	 * The probability of selecting irreflexive characteristic of an object property
+	 * for negative object property assertion generation; 0.8 by default.
 	 */
 	private final double irreflexiveObjectPropertySelectionProbability;
 
 	/**
-	 * Mapping from OWL named class to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface OWLClass is
+	 * the key and the customized class COWLClassImpl is the value.
 	 */
 	private Map<OWLClass, COWLClassImpl> classMap;
 
 	/**
-	 * Mapping from OWL data property to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface
+	 * OWLDataProperty is the key and the customized class COWLDataPropertyImpl is
+	 * the value.
 	 */
 	private Map<OWLDataProperty, COWLDataPropertyImpl> dataPropertyMap;
 
 	/**
-	 * Mapping from OWL object property to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface
+	 * OWLObjectProperty is the key and the customized class COWLObjectPropertyImpl
+	 * is the value.
 	 */
 	private Map<OWLObjectProperty, COWLObjectPropertyImpl> objectPropertyMap;
 
 	/**
-	 * OWL named individuals in TBox.
+	 * OWL named individuals of the input ontology.
 	 */
 	private Set<OWLNamedIndividual> existingIndividuals;
 
@@ -244,13 +255,14 @@ public class DeviceDescriptionGenerator {
 	private final String rootIRIString;
 
 	/**
-	 * Records <property, value> pairs bounded to each OWL named class.
+	 * Container that stores key-value pairs, where COWLClassImpl is the key and
+	 * LinkedResource is the value.
 	 */
 	private Map<COWLClassImpl, LinkedResource> linkedResourcesForEachClass = new HashMap<>();
 
 	/**
 	 * Inner class of DeviceDescriptionGenerator, an instance of this class records
-	 * all linked resources of an OWL named class.
+	 * all linked resources of the specified OWL class.
 	 * 
 	 * @author Yanji Chen
 	 * @version 1.0
@@ -259,14 +271,14 @@ public class DeviceDescriptionGenerator {
 	private class LinkedResource {
 
 		/**
-		 * A list of set containing all <data property, property value> pairs bound to
-		 * an OWL named class.
+		 * A list of set of <OWLDataProperty, OWLDataRange> entries bound to the
+		 * specified OWL class.
 		 */
 		public List<Set<Entry<OWLDataProperty, OWLDataRange>>> dataPropertyAndRangePairsList = new ArrayList<>();
 
 		/**
-		 * A list of set containing all <object property, property value> pairs bound to
-		 * an OWL named class. expressions
+		 * A list of set of <OWLObjectProperty, OWLClassExpression> entries bound to the
+		 * specified OWL class.
 		 */
 		public List<Set<Entry<OWLObjectProperty, OWLClassExpression>>> objectPropertyAndRangePairsList = new ArrayList<>();
 
@@ -274,11 +286,11 @@ public class DeviceDescriptionGenerator {
 		 * Constructor
 		 * 
 		 * @param dataPropertyAndRangePairsList
-		 *            A list of set containing all <data property, property value> pairs
-		 *            bound to an OWL named class.
+		 *            A list of set of <OWLDataProperty, OWLDataRange> entries bound to
+		 *            the specified OWL class.
 		 * @param objectPropertyAndRangePairsList
-		 *            A list of set containing all <object property, property value>
-		 *            pairs bound to an OWL named class expressions.
+		 *            A list of set of <OWLObjectProperty, OWLClassExpression> entries
+		 *            bound to the specified OWL class.
 		 */
 		public LinkedResource(List<Set<Entry<OWLDataProperty, OWLDataRange>>> dataPropertyAndRangePairsList,
 				List<Set<Entry<OWLObjectProperty, OWLClassExpression>>> objectPropertyAndRangePairsList) {
@@ -293,58 +305,61 @@ public class DeviceDescriptionGenerator {
 	 * @param rootIRIString
 	 *            Ontology root class IRI as string.
 	 * @param devNumber
-	 *            The number of device descriptions; 1 by default.
+	 *            The number of device descriptions.
 	 * @param seed
-	 *            Random seed for generating randomized device descriptions; 0 by
-	 *            default.
+	 *            Random seed for generating randomized device descriptions.
 	 * @param outputFile
-	 *            Generated output ontology as file.
+	 *            The output ontology as file.
 	 * @param classConstraintSelectionProbability
 	 *            The probability of selecting an OWL class constraint (anonymous
-	 *            class expression) of an OWL named class.
+	 *            super class expression) of an OWL named class.
 	 * @param newIndividualProbability
-	 *            The probability of creating a new OWL named individual.
+	 *            The probability of creating an OWL named individual.
 	 * @param classAssertionProbability
-	 *            The probability of generating class assertion axiom for each named
-	 *            individual.
+	 *            The probability of generating class assertion axioms for each
+	 *            named individual.
 	 * @param objectPropertyAssertionProbability
-	 *            The probability of creating a new object property assertion axiom.
+	 *            The probability of creating an object property assertion axiom.
 	 * @param dataPropertyAssertionProbability
-	 *            The probability of creating a new data property assertion axiom.
+	 *            The probability of creating a data property assertion axiom.
 	 * @param superClassSelectionProbability
 	 *            The probability of selecting a super class (direct or inferred) of
 	 *            a class for class assertion generation.
 	 * @param equivalentObjectPropertySelectionProbability
 	 *            The probability of selecting an equivalent object property (direct
-	 *            or inferred) of a property for object property assertion
+	 *            or inferred) of an object property for object property assertion
 	 *            generation.
 	 * @param equivalentDataPropertySelectionProbability
 	 *            The probability of selecting an equivalent data property (direct
-	 *            or inferred) of a property for data property assertion generation.
+	 *            or inferred) of a data property for data property assertion
+	 *            generation.
 	 * @param disjointObjectPropertySelectionProbability
-	 *            The probability of selecting a disjoint object property for
-	 *            negative object property assertion generation.
+	 *            The probability of selecting a disjoint object property of an
+	 *            object property for negative object property assertion generation.
 	 * @param disjointDataPropertySelectionProbability
-	 *            The probability of selecting a disjoint data property for negative
-	 *            object property assertion generation.
+	 *            The probability of selecting a disjoint data property of a data
+	 *            property for negative object property assertion generation.
 	 * @param superObjectPropertySelectionProbability
-	 *            The probability of selecting a super object property while
-	 *            generating object property assertion.
+	 *            The probability of selecting a super object property (directed or
+	 *            inferred) of an object property for object property assertion
+	 *            generation.
 	 * @param superDataPropertySelectionProbability
-	 *            The probability of selecting a super data property while
-	 *            generating data property assertion.
+	 *            The probability of selecting a super data property (directed or
+	 *            inferred) of a data property for data property assertion
+	 *            generation.
 	 * @param inverseObjectPropertySelectionProbability
 	 *            The probability of selecting an inverse property (direct or
-	 *            inferred) of a property when generating datasets.
+	 *            inferred) of an object property for object property assertion
+	 *            generation.
 	 * @param symmetricObjectPropertySelectionProbability
-	 *            The probability of selecting a symmetric object property when
-	 *            generating datasets.
+	 *            The probability of selecting symmetric characteristic of an object
+	 *            property for object property assertion generation.
 	 * @param asymmetricObjectPropertySelectionProbability
-	 *            The probability of selecting an asymmetric object property when
-	 *            generating datasets.
+	 *            The probability of selecting asymmetric characteristic of an
+	 *            object property for negative object property assertion generation.
 	 * @param irreflexiveObjectPropertySelectionProbability
-	 *            The probability of selecting an irreflexive object property when
-	 *            generating datasets.
+	 *            The probability of selecting irreflexive characteristic of an
+	 *            object property for negative object property assertion generation.
 	 * @param manager
 	 *            Hold of an ontology manager.
 	 * @param ont
@@ -441,9 +456,9 @@ public class DeviceDescriptionGenerator {
 	}
 
 	/**
-	 * Get build-in OWL reasoner.
+	 * Get an OWL API build-in reasoner.
 	 * 
-	 * @return A build-in OWL reasoner from OWL API.
+	 * @return The OWL API build-in reasoner.
 	 */
 	public OWLReasoner getReasoner() {
 		return reasoner;
@@ -478,50 +493,61 @@ public class DeviceDescriptionGenerator {
 	}
 
 	/**
-	 * Get the probability of selecting an OWL class constraint (anonymous class
-	 * expression) of an OWL named class.
+	 * Get the probability of selecting an OWL class constraint (anonymous super
+	 * class expression) of an OWL class.
 	 * 
-	 * @return The probability of selecting an OWL class constraint (anonymous class
-	 *         expression) of an OWL named class.
+	 * @return The probability of selecting an OWL class constraint (anonymous super
+	 *         class expression) of an OWL named class.
 	 */
 	public double getClassConstraintSelectionProbability() {
 		return classConstraintSelectionProbability;
 	}
 
 	/**
-	 * Get the probability of creating a new OWL named individual.
+	 * Get the probability of creating an OWL named individual.
 	 * 
-	 * @return The probability of creating a new OWL named individual.
+	 * @return The probability of creating an OWL named individual.
 	 */
 	public double getNewIndividualProbability() {
 		return newIndividualProbability;
 	}
 
 	/**
-	 * Get the probability of creating a new class assertion axiom.
+	 * Get the probability of creating a class assertion axiom.
 	 * 
-	 * @return The probability of creating a new class assertion axiom.
+	 * @return The probability of creating a class assertion axiom.
 	 */
 	public double getClassAssertionProbability() {
 		return classAssertionProbability;
 	}
 
 	/**
-	 * Get the probability of creating a new object property assertion axiom.
+	 * Get the probability of creating an object property assertion axiom.
 	 * 
-	 * @return The probability of creating a new object property assertion axiom.
+	 * @return The probability of creating an object property assertion axiom.
 	 */
 	public double getObjectPropertyAssertionProbability() {
 		return objectPropertyAssertionProbability;
 	}
 
 	/**
-	 * Get the probability of creating a new data property assertion axiom.
+	 * Get the probability of creating a data property assertion axiom.
 	 * 
-	 * @return The probability of creating a new data property assertion axiom.
+	 * @return The probability of creating a data property assertion axiom.
 	 */
 	public double getDataPropertyAssertionProbability() {
 		return dataPropertyAssertionProbability;
+	}
+
+	/**
+	 * Get the probability of selecting a super class (direct or inferred) of a
+	 * class for class assertion generation
+	 * 
+	 * @return The probability of selecting a super class (direct or inferred) of a
+	 *         class for class assertion generation
+	 */
+	public double getSuperClassSelectionProbability() {
+		return superClassSelectionProbability;
 	}
 
 	/**
@@ -622,36 +648,52 @@ public class DeviceDescriptionGenerator {
 	}
 
 	/**
-	 * Get mapping from OWL named class to its conceptual model.
+	 * Get the probability of selecting irreflexive characteristic of an object
+	 * property for negative object property assertion generation.
 	 * 
-	 * @return The class mapping.
+	 * @return the probability of selecting irreflexive characteristic of an object
+	 *         property for negative object property assertion generation.
+	 */
+	public double getIrreflexiveObjectPropertySelectionProbability() {
+		return irreflexiveObjectPropertySelectionProbability;
+	}
+
+	/**
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLClass is the key and the customized class COWLClassImpl is the value.
+	 * 
+	 * @return The container.
 	 */
 	public Map<OWLClass, COWLClassImpl> getClassMap() {
 		return classMap;
 	}
 
 	/**
-	 * Get mapping from OWL data property to its conceptual model.
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLDataProperty is the key and the customized class COWLDataPropertyImpl is
+	 * the value.
 	 * 
-	 * @return The data property mapping.
+	 * @return The container.
 	 */
 	public Map<OWLDataProperty, COWLDataPropertyImpl> getDataPropertyMap() {
 		return dataPropertyMap;
 	}
 
 	/**
-	 * Get mapping from OWL object property to its conceptual model.
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLObjectProperty is the key and the customized class COWLObjectPropertyImpl
+	 * is the value.
 	 * 
-	 * @return The object property mapping.
+	 * @return The container.
 	 */
 	public Map<OWLObjectProperty, COWLObjectPropertyImpl> getObjectPropertyMap() {
 		return objectPropertyMap;
 	}
 
 	/**
-	 * Get OWL named individuals in TBox.
+	 * Get OWL named individuals of the input ontology.
 	 * 
-	 * @return OWL named individuals in TBox.
+	 * @return OWL named individuals.
 	 */
 	public Set<OWLNamedIndividual> getExistingIndividuals() {
 		return existingIndividuals;
@@ -678,7 +720,16 @@ public class DeviceDescriptionGenerator {
 	}
 
 	/**
-	 * This function implements the control flow of device description generation
+	 * Get ontology root class IRI as string.
+	 * 
+	 * @return Ontology root class IRI as string.
+	 */
+	public String getRootIRIString() {
+		return rootIRIString;
+	}
+
+	/**
+	 * This function defines the control flow of device description generation
 	 * process.
 	 * 
 	 * @throws OWLOntologyStorageException
@@ -779,14 +830,14 @@ public class DeviceDescriptionGenerator {
 
 	/**
 	 * This function recursively creates OWL named individuals by navigating through
-	 * the conceptual model.
+	 * the model from the specified OWL class.
 	 * 
 	 * @param oc
-	 *            An OWL named class.
+	 *            OWL class.
 	 * @param isFirstRecursion
 	 *            True if the function is invoked for the first time, false
 	 *            otherwise.
-	 * @return An OWL named individual.
+	 * @return OWL named individual.
 	 */
 	public OWLNamedIndividual createResursiveLinkedRDFNode(OWLClass oc, boolean isFirstRecursion) {
 		if (oc == null || oc.isOWLThing())
@@ -959,9 +1010,9 @@ public class DeviceDescriptionGenerator {
 	 * inferred class assertions.
 	 * 
 	 * @param ind
-	 *            OWL named individual
+	 *            OWL named individual.
 	 * @param cls
-	 *            OWL class expression
+	 *            OWL class.
 	 */
 	public void generateClassAssertionAxiom(OWLNamedIndividual ind, OWLClass cls) {
 		if (ran.nextDouble() < classAssertionProbability) {
@@ -980,16 +1031,14 @@ public class DeviceDescriptionGenerator {
 
 	/**
 	 * This function generates an object property assertion axiom and randomly
-	 * generates a set of inferred object property assertions
+	 * generates a set of inferred object property assertions.
 	 * 
 	 * @param objectProperty
 	 *            OWL object property.
 	 * @param subject
-	 *            An OWL named individual as subject in the generated object
-	 *            property assertion axiom.
+	 *            OWL named individual.
 	 * @param object
-	 *            An OWL named individual as object in the generated object property
-	 *            assertion axiom.
+	 *            OWL named individual.
 	 */
 	public void generateObjectPropertyAssertionAxiom(OWLObjectProperty objectProperty, OWLNamedIndividual subject,
 			OWLNamedIndividual object) {
@@ -1000,7 +1049,7 @@ public class DeviceDescriptionGenerator {
 		OWLNegativeObjectPropertyAssertionAxiom negativePropertyAssertion;
 		COWLObjectPropertyImpl objectPropertyImpl = objectPropertyMap.get(objectProperty);
 
-		if (containsRelaventNegativeObjectPropertyAssertionAxiom(objectPropertyImpl, subject, object,
+		if (containsRelevantNegativeObjectPropertyAssertionAxiom(objectPropertyImpl, subject, object,
 				new HashSet<OWLNegativeObjectPropertyAssertionAxiom>()))
 			return;
 
@@ -1025,7 +1074,7 @@ public class DeviceDescriptionGenerator {
 		Set<COWLObjectPropertyImpl> inverseObjectProperties = objectPropertyImpl.getInverseProperties();
 		for (COWLPropertyImpl inverseProp : inverseObjectProperties) {
 			for (COWLPropertyImpl disjointProp : inverseProp.getDisjointProperties()) {
-				if (containsRelaventObjectPropertyAssertionAxiom(disjointProp, object, subject,
+				if (containsRelevantObjectPropertyAssertionAxiom(disjointProp, object, subject,
 						new HashSet<OWLObjectPropertyAssertionAxiom>()))
 					return;
 			}
@@ -1034,7 +1083,7 @@ public class DeviceDescriptionGenerator {
 		Set<COWLPropertyImpl> disjointProperties = objectPropertyImpl.getDisjointProperties();
 
 		for (COWLPropertyImpl disjointProp : disjointProperties) {
-			if (containsRelaventObjectPropertyAssertionAxiom(disjointProp, subject, object,
+			if (containsRelevantObjectPropertyAssertionAxiom(disjointProp, subject, object,
 					new HashSet<OWLObjectPropertyAssertionAxiom>()))
 				return;
 			/*
@@ -1098,105 +1147,115 @@ public class DeviceDescriptionGenerator {
 	}
 
 	/**
-	 * This function detects the output ontology contains target object property
-	 * assertion axiom.
+	 * This function detects whether the output ontology contains the specified
+	 * object property assertion and its relevant object property assertions.
 	 * 
 	 * @param property
-	 *            Conceptual model of an OWL object property.
+	 *            Customization of OWL object property.
 	 * @param subject
-	 *            An OWL named individual as subject in the generated object
-	 *            property assertion axiom.
+	 *            OWL named individual.
 	 * @param object
-	 *            An OWL named individual as object in the generated object property
-	 *            assertion axiom.
+	 *            OWL named individual.
 	 * @param propertyAssertions
-	 *            A set of assertions that have been detected.
-	 * @return true if at least one target triple exists, false otherwise.
+	 *            Verified object property assertions that are not in the output
+	 *            ontology.
+	 * @return true if there exists such object property assertions, false
+	 *         otherwise.
 	 */
-	public boolean containsRelaventObjectPropertyAssertionAxiom(COWLPropertyImpl property, OWLNamedIndividual subject,
+	public boolean containsRelevantObjectPropertyAssertionAxiom(COWLPropertyImpl property, OWLNamedIndividual subject,
 			OWLNamedIndividual object, Set<OWLObjectPropertyAssertionAxiom> propertyAssertions) {
 		if (property == null || subject == null || object == null)
 			return false;
-		Set<COWLPropertyImpl> properties = new HashSet<>();
-		properties.add(property);
-		properties.addAll(property.getSubOWLProperties());
-		properties.addAll(property.getEquivalentProperties());
 
-		OWLObjectPropertyAssertionAxiom propertyAssertion;
+		OWLObjectPropertyAssertionAxiom propertyAssertion = factory
+				.getOWLObjectPropertyAssertionAxiom(factory.getOWLObjectProperty(property.getIRI()), subject, object);
 
-		for (COWLPropertyImpl prop : properties) {
-			propertyAssertion = factory.getOWLObjectPropertyAssertionAxiom(factory.getOWLObjectProperty(prop.getIRI()),
-					subject, object);
-			if (propertyAssertions.contains(propertyAssertion))
-				return false;
+		if (propertyAssertions.contains(propertyAssertion))
+			return false;
 
-			if (outputOntology.containsAxiom(propertyAssertion, Imports.INCLUDED,
-					AxiomAnnotations.IGNORE_AXIOM_ANNOTATIONS)) {
+		if (outputOntology.containsAxiom(propertyAssertion, Imports.INCLUDED,
+				AxiomAnnotations.IGNORE_AXIOM_ANNOTATIONS))
+			return true;
+
+		propertyAssertions.add(propertyAssertion);
+
+		for (COWLPropertyImpl eq : ((COWLObjectPropertyImpl) property).getEquivalentProperties()) {
+			if (containsRelevantObjectPropertyAssertionAxiom(eq, subject, object, propertyAssertions))
 				return true;
-			}
-			propertyAssertions.add(propertyAssertion);
-			for (COWLObjectPropertyImpl inv : ((COWLObjectPropertyImpl) prop).getInverseProperties()) {
-				if (containsRelaventObjectPropertyAssertionAxiom(inv, object, subject, propertyAssertions))
-					return true;
-			}
+		}
+
+		for (COWLPropertyImpl sub : ((COWLObjectPropertyImpl) property).getSubOWLProperties()) {
+			if (containsRelevantObjectPropertyAssertionAxiom(sub, subject, object, propertyAssertions))
+				return true;
+		}
+
+		for (COWLPropertyImpl inv : ((COWLObjectPropertyImpl) property).getInverseProperties()) {
+			if (containsRelevantObjectPropertyAssertionAxiom(inv, object, subject, propertyAssertions))
+				return true;
 		}
 
 		return false;
 	}
 
 	/**
-	 * This function detects whether the output ontology contains target negative
-	 * object property assertion axiom.
+	 * This function detects whether the output ontology contains the specified
+	 * negative object property assertion and its relevant negative object property
+	 * assertions.
 	 * 
 	 * @param property
-	 *            Conceptual model of an OWL object property.
+	 *            OWL object property.
 	 * @param subject
-	 *            An OWL named individual as subject in the generated object
-	 *            property assertion axiom.
+	 *            OWL named individual.
 	 * @param object
-	 *            An OWL named individual as object in the generated object property
-	 *            assertion axiom.
+	 *            OWL named individual.
 	 * @param propertyAssertions
-	 *            A set of assertions that have been detected.
-	 * @return true if at least one target triple exists, false otherwise.
+	 *            Verified negative object property assertions that are in the
+	 *            output ontology.
+	 * 
+	 * @return true if there exists such negative object property assertions, false
+	 *         otherwise.
 	 */
-	public boolean containsRelaventNegativeObjectPropertyAssertionAxiom(COWLPropertyImpl property,
+	public boolean containsRelevantNegativeObjectPropertyAssertionAxiom(COWLPropertyImpl property,
 			OWLNamedIndividual subject, OWLNamedIndividual object,
 			Set<OWLNegativeObjectPropertyAssertionAxiom> propertyAssertions) {
 		if (property == null || subject == null || object == null)
 			return false;
-		Set<COWLPropertyImpl> properties = new HashSet<>();
-		properties.add(property);
-		properties.addAll(property.getSubOWLProperties());
-		properties.addAll(property.getEquivalentProperties());
 
-		OWLNegativeObjectPropertyAssertionAxiom propertyAssertion;
+		OWLNegativeObjectPropertyAssertionAxiom propertyAssertion = factory.getOWLNegativeObjectPropertyAssertionAxiom(
+				factory.getOWLObjectProperty(property.getIRI()), subject, object);
 
-		for (COWLPropertyImpl prop : properties) {
-			propertyAssertion = factory.getOWLNegativeObjectPropertyAssertionAxiom(
-					factory.getOWLObjectProperty(prop.getIRI()), subject, object);
-			if (propertyAssertions.contains(propertyAssertion))
-				return false;
+		if (propertyAssertions.contains(propertyAssertion))
+			return false;
 
-			if (outputOntology.containsAxiom(propertyAssertion, Imports.INCLUDED,
-					AxiomAnnotations.IGNORE_AXIOM_ANNOTATIONS)) {
+		if (outputOntology.containsAxiom(propertyAssertion, Imports.INCLUDED,
+				AxiomAnnotations.IGNORE_AXIOM_ANNOTATIONS))
+			return true;
+
+		propertyAssertions.add(propertyAssertion);
+
+		for (COWLPropertyImpl eq : ((COWLObjectPropertyImpl) property).getEquivalentProperties()) {
+			if (containsRelevantNegativeObjectPropertyAssertionAxiom(eq, subject, object, propertyAssertions))
 				return true;
-			}
-			propertyAssertions.add(propertyAssertion);
-			for (COWLObjectPropertyImpl inv : ((COWLObjectPropertyImpl) prop).getInverseProperties()) {
-				if (containsRelaventNegativeObjectPropertyAssertionAxiom(inv, object, subject, propertyAssertions))
-					return true;
-			}
+		}
+
+		for (COWLPropertyImpl sub : ((COWLObjectPropertyImpl) property).getSubOWLProperties()) {
+			if (containsRelevantNegativeObjectPropertyAssertionAxiom(sub, subject, object, propertyAssertions))
+				return true;
+		}
+
+		for (COWLPropertyImpl inv : ((COWLObjectPropertyImpl) property).getInverseProperties()) {
+			if (containsRelevantNegativeObjectPropertyAssertionAxiom(inv, object, subject, propertyAssertions))
+				return true;
 		}
 
 		return false;
 	}
 
 	/**
-	 * Reset all classes as not visited, reset all index numbers
+	 * Reset all classes as not visited.
 	 * 
 	 * @param classes
-	 *            A collection of classes
+	 *            A collection of classes.
 	 */
 	public static void resetClassStatus(Collection<COWLClassImpl> classes) {
 		for (COWLClassImpl tc : classes) {

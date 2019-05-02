@@ -55,7 +55,7 @@ import edu.neu.ece.devicedescriptiongenerator.visitor.COWLObjectPropertyAxiomVis
 
 /**
  * As one of the most critical classes of the program, OntologyExtractor defines
- * ontology extractor used for extracting OWL axioms from input ontology.
+ * the processes of various OWL axioms of the input ontology.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -70,22 +70,27 @@ public class OntologyExtractor {
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Mapping from OWL named class to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface OWLClass is
+	 * the key and the customized class COWLClassImpl is the value.
 	 */
 	private Map<OWLClass, COWLClassImpl> classMap = new HashMap<>();
 
 	/**
-	 * Mapping from OWL data property to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface
+	 * OWLDataProperty is the key and the customized class COWLDataPropertyImpl is
+	 * the value.
 	 */
 	private Map<OWLDataProperty, COWLDataPropertyImpl> dataPropertyMap = new HashMap<>();
 
 	/**
-	 * Mapping from OWL object property to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface
+	 * OWLObjectProperty is the key and the customized class COWLObjectPropertyImpl
+	 * is the value.
 	 */
 	private Map<OWLObjectProperty, COWLObjectPropertyImpl> objectPropertyMap = new HashMap<>();
 
 	/**
-	 * OWL named individuals in TBox.
+	 * OWL named individuals of the input ontology.
 	 */
 	private Set<OWLNamedIndividual> existingIndividuals = new HashSet<>();
 
@@ -95,19 +100,25 @@ public class OntologyExtractor {
 	private OWLOntology ont;
 
 	/**
-	 * An build-in OWL reasoner from OWL API.
+	 * An OWL API build-in reasoner.
 	 */
 	private OWLReasoner reasoner;
 
 	/**
-	 * OWL metric class that records the number of OWL named class, data properties,
+	 * OWL metric that records the number of OWL named class, data properties,
 	 * object properties and individuals.
 	 */
 	private OntologyMetric metric = new OntologyMetric();
 
-	private static Map<ClassExpressionType, Integer> quantifiedObjectRestrictionPriority = new HashMap<>();
+	/**
+	 * Mapping from quantified object restriction type to its priority.
+	 */
+	public static final Map<ClassExpressionType, Integer> quantifiedObjectRestrictionPriority = new HashMap<>();
 
-	private static Map<ClassExpressionType, Integer> quantifiedDataRestrictionPriority = new HashMap<>();
+	/**
+	 * Mapping from quantified data restriction type to its priority.
+	 */
+	public static final Map<ClassExpressionType, Integer> quantifiedDataRestrictionPriority = new HashMap<>();
 
 	static {
 		quantifiedObjectRestrictionPriority.put(ClassExpressionType.OBJECT_EXACT_CARDINALITY, new Integer(1));
@@ -137,65 +148,89 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * Get mapping from OWL named class to its conceptual model.
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLClass is the key and the customized class COWLClassImpl is the value.
 	 * 
-	 * @return The class mapping.
+	 * @return The container.
 	 */
 	public Map<OWLClass, COWLClassImpl> getClassMap() {
 		return Collections.unmodifiableMap(classMap);
 	}
 
 	/**
-	 * Get mapping from OWL data property to its conceptual model.
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLDataProperty is the key and the customized class COWLDataPropertyImpl is
+	 * the value.
 	 * 
-	 * @return The data property mapping.
+	 * @return The container.
 	 */
 	public Map<OWLDataProperty, COWLDataPropertyImpl> getDataPropertyMap() {
 		return Collections.unmodifiableMap(dataPropertyMap);
 	}
 
 	/**
-	 * Get mapping from OWL object property to its conceptual model.
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLObjectProperty is the key and the customized class COWLObjectPropertyImpl
+	 * is the value.
 	 * 
-	 * @return The object property mapping.
+	 * @return The container.
 	 */
 	public Map<OWLObjectProperty, COWLObjectPropertyImpl> getObjectPropertyMap() {
 		return Collections.unmodifiableMap(objectPropertyMap);
 	}
 
 	/**
-	 * Get OWL named individuals in TBox.
+	 * Get OWL named individuals of the input ontology.
 	 * 
-	 * @return OWL named individuals in TBox.
+	 * @return OWL named individuals.
 	 */
 	public Set<OWLNamedIndividual> getExistingIndividuals() {
 		return Collections.unmodifiableSet(existingIndividuals);
 	}
 
 	/**
-	 * Get OWL metric object that records the number of OWL named class, data
-	 * properties, object properties and individuals.
+	 * Get the hold of input ontology.
 	 * 
-	 * @return The OWL metric object.
+	 * @return The hold of input ontology.
+	 */
+	public OWLOntology getOWLOntology() {
+		return ont;
+	}
+
+	/**
+	 * Get the OWL API build-in reasoner.
+	 * 
+	 * @return The reasoner.
+	 */
+	public OWLReasoner getOWLReasoner() {
+		return reasoner;
+	}
+
+	/**
+	 * Get OWL metric that records the number of OWL class, data properties, object
+	 * properties and individuals of the input ontology.
+	 * 
+	 * @return OWL metric.
 	 */
 	public OntologyMetric getOntologyMetric() {
 		return metric;
 	}
 
 	/**
-	 * Get conceptual model of specified OWL named class.
+	 * Get customization of the specified OWL class.
 	 * 
 	 * @param owlClass
-	 *            Specified OWL named class.
-	 * @return Conceptual model of the specified class.
+	 *            Specified OWL class.
+	 * @return Customization of the specified OWL class.
 	 */
 	public COWLClassImpl getCOWLClassImpl(OWLClass owlClass) {
 		return classMap.get(owlClass);
 	}
 
 	/**
-	 * This function controls the whole ontology extraction process, including
-	 * ontology preparsing, ontology parsing and ontology postparsing.
+	 * This function defines control flow of ontology processing, including OWL
+	 * entity processing (preparsing), OWL axiom processing (parsing) and new
+	 * knowledge reasoning (postparsing).
 	 */
 	public void extract() {
 		preParsing();
@@ -204,7 +239,7 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function contains ontology preparsing process.
+	 * This function defines OWL entity processing (preparsing).
 	 */
 	private void preParsing() {
 		logger.info("Begin extracting OWL entities...");
@@ -218,9 +253,9 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function contains ontology extraction process. In general, OWL class
-	 * axioms, OWL object property axioms, OWL data property axioms and OWL
-	 * individual axioms are extracted in order into conceptual model.
+	 * This function defines control flow of ontology axiom processing, including
+	 * class axiom processing, object property axiom processing, data property axiom
+	 * processing and individual axiom processing.
 	 */
 	private void parsing() {
 		processClassAxioms();
@@ -230,7 +265,7 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function processes OWL class axioms extraction.
+	 * This function defines class axiom processing.
 	 */
 	private void processClassAxioms() {
 		logger.info("Begin extracting OWL class axioms...");
@@ -246,7 +281,7 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function processes OWL object property axioms extraction.
+	 * This function defines object property axiom processing.
 	 */
 	private void processObjectPropertyAxioms() {
 		logger.info("Begin extracting object property axioms...");
@@ -308,7 +343,7 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function processes OWL data property axioms extraction.
+	 * This function defines data property axiom processing.
 	 */
 	private void processDataPropertyAxioms() {
 		logger.info("Begin extracting data property axioms...");
@@ -359,7 +394,7 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function processes OWL individual axioms extraction.
+	 * This function defines individual axiom processing.
 	 */
 	private void processIndividualAxioms() {
 		logger.info("Begin extracting individual axioms...");
@@ -374,8 +409,7 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function contains ontology postparsing process, including deriving
-	 * inferred facts from existing conceptual model.
+	 * This function defines new knowledge reasoning process.
 	 */
 	private void postParsing() {
 		logger.info("Begin extracting implicit knowledge...");
@@ -402,7 +436,7 @@ public class OntologyExtractor {
 				if (!disjointClass.equals(owlClass))
 					cowlClassImpl.getDisjointClasses().add(disjointClass);
 			}
-			// Get instances of each class
+			// Get individuals of each class
 			for (OWLNamedIndividual ind : reasoner.instances(owlClass).collect(Collectors.toSet())) {
 				LinkedList<OWLNamedIndividual> individuals = cowlClassImpl.getNamedIndividuals();
 				if (!individuals.contains(ind))
@@ -537,13 +571,12 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function recursively extracts anonymous super classes from direct super
-	 * classes of the specified OWL named class whose conceptual model is passed by
-	 * argument. The extracted anonymous super classes are added into the specified
-	 * OWL named class as its anonymous super classes.
+	 * This function extracts anonymous super classes of the OWL class as input
+	 * argument. It retrieves anonymous super classes of each of its direct named
+	 * super classes recursively, and then merges them in the output.
 	 * 
 	 * @param owlClassImpl
-	 *            Conceptual model of an OWL named class.
+	 *            OWL class.
 	 */
 	private void recursiveExtractAnonymousSuperClasses(COWLClassImpl owlClassImpl) {
 		if (owlClassImpl.isVisited())
@@ -569,12 +602,12 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * Filter out redundant anonymous super class expression of an OWL class.
+	 * Filter out redundant anonymous super class expressions of an OWL class.
 	 * 
 	 * @param selectedClassConstraints
-	 *            Selected anonymous super class expressions.
+	 *            Estimated non-redundant anonymous super class expressions.
 	 * @param exp
-	 *            Candidate anonymous super class expression.
+	 *            Anonymous super class expression to be tested.
 	 */
 	private void removeRedundantClassConstraints(Set<OWLAnonymousClassExpression> selectedClassConstraints,
 			OWLAnonymousClassExpression exp) {
@@ -820,17 +853,16 @@ public class OntologyExtractor {
 				}
 			}
 		}
-
 		selectedClassConstraints.add(exp);
 		return;
 	}
 
 	/**
 	 * This function retrieves inferred disjoint/inverse properties of a property
-	 * from its equivalent properties.
+	 * based on its equivalent properties.
 	 * 
 	 * @param propImpl
-	 *            Conceptual model of an OWL property.
+	 *            OWL property.
 	 */
 	private void processEquivalentProperties(COWLPropertyImpl propImpl) {
 		if (!propImpl.getEquivalentProperties().isEmpty()) {
@@ -857,11 +889,11 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * This function generates special class restrictions of the class used for
-	 * consistency check.
+	 * This function generates special class restrictions of the class for
+	 * consistency checking.
 	 * 
 	 * @param cowlClassImpl
-	 *            Conceptual model of an OWL named class.
+	 *            OWL class.
 	 */
 	private void getSpecialClassRestrictions(COWLClassImpl cowlClassImpl) {
 		for (OWLAnonymousClassExpression anon : cowlClassImpl.getAnonymousSuperClasses()) {
@@ -876,12 +908,12 @@ public class OntologyExtractor {
 
 	/**
 	 * This function recursively extracts disjoint properties from direct super
-	 * properties of the specified OWL property whose conceptual model is passed by
-	 * argument. The extracted disjoint properties are added into the specified OWL
-	 * properties as its disjoint properties.
+	 * properties of the specified OWL property. The extracted disjoint properties
+	 * are added into the specified OWL properties as its inferred disjoint
+	 * properties.
 	 * 
 	 * @param property
-	 *            Conceptual model of an OWL property.
+	 *            OWL property.
 	 */
 	private void recursiveExtractImplicitDisjointProperties(COWLPropertyImpl property) {
 		if (property.isVisited())
@@ -903,49 +935,52 @@ public class OntologyExtractor {
 	}
 
 	/**
-	 * Add an OWL named class and its conceptual model into class mapping
-	 * collection.
+	 * Add a key-value pair to the container, where OWL API interface OWLClass is
+	 * the key and the customized class COWLClassImpl is the value.
 	 * 
 	 * @param oc
-	 *            An OWL named class.
+	 *            OWL class.
 	 * @param cocImpl
-	 *            Conceptual model of the OWL named class.
+	 *            Customized OWL class.
 	 */
 	public void addClass(OWLClass oc, COWLClassImpl cocImpl) {
 		classMap.put(oc, cocImpl);
 	}
 
 	/**
-	 * Add an OWL object property and its conceptual model into object property
-	 * mapping collection.
+	 * Add a key-value pair to the container, where OWL API interface
+	 * OWLObjectProperty is the key and the customized class COWLObjectPropertyImpl
+	 * is the value.
 	 * 
 	 * @param oop
-	 *            An OWL object property.
+	 *            OWL object property.
 	 * @param coopImpl
-	 *            Conceptual model of the OWL object property.
+	 *            Customized object property.
 	 */
 	public void addObjectProperty(OWLObjectProperty oop, COWLObjectPropertyImpl coopImpl) {
 		objectPropertyMap.put(oop, coopImpl);
 	}
 
 	/**
-	 * Add an OWL data property and its conceptual model into data property mapping
-	 * collection.
+	 * Add a key-value pair to the container, where OWL API interface
+	 * OWLDataProperty is the key and the customized class COWLDataPropertyImpl is
+	 * the value.
 	 * 
 	 * @param odp
-	 *            An OWL data property.
+	 *            OWL data property.
 	 * @param codpImpl
-	 *            Conceptual model of the OWL data property.
+	 *            Customized data property.
 	 */
 	public void addDataProperty(OWLDataProperty odp, COWLDataPropertyImpl codpImpl) {
 		dataPropertyMap.put(odp, codpImpl);
 	}
 
 	/**
-	 * Add an OWL individual into TBox individuals collection.
+	 * Add an OWL individual into the collection of OWL named individuals of the
+	 * input ontology.
 	 * 
 	 * @param ind
-	 *            An OWL named individual.
+	 *            OWL individual.
 	 */
 	public void addAnIndividual(OWLNamedIndividual ind) {
 		existingIndividuals.add(ind);
@@ -1196,7 +1231,6 @@ public class OntologyExtractor {
 					sb.append("\t\t" + axiomType.getName() + "\n");
 			}
 		}
-
 		return sb.toString();
 	}
 }

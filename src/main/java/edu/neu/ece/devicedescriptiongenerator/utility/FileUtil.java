@@ -12,7 +12,7 @@ import java.io.File;
 public final class FileUtil {
 
 	/**
-	 * Don't let anyone instantiate this class.
+	 * This class cannot be instantiated.
 	 */
 	private FileUtil() {
 	}
@@ -22,7 +22,7 @@ public final class FileUtil {
 	 * 
 	 * @param filePath
 	 *            File URL in string.
-	 * @return A File object.
+	 * @return Loaded file.
 	 */
 	public static File loadFile(String filePath) {
 		File f = new File(filePath);
@@ -36,7 +36,7 @@ public final class FileUtil {
 	 * 
 	 * @param filePath
 	 *            File URL in string.
-	 * @return A File object
+	 * @return Created file.
 	 */
 	public static File createFile(String filePath) {
 		File f = new File(filePath);

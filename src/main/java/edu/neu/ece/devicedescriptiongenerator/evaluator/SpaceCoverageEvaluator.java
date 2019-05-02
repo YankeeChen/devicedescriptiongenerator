@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -61,7 +62,7 @@ import uk.ac.manchester.cs.owl.owlapi.OWLObjectSomeValuesFromImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLObjectUnionOfImpl;
 
 /**
- * This class is used for space coverage evaluation.
+ * This class is defined exclusively for space coverage evaluation.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -81,8 +82,7 @@ public class SpaceCoverageEvaluator {
 	private final int devNumber;
 
 	/**
-	 * An OWL data factory object used for creating entities, class expressions and
-	 * axioms.
+	 * OWL data factory for creating entities, class expressions and axioms.
 	 */
 	private final OWLDataFactory factory;
 
@@ -92,56 +92,63 @@ public class SpaceCoverageEvaluator {
 	private final OWLOntology outputOntology;
 
 	/**
-	 * Mapping from OWL named class to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface OWLClass is
+	 * the key and the customized class COWLClassImpl is the value.
 	 */
 	private final Map<OWLClass, COWLClassImpl> classMap;
 
 	/**
-	 * Mapping from OWL data property to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface
+	 * OWLDataProperty is the key and the customized class COWLDataPropertyImpl is
+	 * the value.
 	 */
 	private final Map<OWLDataProperty, COWLDataPropertyImpl> dataPropertyMap;
 
 	/**
-	 * Mapping from OWL object property to its conceptual model.
+	 * Container that stores key-value pairs, where OWL API interface
+	 * OWLObjectProperty is the key and the customized class COWLObjectPropertyImpl
+	 * is the value.
 	 */
 	private final Map<OWLObjectProperty, COWLObjectPropertyImpl> objectPropertyMap;
 
 	/**
-	 * Mapping from target OWL class to its count (the number of OWL individuals
-	 * that are asserted to the type of the class) in datasets.
+	 * Mapping from focus class to its count (the number of OWL individuals that are
+	 * asserted to the type of the class) in datasets.
 	 */
 	private Map<OWLClassImpl, Integer> targetClassAndCountMap = new TreeMap<>();
 
 	/**
-	 * A set of OWL classes that are not selected as target OWL classes, but are
-	 * used in the datasets.
+	 * Non-focus classes that are used in the datasets for testing purpose.
 	 */
 	private Set<OWLClassImpl> nonTargetClasses = new TreeSet<>();
 
 	/**
-	 * Mapping from target OWL object property to its count (the number of triples
-	 * whose predicates are the object property) in the datasets.
+	 * Mapping from focus object property to its count (the number of triples whose
+	 * predicates are the object property) in the datasets.
 	 */
 	private Map<OWLObjectPropertyImpl, Integer> targetObjectPropertyAndCountMap = new TreeMap<>();
 
 	/**
-	 * A set of OWL object properties that are not selected as target OWL object
-	 * properties, but are used in the datasets.
+	 * Non-focus object properties that are used in the datasets for testing
+	 * purpose.
 	 */
 	private Set<OWLObjectPropertyImpl> nonTargetObjectProperties = new TreeSet<>();
 
 	/**
-	 * Mapping from target OWL data property to its count (the number of triples
-	 * whose predicates are the data property) in the datasets.
+	 * Mapping from focus data property to its count (the number of triples whose
+	 * predicates are the data property) in the datasets.
 	 */
 	private Map<OWLDataPropertyImpl, Integer> targetDataPropertyAndCountMap = new TreeMap<>();
 
 	/**
-	 * A set of OWL data properties that are not selected as target OWL data
-	 * properties, but are used in the datasets.
+	 * Non-focus data properties that are used in the datasets.
 	 */
 	private Set<OWLDataPropertyImpl> nonTargetDataProperties = new TreeSet<>();
 
+	/**
+	 * The nodes that are visited while traversing the model graph from the root
+	 * class .
+	 */
 	private Set<Object> visitedNodes = new HashSet<>();
 
 	/**
@@ -161,37 +168,42 @@ public class SpaceCoverageEvaluator {
 	}
 
 	/**
-	 * Get mapping from OWL named class to its conceptual model.
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLClass is the key and the customized class COWLClassImpl is the value.
 	 * 
-	 * @return The class mapping.
+	 * @return The container.
 	 */
 	public Map<OWLClass, COWLClassImpl> getClassMap() {
-		return classMap;
+		return Collections.unmodifiableMap(classMap);
 	}
 
 	/**
-	 * Get mapping from OWL data property to its conceptual model.
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLDataProperty is the key and the customized class COWLDataPropertyImpl is
+	 * the value.
 	 * 
-	 * @return The data property mapping.
+	 * @return The container.
 	 */
 	public Map<OWLDataProperty, COWLDataPropertyImpl> getDataPropertyMap() {
-		return dataPropertyMap;
+		return Collections.unmodifiableMap(dataPropertyMap);
 	}
 
 	/**
-	 * Get mapping from OWL object property to its conceptual model.
+	 * Get the container that stores key-value pairs, where OWL API interface
+	 * OWLObjectProperty is the key and the customized class COWLObjectPropertyImpl
+	 * is the value.
 	 * 
-	 * @return The object property mapping.
+	 * @return The container.
 	 */
 	public Map<OWLObjectProperty, COWLObjectPropertyImpl> getObjectPropertyMap() {
-		return objectPropertyMap;
+		return Collections.unmodifiableMap(objectPropertyMap);
 	}
 
 	/**
 	 * Get the mapping from target OWL class to its count (the number of OWL
 	 * individuals that are asserted to the type of the class) in datasets.
 	 * 
-	 * @return Target class and count mapper.
+	 * @return The container.
 	 */
 	public Map<OWLClassImpl, Integer> getTargetClassAndCountMap() {
 		return targetClassAndCountMap;
@@ -208,51 +220,50 @@ public class SpaceCoverageEvaluator {
 	}
 
 	/**
-	 * Get the mapping from target OWL object property to its count (the number of
+	 * Get the mapping from focus object property to its count (the number of
 	 * triples whose predicates are the object property) in the datasets.
 	 * 
-	 * @return Target object property and count mapper.
+	 * @return Focus object property to count mapper.
 	 */
 	public Map<OWLObjectPropertyImpl, Integer> getTargetObjectPropertyAndCountMap() {
 		return targetObjectPropertyAndCountMap;
 	}
 
 	/**
-	 * Get a set of OWL object properties that are not selected as target OWL object
-	 * properties, but are used in the datasets.
+	 * Get non-focus object properties that are used in the datasets for testing
+	 * purpose.
 	 * 
-	 * @return Non target object properties.
+	 * @return Non-focus object properties.
 	 */
 	public Set<OWLObjectPropertyImpl> getNonTargetObjectProperties() {
 		return nonTargetObjectProperties;
 	}
 
 	/**
-	 * Mapping from target OWL data property to its count (the number of triples
-	 * whose predicates are the data property) in the datasets.
+	 * Mapping from focus data property to its count (the number of triples whose
+	 * predicates are the data property) in the datasets.
 	 * 
-	 * @return Target data property and count mapper.
+	 * @return Focus data property to count mapper.
 	 */
 	public Map<OWLDataPropertyImpl, Integer> getTargetDataPropertyAndCountMap() {
 		return targetDataPropertyAndCountMap;
 	}
 
 	/**
-	 * Get a set of OWL data properties that are not selected as target OWL data
-	 * properties, but are used in the datasets.
+	 * Get non-focus data properties that are used in the datasets for testing
+	 * purpose.
 	 * 
-	 * @return Non target data properties.
+	 * @return Non-focus data properties.
 	 */
 	public Set<OWLDataPropertyImpl> getNonTargetDataProperties() {
 		return nonTargetDataProperties;
 	}
 
 	/**
-	 * Evaluate coverage of the various aspects of the ontology used as input by the
-	 * generated dataset
+	 * This function defines control flow of space coverage evaluation.
 	 * 
 	 * @param ocImpl
-	 *            Conceptual model of an OWL named class.
+	 *            OWL class.
 	 */
 	public void evaluateSpaceCoverage(COWLClassImpl ocImpl) {
 		logger.info("Begin evaluating space coverage of datasets...");
@@ -261,9 +272,11 @@ public class SpaceCoverageEvaluator {
 	}
 
 	/**
-	 * This function finds all target signatures in which concepts are reachable
-	 * from the root class implemented by DFS algorithm.
+	 * This function utilizes DFS algorithm to find target signatures in which
+	 * concepts are reachable from the root class.
 	 * 
+	 * @param <T>
+	 *            The class of the node.
 	 * @param node
 	 *            Node of generic type T.
 	 */

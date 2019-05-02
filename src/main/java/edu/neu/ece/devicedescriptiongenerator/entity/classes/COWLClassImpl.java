@@ -16,7 +16,7 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 /**
- * This class defines conceptual model of OWL named class.
+ * This class defines customization of the OWL API class OWLClassImpl.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -30,46 +30,39 @@ public class COWLClassImpl implements HasIRI {
 	private IRI iri;
 
 	/**
-	 * Direct super named classes of this object
+	 * Direct super classes of this object
 	 */
 	private Set<COWLClassImpl> directSuperClasses = new HashSet<>();
 
 	/**
-	 * Super named classes (direct and inferred) of this object.
+	 * Super classes (direct and inferred) of this object.
 	 */
 	private Set<COWLClassImpl> superClasses = new HashSet<>();
 
 	/**
-	 * Direct super anonymous classes of this object.
+	 * Direct anonymous super class expressions of this object.
 	 */
 	private Set<OWLAnonymousClassExpression> directAnonymousSuperClasses = new HashSet<>();
 
 	/**
-	 * Anonymous classes of the class inherited from its superclasses.
-	 * 
-	 * @deprecated
-	 */
-	private Set<OWLAnonymousClassExpression> superAnonymousSuperClasses = new HashSet<>();
-
-	/**
 	 * Anonymous super classes of this object, including direct anonymous super
-	 * classes and super anonymous super classes.
+	 * classes and anonymous super classes inherited from its super classes.
 	 */
 	private Set<OWLAnonymousClassExpression> anonymousSuperClasses = new HashSet<>();
 
 	/**
-	 * Special class constraints from its anonymous class expressions that need to
-	 * be considered for dataset generation.
+	 * Anonymous super class expressions that are specially considered to avoid
+	 * generating inconsistent datasets.
 	 */
 	private Set<OWLAnonymousClassExpression> specialClassRestrictions = new HashSet<>();
 
 	/**
-	 * Direct named subclasses of this object.
+	 * Direct subclasses of this object.
 	 */
 	private Set<COWLClassImpl> directSubClasses = new HashSet<>();
 
 	/**
-	 * Named subclasses (direct and inferred) of this object.
+	 * Subclasses (direct and inferred) of this object.
 	 */
 	private Set<COWLClassImpl> subClasses = new HashSet<>();
 
@@ -84,29 +77,30 @@ public class COWLClassImpl implements HasIRI {
 	private Set<OWLClassExpression> disjointClasses = new HashSet<>();
 
 	/**
-	 * Object property and ranges pairs bounded to this object.
+	 * Container that stores key-value pairs, where object property is the key and
+	 * the property range (class expression) is the value.
 	 */
 	private Map<OWLObjectProperty, OWLClassExpression> objectPropertyRangesPairs = new HashMap<>();
 
 	/**
-	 * Data property and ranges pairs bounded to this object.
+	 * Container that stores key-value pairs, where data property is the key and the
+	 * property range (data range) is the value.
 	 */
 	private Map<OWLDataProperty, OWLDataRange> dataPropertyRangesPairs = new HashMap<>();
 
 	/**
-	 * Named individuals asserted to be type of this OWL named class.
+	 * Named individuals of type of this object.
 	 */
 	private LinkedList<OWLNamedIndividual> individuals = new LinkedList<>();
 
 	/**
-	 * Used to detect whether this object is visited when generating RDF instance
-	 * data.
+	 * Detect whether this object is visited when generating RDF instance data.
 	 */
 	private boolean isVisited = false;
 
 	/**
-	 * A counter that traces the index of next OWL named individual that is of type
-	 * of this OWL named class.
+	 * A counter that traces the index of next OWL named individual of type of this
+	 * object.
 	 */
 	private long nextInstanceIndex = 0;
 
@@ -138,47 +132,65 @@ public class COWLClassImpl implements HasIRI {
 	}
 
 	/**
-	 * Get super named classes (direct and indirect) of this object.
+	 * Get super classes (direct and indirect) of this object.
 	 * 
-	 * @return Super named classes (direct and inferred).
+	 * @return Super classes (direct and inferred).
 	 */
 	public Set<COWLClassImpl> getSuperClasses() {
 		return superClasses;
 	}
 
 	/**
-	 * Get direct anonymous super classes of this object.
+	 * Get direct anonymous super class expressions of this object.
 	 * 
-	 * @return Direct anonymous super classes.
+	 * @return Direct anonymous super class expressions.
 	 */
 	public Set<OWLAnonymousClassExpression> getDirectAnonymousSuperClasses() {
 		return directAnonymousSuperClasses;
 	}
 
 	/**
-	 * Get anonymous classes of the OWL named class inherited from its superclasses.
+	 * Get anonymous super classes of this object, including direct anonymous super
+	 * classes and anonymous super classes inherited from super classes.
 	 * 
-	 * @return Anonymous classes the OWL named class inherited from its
-	 *         superclasses.
-	 * @deprecated
+	 * @return Anonymous super classes.
 	 */
-	public Set<OWLAnonymousClassExpression> getSuperAnonymousSuperClasses() {
-		return superAnonymousSuperClasses;
+	public Set<OWLAnonymousClassExpression> getAnonymousSuperClasses() {
+		return anonymousSuperClasses;
 	}
 
 	/**
-	 * Get direct named subclasses of this object.
+	 * Set anonymous super classes of this object.
 	 * 
-	 * @return Direct named subclasses.
+	 * @param set
+	 *            Anonymous super classes.
+	 */
+	public void setAnonymousSuperClasses(Set<OWLAnonymousClassExpression> set) {
+		anonymousSuperClasses = set;
+	}
+
+	/**
+	 * Get special class restrictions.
+	 * 
+	 * @return Special class restrictions.
+	 */
+	public Set<OWLAnonymousClassExpression> getSpecialClassRestrictions() {
+		return specialClassRestrictions;
+	}
+
+	/**
+	 * Get direct subclasses of this object.
+	 * 
+	 * @return Direct subclasses.
 	 */
 	public Set<COWLClassImpl> getDirectSubClasses() {
 		return directSubClasses;
 	}
 
 	/**
-	 * Get named subclasses of this object.
+	 * Get subclasses of this object.
 	 * 
-	 * @return Named subclasses (direct and inferred).
+	 * @return Subclasses (direct and inferred).
 	 */
 	public Set<COWLClassImpl> getSubClasses() {
 		return subClasses;
@@ -203,99 +215,33 @@ public class COWLClassImpl implements HasIRI {
 	}
 
 	/**
-	 * Get object property and ranges pairs bounded to this object.
+	 * Get the container that stores key-value pairs, where object property is the
+	 * key and the property range (class expression) is the value.
 	 * 
-	 * @return Object property and ranges pairs.
+	 * @return The container.
 	 */
 	public Map<OWLObjectProperty, OWLClassExpression> getObjectPropertyRangesPairs() {
 		return objectPropertyRangesPairs;
 	}
 
 	/**
-	 * Get data property and ranges pairs bounded to this object.
+	 * Get the container that stores key-value pairs, where data property is the key
+	 * and the property range (data range) is the value.
 	 * 
-	 * @return Data property and ranges pairs.
+	 * @return The container.
 	 */
 	public Map<OWLDataProperty, OWLDataRange> getDataPropertyRangesPairs() {
 		return dataPropertyRangesPairs;
 	}
 
 	/**
-	 * Get named individuals asserted to be type of this OWL named class.
+	 * Get named individuals of type of this object.
 	 * 
-	 * @return Named individuals asserted to be type of this OWL named class.
+	 * @return Named individuals of type of this object.
 	 */
 	public LinkedList<OWLNamedIndividual> getNamedIndividuals() {
 		return individuals;
 	}
-
-	/*
-	 * public List<Set<OWLAnonymousClassExpression>>
-	 * getListOfAnonymousClassExpressionsSet() { return
-	 * listOfAnonymousClassExpressionsSet; }
-	 * 
-	 * public void setListOfAnonymousClassExpressionsSet(ArrayList<Set<
-	 * OWLAnonymousClassExpression>> listOfSet) { listOfAnonymousClassExpressionsSet
-	 * = listOfSet; }
-	 */
-	/**
-	 * Get anonymous super classes of this object, including direct anonymous super
-	 * classes and super anonymous super classes.
-	 * 
-	 * @return Anonymous super classes.
-	 */
-	public Set<OWLAnonymousClassExpression> getAnonymousSuperClasses() {
-		return anonymousSuperClasses;
-	}
-
-	/**
-	 * Set anonymous super classes of this object, including direct anonymous super
-	 * classes and super anonymous super classes.
-	 * 
-	 * @param set
-	 *            Anonymous super classes.
-	 */
-	public void setAnonymousSuperClasses(Set<OWLAnonymousClassExpression> set) {
-		anonymousSuperClasses = set;
-	}
-
-	/**
-	 * Get special class restrictions.
-	 * 
-	 * @return Special class restrictions.
-	 * 
-	 */
-	public Set<OWLAnonymousClassExpression> getSpecialClassRestrictions() {
-		return specialClassRestrictions;
-	}
-
-	/**
-	 * Add a special class restriction to this object.
-	 * 
-	 * @param exp
-	 *            An anonymous class expression.
-	 */
-	public void addASpecialClassRestriction(OWLAnonymousClassExpression exp) {
-		specialClassRestrictions.add(exp);
-	}
-
-	/*
-	 * public ArrayList<Set<Entry<COWLDataPropertyImpl, OWLDataRange>>>
-	 * getListOfDataPropertyAndRangePairsSet() { return
-	 * listOfDataPropertyAndRangePairsSet; }
-	 * 
-	 * public void setListOfDataPropertyAndRangePairsSet(ArrayList<Set<Entry<
-	 * COWLDataPropertyImpl, OWLDataRange>>> listOfSet) {
-	 * listOfDataPropertyAndRangePairsSet = listOfSet; }
-	 * 
-	 * public ArrayList<Set<Entry<COWLObjectPropertyImpl, OWLClassExpression>>>
-	 * getListOfObjectPropertyAndRangePairsSet() { return
-	 * listOfObjectPropertyAndRangePairsSet; }
-	 * 
-	 * public void setListOfObjectPropertyAndRangePairsSet(ArrayList<Set<Entry<
-	 * COWLObjectPropertyImpl, OWLClassExpression>>> listOfSet) {
-	 * listOfObjectPropertyAndRangePairsSet = listOfSet; }
-	 */
 
 	/**
 	 * Detect whether this object is visited.
@@ -317,37 +263,13 @@ public class COWLClassImpl implements HasIRI {
 	}
 
 	/**
-	 * Function used to coherently increase the counter of instances.
-	 *
-	 * @return The index of next OWL named individual that is of type of this OWL
-	 *         named class.
+	 * Function used to coherently increase the counter that traces the index of
+	 * next OWL named individual of type of this object.
+	 * 
+	 * @return The index of next OWL named individual of type of this object.
 	 */
 	public long getNextInstanceNumber() {
 		return nextInstanceIndex++;
-	}
-
-	/**
-	 * Bind an object property and range pair to this object.
-	 * 
-	 * @param oop
-	 *            Object property.
-	 * @param classExp
-	 *            Object property value (class expression).
-	 */
-	public void addAnObjectPropertyRangesPair(OWLObjectProperty oop, OWLClassExpression classExp) {
-		objectPropertyRangesPairs.put(oop, classExp);
-	}
-
-	/**
-	 * Bind a data property and range pair to this object.
-	 * 
-	 * @param odp
-	 *            Data property.
-	 * @param ran
-	 *            Data property value (data range).
-	 */
-	public void addADataPropertyRangesPair(OWLDataProperty odp, OWLDataRange ran) {
-		dataPropertyRangesPairs.put(odp, ran);
 	}
 
 	/**
@@ -360,5 +282,41 @@ public class COWLClassImpl implements HasIRI {
 		subAndItSelf.addAll(subClasses);
 		subAndItSelf.add(this);
 		return subAndItSelf;
+	}
+
+	/**
+	 * Add a special class restriction to this object.
+	 * 
+	 * @param exp
+	 *            An anonymous class expression.
+	 */
+	public void addASpecialClassRestriction(OWLAnonymousClassExpression exp) {
+		specialClassRestrictions.add(exp);
+	}
+
+	/**
+	 * Add a key-value pair to the container, where object property is the key and
+	 * the property range (class expression) is the value.
+	 * 
+	 * @param oop
+	 *            The key (object property).
+	 * @param classExp
+	 *            The value (class expression).
+	 */
+	public void addAnObjectPropertyRangesPair(OWLObjectProperty oop, OWLClassExpression classExp) {
+		objectPropertyRangesPairs.put(oop, classExp);
+	}
+
+	/**
+	 * Add a key-value pair to the container, where data property is the key and the
+	 * property range (data range) is the value.
+	 * 
+	 * @param odp
+	 *            The key (data property).
+	 * @param ran
+	 *            The value (data range).
+	 */
+	public void addADataPropertyRangesPair(OWLDataProperty odp, OWLDataRange ran) {
+		dataPropertyRangesPairs.put(odp, ran);
 	}
 }

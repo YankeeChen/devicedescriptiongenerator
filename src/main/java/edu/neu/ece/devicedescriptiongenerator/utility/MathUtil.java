@@ -14,7 +14,7 @@ import java.util.Random;
 public final class MathUtil {
 
 	/**
-	 * Don't let anyone instantiate this class.
+	 * This class cannot be instantiated.
 	 */
 	private MathUtil() {
 	}
@@ -31,6 +31,7 @@ public final class MathUtil {
 	 *            Random object.
 	 * @return A random integer with the given integer range.
 	 * @throws Exception
+	 *             If the input parameters are invalid.
 	 */
 	public static int getRandomIntegerInRange(int min, int max, Random ran) throws Exception {
 		/*
@@ -57,6 +58,7 @@ public final class MathUtil {
 	 *            Random object.
 	 * @return A random long with the given long range.
 	 * @throws Exception
+	 *             If the input parameters are invalid.
 	 */
 	public static long getRandomLongInRange(long min, long max, Random ran) throws Exception {
 		if (max == min)
@@ -78,6 +80,7 @@ public final class MathUtil {
 	 *            Random object.
 	 * @return A random double with the given double range.
 	 * @throws Exception
+	 *             If the input parameters are invalid.
 	 */
 	public static double getRandomDoubleInRange(double min, double max, Random ran) throws Exception {
 		// return ran.nextDouble()*((max - min) + 1) + min;
@@ -114,6 +117,7 @@ public final class MathUtil {
 	 *            Random object.
 	 * @return A random float with the given float range.
 	 * @throws Exception
+	 *             If the input parameters are invalid.
 	 */
 	public static float getRandomFloatInRange(float min, float max, Random ran) throws Exception {
 		if (max == min)

@@ -40,9 +40,9 @@ import edu.neu.ece.devicedescriptiongenerator.utility.CollectionUtil;
 import edu.neu.ece.devicedescriptiongenerator.utility.MathUtil;
 
 /**
- * An instance of this class visits OWL data ranges during dataset generation
- * process, including DataComplementOf, DataOneOf, Datatype, Datatype
- * restriction, DataIntersectionOf and DataUnionOf.
+ * An instance of this class generates datasets based on specified OWL data
+ * range, including DataComplementOf, DataOneOf, Datatype, Datatype restriction,
+ * DataIntersectionOf and DataUnionOf.
  * 
  * @author Yanji Chen
  * @version 1.0
@@ -56,17 +56,17 @@ public class COWLDataRangeVisitor implements OWLDataRangeVisitor {
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
 	/**
-	 * Target OWL named individual of the type of the class expression.
+	 * OWL named individual.
 	 */
 	private final OWLNamedIndividual ind;
 
 	/**
-	 * Target data property
+	 * Data property.
 	 */
 	private final OWLDataProperty dataProperty;
 
 	/**
-	 * A Random object used to generate a stream of pesudorandom numbers.
+	 * Used to generate a stream of pesudorandom numbers.
 	 */
 	private final Random ran;
 
@@ -76,7 +76,7 @@ public class COWLDataRangeVisitor implements OWLDataRangeVisitor {
 	private final OWLOntologyManager manager;
 
 	/**
-	 * An OWL data factory object used for creating entities, class expressions and
+	 * An OWL data factory object used to create entities, class expressions and
 	 * axioms.
 	 */
 	private final OWLDataFactory factory;
@@ -87,22 +87,28 @@ public class COWLDataRangeVisitor implements OWLDataRangeVisitor {
 	private final OWLOntology outputOntology;
 
 	/**
-	 * Map between data properties and customization.
+	 * Container that stores key-value pairs, where OWL API interface
+	 * OWLDataProperty is the key and the customized class COWLDataPropertyImpl is
+	 * the value.
 	 */
 	private final Map<OWLDataProperty, COWLDataPropertyImpl> dataPropertyMap;
 
 	/**
-	 * The probability of selecting an equivalent data property of a data property.
+	 * The probability of selecting an equivalent data property (direct or inferred)
+	 * of a data property for data property assertion generation; 0.5 by default.
 	 */
 	private final double equivalentDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a disjoint data property of a data property.
+	 * The probability of selecting a disjoint data property (directed or inferred)
+	 * of a data property for negative data property assertion generation; 0.8 by
+	 * default.
 	 */
 	private final double disjointDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a super data property of a data property.
+	 * The probability of selecting a super data property (directed or inferred) of
+	 * a data property for data property assertion generation; 0.5 by default.
 	 */
 	private final double superDataPropertySelectionProbability;
 
@@ -110,9 +116,9 @@ public class COWLDataRangeVisitor implements OWLDataRangeVisitor {
 	 * Constructor
 	 * 
 	 * @param ind
-	 *            Target OWL named individual of the type of the class expression.
+	 *            OWL named individual.
 	 * @param dataProperty
-	 *            Target data property.
+	 *            Data property.
 	 * @param generator
 	 *            Device description generator.
 	 */
@@ -208,11 +214,11 @@ public class COWLDataRangeVisitor implements OWLDataRangeVisitor {
 	}
 
 	/**
-	 * Get a random OWL literal from a datatype in the OWL 2 specification.
+	 * Get a random OWL literal from the specified OWL 2 datatype.
 	 * 
 	 * @param dt
-	 *            A datatype in the OWL 2 specification.
-	 * @return A literal in the OWL 2 specification.
+	 *            The specified OWL 2 datatype.
+	 * @return Literal in OWL 2 specification.
 	 * @throws Exception
 	 */
 	private OWLLiteral getARandomOWLLiteral(OWL2Datatype dt) throws Exception {
@@ -261,13 +267,13 @@ public class COWLDataRangeVisitor implements OWLDataRangeVisitor {
 	}
 
 	/**
-	 * Get a random OWL literal from datatype restriction.
+	 * Get a random OWL literal from the specified OWL 2 datatype restriction.
 	 * 
 	 * @param dt
-	 *            A datatype in the OWL 2 specification.
+	 *            The specified OWL 2 datatype restriction.
 	 * @param facetRestrictions
 	 *            OWL facet restrictions.
-	 * @return A literal in the OWL 2 specification.
+	 * @return Literal in the OWL 2 specification.
 	 * @throws Exception
 	 */
 	private OWLLiteral getARandomOWLLiteral(OWL2Datatype dt, Set<OWLFacetRestriction> facetRestrictions)
@@ -646,7 +652,7 @@ public class COWLDataRangeVisitor implements OWLDataRangeVisitor {
 	 * Generate data property assertion axiom.
 	 * 
 	 * @param literal
-	 *            An OWL literal.
+	 *            OWL literal.
 	 */
 	private void generateDataPropertyAssertionAxiom(OWLLiteral literal) {
 		if (literal == null)
@@ -691,17 +697,16 @@ public class COWLDataRangeVisitor implements OWLDataRangeVisitor {
 	}
 
 	/**
-	 * This function detects the output ontology contains target triples.
+	 * This function detects whether the output ontology contains the specified data
+	 * property assertion and its relevant data property assertions.
 	 * 
 	 * @param property
-	 *            Conceptual model of an OWL object property.
+	 *            Customization of OWL object property.
 	 * @param ind
-	 *            An OWL named individual as subject in the generated object
-	 *            property assertion axiom.
+	 *            OWL named individual.
 	 * @param literal
-	 *            An OWL literal as object in the generated data property assertion
-	 *            axiom.
-	 * @return true if at least one target triple exists, false otherwise.
+	 *            OWL literal.
+	 * @return true if there exists such data property assertions, false otherwise.
 	 */
 	public boolean containsAxiom(COWLPropertyImpl property, OWLNamedIndividual ind, OWLLiteral literal) {
 		if (property == null || ind == null || literal == null)
