@@ -170,21 +170,21 @@ public class DeviceDescriptionGenerator {
 	private final double disjointObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a disjoint data property (directed or inferred)
+	 * The probability of selecting a disjoint data property (direct or inferred)
 	 * of a data property for negative data property assertion generation; 0.8 by
 	 * default.
 	 */
 	private final double disjointDataPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a super object property (directed or inferred)
+	 * The probability of selecting a super object property (direct or inferred)
 	 * of an object property for object property assertion generation; 0.5 by
 	 * default.
 	 */
 	private final double superObjectPropertySelectionProbability;
 
 	/**
-	 * The probability of selecting a super data property (directed or inferred) of
+	 * The probability of selecting a super data property (direct or inferred) of
 	 * a data property for data property assertion generation; 0.5 by default.
 	 */
 	private final double superDataPropertySelectionProbability;

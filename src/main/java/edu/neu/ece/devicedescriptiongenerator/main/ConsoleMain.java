@@ -207,6 +207,9 @@ public class ConsoleMain {
 			ontologyIRI = IRI.create(out);
 		}
 
+		Controller.Builder builder = new Controller.Builder(ontologyIRI, rootIRIString);
+		if (inputFile != null)
+			builder.setInputFile(inputFile);
 		/*
 		 * if (line.hasOption(DEPENDENCIES)) { for (String path :
 		 * line.getOptionValues(DEPENDENCIES)) { File dependency = new File(path);
@@ -214,187 +217,184 @@ public class ConsoleMain {
 		 */
 
 		int devNumber = 1;
-		if (line.hasOption(DEV_NUMBER))
+		if (line.hasOption(DEV_NUMBER)) {
 			devNumber = Integer.parseInt(line.getOptionValue(DEV_NUMBER));
+			builder.setDevNumber(devNumber);
+		}
 
-		int baseSeed = 0;
-		if (line.hasOption(RAM_SEED))
-			baseSeed = Integer.parseInt(line.getOptionValue(RAM_SEED));
-		long seed = baseSeed * (Integer.MAX_VALUE + 1) + devNumber;
+		if (line.hasOption(RAM_SEED)) {
+			int baseSeed = Integer.parseInt(line.getOptionValue(RAM_SEED));
+			builder.setSeed(baseSeed);
+		}
 
-		String outputFilePath = "instancedata" + File.separator + "DeviceDescription" + devNumber + ".rdf";
-		File outputFile = line.hasOption(OUTPUT_FILE_PATH) ? FileUtil.createFile(line.getOptionValue(OUTPUT_FILE_PATH))
-				: FileUtil.createFile(outputFilePath);
+		if (line.hasOption(OUTPUT_FILE_PATH)) {
+			File outputFile = FileUtil.createFile(line.getOptionValue(OUTPUT_FILE_PATH));
+			builder.setOutputFile(outputFile);
+		}
 
-		double classConstraintSelectionProbability = 0.9;
 		if (line.hasOption(CLASS_CONSTRAINT_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(CLASS_CONSTRAINT_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double classConstraintSelectionProbability = Double
+					.parseDouble(line.getOptionValue(CLASS_CONSTRAINT_SELECTION_PROBABILITY));
+			if (classConstraintSelectionProbability < 0.0 || classConstraintSelectionProbability > 1.0) {
 				logger.error("Class constraint selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			classConstraintSelectionProbability = temp;
+			builder.setClassConstraintSelectionProbability(classConstraintSelectionProbability);
 		}
 
-		double newIndividualProbability = 0.5;
 		if (line.hasOption(NEW_INDIVIDUAL_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(NEW_INDIVIDUAL_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double newIndividualProbability = Double.parseDouble(line.getOptionValue(NEW_INDIVIDUAL_PROBABILITY));
+			if (newIndividualProbability < 0.0 || newIndividualProbability > 1.0) {
 				logger.error("New individual probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			newIndividualProbability = temp;
+			builder.setNewIndividualProbability(newIndividualProbability);
 		}
 
-		double classAssertionProbability = 1.0;
 		if (line.hasOption(CLASS_ASSERTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(CLASS_ASSERTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double classAssertionProbability = Double.parseDouble(line.getOptionValue(CLASS_ASSERTION_PROBABILITY));
+			if (classAssertionProbability < 0.0 || classAssertionProbability > 1.0) {
 				logger.error("Class assertion probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			classAssertionProbability = temp;
+			builder.setClassAssertionProbability(classAssertionProbability);
 		}
 
-		double objectPropertyAssertionProbability = 0.5;
 		if (line.hasOption(OBJECT_PROPERTY_ASSERTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(OBJECT_PROPERTY_ASSERTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double objectPropertyAssertionProbability = Double
+					.parseDouble(line.getOptionValue(OBJECT_PROPERTY_ASSERTION_PROBABILITY));
+			if (objectPropertyAssertionProbability < 0.0 || objectPropertyAssertionProbability > 1.0) {
 				logger.error("Object property assertion probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			objectPropertyAssertionProbability = temp;
+			builder.setObjectPropertyAssertionProbability(objectPropertyAssertionProbability);
 		}
 
-		double dataPropertyAssertionProbability = 0.5;
 		if (line.hasOption(DATA_PROPERTY_ASSERTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(DATA_PROPERTY_ASSERTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double dataPropertyAssertionProbability = Double
+					.parseDouble(line.getOptionValue(DATA_PROPERTY_ASSERTION_PROBABILITY));
+			if (dataPropertyAssertionProbability < 0.0 || dataPropertyAssertionProbability > 1.0) {
 				logger.error("Data property assertion probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			dataPropertyAssertionProbability = temp;
+			builder.setDataPropertyAssertionProbability(dataPropertyAssertionProbability);
 		}
 
-		double superClassSelectionProbability = 0.5;
 		if (line.hasOption(SUPER_CLASS_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(SUPER_CLASS_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double superClassSelectionProbability = Double
+					.parseDouble(line.getOptionValue(SUPER_CLASS_SELECTION_PROBABILITY));
+			if (superClassSelectionProbability < 0.0 || superClassSelectionProbability > 1.0) {
 				logger.error("Super class selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			superClassSelectionProbability = temp;
+			builder.setSuperClassSelectionProbability(superClassSelectionProbability);
 		}
 
-		double equivalentObjectPropertySelectionProbability = 0.5;
 		if (line.hasOption(EQUIVALENT_OBJECT_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(EQUIVALENT_OBJECT_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double equivalentObjectPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(EQUIVALENT_OBJECT_PROPERTY_SELECTION_PROBABILITY));
+			if (equivalentObjectPropertySelectionProbability < 0.0
+					|| equivalentObjectPropertySelectionProbability > 1.0) {
 				logger.error("Equivalent object property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			equivalentObjectPropertySelectionProbability = temp;
+			builder.setEquivalentObjectPropertySelectionProbability(equivalentObjectPropertySelectionProbability);
 		}
 
-		double equivalentDataPropertySelectionProbability = 0.5;
 		if (line.hasOption(EQUIVALENT_DATA_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(EQUIVALENT_DATA_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double equivalentDataPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(EQUIVALENT_DATA_PROPERTY_SELECTION_PROBABILITY));
+			if (equivalentDataPropertySelectionProbability < 0.0 || equivalentDataPropertySelectionProbability > 1.0) {
 				logger.error("Equivalent data property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			equivalentDataPropertySelectionProbability = temp;
+			builder.setEquivalentDataPropertySelectionProbability(equivalentDataPropertySelectionProbability);
 		}
 
-		double disjointObjectPropertySelectionProbability = 0.8;
 		if (line.hasOption(DISJOINT_OBJECT_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(DISJOINT_OBJECT_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double disjointObjectPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(DISJOINT_OBJECT_PROPERTY_SELECTION_PROBABILITY));
+			if (disjointObjectPropertySelectionProbability < 0.0 || disjointObjectPropertySelectionProbability > 1.0) {
 				logger.error("Disjoint object property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			disjointObjectPropertySelectionProbability = temp;
+			builder.setDisjointObjectPropertySelectionProbability(disjointObjectPropertySelectionProbability);
 		}
 
-		double disjointDataPropertySelectionProbability = 0.8;
 		if (line.hasOption(DISJOINT_DATA_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(DISJOINT_DATA_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double disjointDataPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(DISJOINT_DATA_PROPERTY_SELECTION_PROBABILITY));
+			if (disjointDataPropertySelectionProbability < 0.0 || disjointDataPropertySelectionProbability > 1.0) {
 				logger.error("Disjoint data property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			disjointDataPropertySelectionProbability = temp;
+			builder.setDisjointDataPropertySelectionProbability(disjointDataPropertySelectionProbability);
 		}
 
-		double superObjectPropertySelectionProbability = 0.5;
 		if (line.hasOption(SUPER_OBJECT_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(SUPER_OBJECT_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double superObjectPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(SUPER_OBJECT_PROPERTY_SELECTION_PROBABILITY));
+			if (superObjectPropertySelectionProbability < 0.0 || superObjectPropertySelectionProbability > 1.0) {
 				logger.error("Super object property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			superObjectPropertySelectionProbability = temp;
+			builder.setSuperObjectPropertySelectionProbability(superObjectPropertySelectionProbability);
 		}
 
-		double superDataPropertySelectionProbability = 0.5;
 		if (line.hasOption(SUPER_DATA_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(SUPER_DATA_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double superDataPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(SUPER_DATA_PROPERTY_SELECTION_PROBABILITY));
+			if (superDataPropertySelectionProbability < 0.0 || superDataPropertySelectionProbability > 1.0) {
 				logger.error("Super data property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			superDataPropertySelectionProbability = temp;
+			builder.setSuperDataPropertySelectionProbability(superDataPropertySelectionProbability);
 		}
 
-		double inverseObjectPropertySelectionProbability = 0.8;
 		if (line.hasOption(INVERSE_OBJECT_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(INVERSE_OBJECT_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double inverseObjectPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(INVERSE_OBJECT_PROPERTY_SELECTION_PROBABILITY));
+			if (inverseObjectPropertySelectionProbability < 0.0 || inverseObjectPropertySelectionProbability > 1.0) {
 				logger.error("Inverse object property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			inverseObjectPropertySelectionProbability = temp;
+			builder.setInverseObjectPropertySelectionProbability(inverseObjectPropertySelectionProbability);
 		}
 
-		double symmetricObjectPropertySelectionProbability = 0.8;
 		if (line.hasOption(SYMMETRIC_OBJECT_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(SYMMETRIC_OBJECT_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double symmetricObjectPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(SYMMETRIC_OBJECT_PROPERTY_SELECTION_PROBABILITY));
+			if (symmetricObjectPropertySelectionProbability < 0.0
+					|| symmetricObjectPropertySelectionProbability > 1.0) {
 				logger.error("Symmetric object property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			symmetricObjectPropertySelectionProbability = temp;
+			builder.setSymmetricObjectPropertySelectionProbability(symmetricObjectPropertySelectionProbability);
 		}
 
-		double asymmetricObjectPropertySelectionProbability = 0.8;
 		if (line.hasOption(ASYMMETRIC_OBJECT_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(ASYMMETRIC_OBJECT_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double asymmetricObjectPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(ASYMMETRIC_OBJECT_PROPERTY_SELECTION_PROBABILITY));
+			if (asymmetricObjectPropertySelectionProbability < 0.0
+					|| asymmetricObjectPropertySelectionProbability > 1.0) {
 				logger.error("Asymmetric object property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			asymmetricObjectPropertySelectionProbability = temp;
+			builder.setAsymmetricObjectPropertySelectionProbability(asymmetricObjectPropertySelectionProbability);
 		}
 
-		double irreflexiveObjectPropertySelectionProbability = 0.8;
 		if (line.hasOption(IRREFLEXIVE_OBJECT_PROPERTY_SELECTION_PROBABILITY)) {
-			double temp = Double.parseDouble(line.getOptionValue(IRREFLEXIVE_OBJECT_PROPERTY_SELECTION_PROBABILITY));
-			if (temp < 0.0 || temp > 1.0) {
+			double irreflexiveObjectPropertySelectionProbability = Double
+					.parseDouble(line.getOptionValue(IRREFLEXIVE_OBJECT_PROPERTY_SELECTION_PROBABILITY));
+			if (irreflexiveObjectPropertySelectionProbability < 0.0
+					|| irreflexiveObjectPropertySelectionProbability > 1.0) {
 				logger.error("Irreflexive object property selection probability is out of range [0, 1]");
 				System.exit(1);
 			}
-			irreflexiveObjectPropertySelectionProbability = temp;
+			builder.setIrreflexiveObjectPropertySelectionProbability(irreflexiveObjectPropertySelectionProbability);
 		}
 
-		new Controller(ontologyIRI, inputFile, rootIRIString, devNumber, seed, outputFile,
-				classConstraintSelectionProbability, newIndividualProbability, classAssertionProbability,
-				objectPropertyAssertionProbability, dataPropertyAssertionProbability, superClassSelectionProbability,
-				equivalentObjectPropertySelectionProbability, equivalentDataPropertySelectionProbability,
-				disjointObjectPropertySelectionProbability, disjointDataPropertySelectionProbability,
-				superObjectPropertySelectionProbability, superDataPropertySelectionProbability,
-				inverseObjectPropertySelectionProbability, symmetricObjectPropertySelectionProbability,
-				asymmetricObjectPropertySelectionProbability, irreflexiveObjectPropertySelectionProbability)
-						.generateDeviceDescriptions();
+		builder.build().generateDeviceDescriptions();
 	}
 
 	/**

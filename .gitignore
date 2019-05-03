@@ -10,8 +10,23 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Catalog files
+catalog-v*.xml
+
+# Evaluation result files
+evaluationresults/SpaceCoverageEvaluationResults_DeviceDescription*.txt
+
+# ignore all files in the instancedata/ directory
+instancedata/
+
 # ignore all files in the doc/ directory
 doc/
+
+# ignore all files in the logs/ directory
+logs/
+
+# ignore all files in the target/ directory
+target/
 
 # Package Files #
 #*.jar

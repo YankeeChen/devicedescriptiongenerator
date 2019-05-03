@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import edu.neu.ece.devicedescriptiongenerator.evaluator.SpaceCoverageEvaluator;
 import edu.neu.ece.devicedescriptiongenerator.extractor.OntologyExtractor;
 import edu.neu.ece.devicedescriptiongenerator.generator.DeviceDescriptionGenerator;
+import edu.neu.ece.devicedescriptiongenerator.utility.FileUtil;
 
 /**
  * This class is used for controlling the whole device description generation
@@ -81,7 +82,7 @@ public class Controller {
 
 	/**
 	 * The probability of generating class assertion axioms for each named
-	 * individual; 0.5 by default.
+	 * individual; 1.0 by default.
 	 */
 	private final double classAssertionProbability;
 
@@ -182,104 +183,476 @@ public class Controller {
 	private OWLReasoner reasoner = null;
 
 	/**
-	 * Constructor
-	 * 
-	 * @param ontologyIRI
-	 *            Input ontology IRI.
-	 * @param inputFile
-	 *            Input ontology file.
-	 * @param rootIRIString
-	 *            Ontology root class IRI as string.
-	 * @param devNumber
-	 *            The number of device descriptions.
-	 * @param seed
-	 *            Random seed for generating randomized device descriptions.
-	 * @param outputFile
-	 *            The generated device description datasets.
-	 * @param classConstraintSelectionProbability
-	 *            The probability of selecting an OWL class constraint (anonymous
-	 *            class expression) of an OWL named class.
-	 * @param newIndividualProbability
-	 *            The probability of creating a new OWL named individual.
-	 * @param classAssertionProbability
-	 *            The probability of generating class assertion axiom for each named
-	 *            individual.
-	 * @param objectPropertyAssertionProbability
-	 *            The probability of creating a new object property assertion axiom.
-	 * @param dataPropertyAssertionProbability
-	 *            The probability of creating a new data property assertion axiom.
-	 * @param superClassSelectionProbability
-	 *            The probability of selecting a super class (direct or inferred) of
-	 *            a class for class assertion generation.
-	 * @param equivalentObjectPropertySelectionProbability
-	 *            The probability of selecting an equivalent object property (direct
-	 *            or inferred) of an object property for object property assertion
-	 *            generation.
-	 * @param equivalentDataPropertySelectionProbability
-	 *            The probability of selecting an equivalent data property (direct
-	 *            or inferred) of a data property for data property assertion
-	 *            generation.
-	 * @param disjointObjectPropertySelectionProbability
-	 *            The probability of selecting a disjoint object property (direct or
-	 *            inferred) of an object property for negative object property
-	 *            assertion generation.
-	 * @param disjointDataPropertySelectionProbability
-	 *            The probability of selecting a disjoint data property (direct or
-	 *            inferred) of a data property for negative object property
-	 *            assertion generation.
-	 * @param superObjectPropertySelectionProbability
-	 *            The probability of selecting a super object property (direct or
-	 *            inferred) of an object property for object property assertion
-	 *            generation.
-	 * @param superDataPropertySelectionProbability
-	 *            The probability of selecting a super data property (direct or
-	 *            inferred) of a data property for data property assertion
-	 *            generation.
-	 * @param inverseObjectPropertySelectionProbability
-	 *            The probability of selecting an inverse property (direct or
-	 *            inferred) of an object property for object property assertion
-	 *            generation.
-	 * @param symmetricObjectPropertySelectionProbability
-	 *            The probability of selecting symmetric characteristic of an object
-	 *            property for object property assertion generation.
-	 * @param asymmetricObjectPropertySelectionProbability
-	 *            The probability of selecting asymmetric characteristic of an
-	 *            object property for negative object property assertion generation.
-	 * @param irreflexiveObjectPropertySelectionProbability
-	 *            The probability of selecting irreflexive characteristic of an
-	 *            object property for negative object property assertion generation.
+	 * Inner static Builder class.
 	 */
-	public Controller(IRI ontologyIRI, File inputFile, String rootIRIString, int devNumber, long seed, File outputFile,
-			double classConstraintSelectionProbability, double newIndividualProbability,
-			double classAssertionProbability, double objectPropertyAssertionProbability,
-			double dataPropertyAssertionProbability, double superClassSelectionProbability,
-			double equivalentObjectPropertySelectionProbability, double equivalentDataPropertySelectionProbability,
-			double disjointObjectPropertySelectionProbability, double disjointDataPropertySelectionProbability,
-			double superObjectPropertySelectionProbability, double superDataPropertySelectionProbability,
-			double inverseObjectPropertySelectionProbability, double symmetricObjectPropertySelectionProbability,
-			double asymmetricObjectPropertySelectionProbability, double irreflexiveObjectPropertySelectionProbability) {
-		this.ontologyIRI = ontologyIRI;
-		this.inputFile = inputFile;
-		this.rootIRIString = rootIRIString;
-		this.devNumber = devNumber;
-		this.seed = seed;
-		this.outputFile = outputFile;
-		this.classConstraintSelectionProbability = classConstraintSelectionProbability;
-		this.newIndividualProbability = newIndividualProbability;
-		this.classAssertionProbability = classAssertionProbability;
-		this.objectPropertyAssertionProbability = objectPropertyAssertionProbability;
-		this.dataPropertyAssertionProbability = dataPropertyAssertionProbability;
-		this.superClassSelectionProbability = superClassSelectionProbability;
-		this.equivalentObjectPropertySelectionProbability = equivalentObjectPropertySelectionProbability;
-		this.equivalentDataPropertySelectionProbability = equivalentDataPropertySelectionProbability;
-		this.disjointObjectPropertySelectionProbability = disjointObjectPropertySelectionProbability;
-		this.disjointDataPropertySelectionProbability = disjointDataPropertySelectionProbability;
-		this.superObjectPropertySelectionProbability = superObjectPropertySelectionProbability;
-		this.superDataPropertySelectionProbability = superDataPropertySelectionProbability;
-		this.inverseObjectPropertySelectionProbability = inverseObjectPropertySelectionProbability;
-		this.symmetricObjectPropertySelectionProbability = symmetricObjectPropertySelectionProbability;
-		this.asymmetricObjectPropertySelectionProbability = asymmetricObjectPropertySelectionProbability;
-		this.irreflexiveObjectPropertySelectionProbability = irreflexiveObjectPropertySelectionProbability;
+	public static class Builder {
+		// Required parameters
+		/**
+		 * Input ontology IRI.
+		 */
+		private final IRI ontologyIRI;
+
+		/**
+		 * Ontology root class IRI as string.
+		 */
+		private final String rootIRIString;
+
+		// Optional parameters - initialized to default values
+		/**
+		 * Input ontology file; null by default.
+		 */
+		private File inputFile = null;
+
+		/**
+		 * The number of device descriptions; 1 by default.
+		 */
+		private int devNumber = 1;
+
+		/**
+		 * Random seed for generating randomized device descriptions; 0 by default.
+		 */
+		private long seed = devNumber;
+
+		/**
+		 * The generated device descriptions as file.
+		 */
+		private File outputFile = FileUtil
+				.createFile("instancedata" + File.separator + "DeviceDescription" + devNumber + ".rdf");
+
+		/**
+		 * The probability of selecting an OWL class constraint (anonymous super class
+		 * expression) of an OWL class; 0.9 by default.
+		 */
+		private double classConstraintSelectionProbability = 0.9;
+
+		/**
+		 * The probability of creating an OWL named individual; 0.5 by default.
+		 */
+		private double newIndividualProbability = 0.5;
+
+		/**
+		 * The probability of generating class assertion axioms for each named
+		 * individual; 1.0 by default.
+		 */
+		private double classAssertionProbability = 1.0;
+
+		/**
+		 * The probability of creating an object property assertion axiom; 0.5 by
+		 * default.
+		 */
+		private double objectPropertyAssertionProbability = 0.5;
+
+		/**
+		 * The probability of creating a data property assertion axiom; 0.5 by default.
+		 */
+		private double dataPropertyAssertionProbability = 0.5;
+
+		/**
+		 * The probability of selecting a super class (direct or inferred) of a class
+		 * for class assertion generation; 0.5 by default.
+		 */
+		private double superClassSelectionProbability = 0.5;
+
+		/**
+		 * The probability of selecting an equivalent object property (direct or
+		 * inferred) of an object property for object property assertion generation; 0.5
+		 * by default.
+		 */
+		private double equivalentObjectPropertySelectionProbability = 0.5;
+
+		/**
+		 * The probability of selecting an equivalent data property (direct or inferred)
+		 * of a data property for data property assertion generation; 0.5 by default.
+		 */
+		private double equivalentDataPropertySelectionProbability = 0.5;
+
+		/**
+		 * The probability of selecting a disjoint object property (direct or inferred)
+		 * of an object property for negative object property assertion generation; 0.8
+		 * by default.
+		 */
+		private double disjointObjectPropertySelectionProbability = 0.8;
+
+		/**
+		 * The probability of selecting a disjoint data property (directed or inferred)
+		 * of a data property for negative data property assertion generation; 0.8 by
+		 * default.
+		 */
+		private double disjointDataPropertySelectionProbability = 0.8;
+
+		/**
+		 * The probability of selecting a super object property (directed or inferred)
+		 * of an object property for object property assertion generation; 0.5 by
+		 * default.
+		 */
+		private double superObjectPropertySelectionProbability = 0.5;
+
+		/**
+		 * The probability of selecting a super data property (directed or inferred) of
+		 * a data property for data property assertion generation; 0.5 by default.
+		 */
+		private double superDataPropertySelectionProbability = 0.5;
+
+		/**
+		 * The probability of selecting an inverse property (direct or inferred) of an
+		 * object property for object property assertion generation; 0.8 by default.
+		 */
+		private double inverseObjectPropertySelectionProbability = 0.8;
+
+		/**
+		 * The probability of selecting symmetric characteristic of an object property
+		 * for object property assertion generation; 0.8 by default.
+		 */
+		private double symmetricObjectPropertySelectionProbability = 0.8;
+
+		/**
+		 * The probability of selecting asymmetric characteristic of an object property
+		 * for negative object property assertion generation; 0.8 by default.
+		 */
+		private double asymmetricObjectPropertySelectionProbability = 0.8;
+
+		/**
+		 * The probability of selecting irreflexive characteristic of an object property
+		 * for negative object property assertion generation; 0.8 by default.
+		 */
+		private double irreflexiveObjectPropertySelectionProbability = 0.8;
+
+		/**
+		 * Constructor.
+		 * 
+		 * @param ontologyIRI
+		 *            Input ontology IRI.
+		 * @param rootIRIString
+		 *            Ontology root class IRI as string.
+		 */
+		public Builder(IRI ontologyIRI, String rootIRIString) {
+			this.ontologyIRI = ontologyIRI;
+			this.rootIRIString = rootIRIString;
+		}
+
+		/**
+		 * Set input ontology file.
+		 * 
+		 * @param inputFile
+		 *            Input ontology file.
+		 * @return Current Builder object.
+		 */
+		public Builder setInputFile(File inputFile) {
+			this.inputFile = inputFile;
+			return this;
+		}
+
+		/**
+		 * Set the number of device descriptions.
+		 * 
+		 * @param devNumber
+		 *            The number of device descriptions.
+		 * @return Current Builder object.
+		 */
+		public Builder setDevNumber(int devNumber) {
+			this.devNumber = devNumber;
+			outputFile = FileUtil
+					.createFile("instancedata" + File.separator + "DeviceDescription" + this.devNumber + ".rdf");
+			this.seed = this.devNumber;
+			return this;
+		}
+
+		/**
+		 * Set the random seed for generating randomized device descriptions.
+		 * 
+		 * @param baseSeed
+		 *            Random base seed.
+		 * @return Current Builder object.
+		 */
+		public Builder setSeed(int baseSeed) {
+			long seed = baseSeed * (Integer.MAX_VALUE + 1) + devNumber;
+			this.seed = seed;
+			return this;
+		}
+
+		/**
+		 * Set output ontology file.
+		 * 
+		 * @param outputFile
+		 *            Output ontology file.
+		 * @return Current Builder object.
+		 */
+		public Builder setOutputFile(File outputFile) {
+			this.outputFile = outputFile;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting an OWL class constraint (anonymous super
+		 * class expression) of an OWL class
+		 * 
+		 * @param classConstraintSelectionProbability
+		 *            The probability of selecting an OWL class constraint (anonymous
+		 *            super class expression) of an OWL class.
+		 * @return Current Builder object.
+		 */
+		public Builder setClassConstraintSelectionProbability(double classConstraintSelectionProbability) {
+			this.classConstraintSelectionProbability = classConstraintSelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of creating an OWL named individual.
+		 * 
+		 * @param newIndividualProbability
+		 *            The probability of creating an OWL named individual.
+		 * @return Current Builder object.
+		 */
+		public Builder setNewIndividualProbability(double newIndividualProbability) {
+			this.newIndividualProbability = newIndividualProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of generating class assertion axioms for each named
+		 * individual.
+		 * 
+		 * @param classAssertionProbability
+		 *            The probability of generating class assertion axioms for each
+		 *            named individual.
+		 * @return Current Builder object.
+		 */
+		public Builder setClassAssertionProbability(double classAssertionProbability) {
+			this.classAssertionProbability = classAssertionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of creating an object property assertion axiom.
+		 * 
+		 * @param objectPropertyAssertionProbability
+		 *            The probability of creating an object property assertion axiom.
+		 * @return Current Builder object.
+		 */
+		public Builder setObjectPropertyAssertionProbability(double objectPropertyAssertionProbability) {
+			this.objectPropertyAssertionProbability = objectPropertyAssertionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of creating a data property assertion axiom.
+		 * 
+		 * @param dataPropertyAssertionProbability
+		 *            The probability of creating a data property assertion axiom.
+		 * @return Current Builder object.
+		 */
+		public Builder setDataPropertyAssertionProbability(double dataPropertyAssertionProbability) {
+			this.dataPropertyAssertionProbability = dataPropertyAssertionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting a super class (direct or inferred) of a
+		 * class for class assertion generation
+		 * 
+		 * @param superClassSelectionProbability
+		 *            The probability of selecting a super class (direct or inferred) of
+		 *            a class for class assertion generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setSuperClassSelectionProbability(double superClassSelectionProbability) {
+			this.superClassSelectionProbability = superClassSelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting an equivalent object property (direct or
+		 * inferred) of an object property for object property assertion generation
+		 * 
+		 * @param equivalentObjectPropertySelectionProbability
+		 *            The probability of selecting an equivalent object property (direct
+		 *            or inferred) of an object property for object property assertion
+		 *            generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setEquivalentObjectPropertySelectionProbability(
+				double equivalentObjectPropertySelectionProbability) {
+			this.equivalentObjectPropertySelectionProbability = equivalentObjectPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting an equivalent data property (direct or
+		 * inferred) of a data property for data property assertion generation.
+		 * 
+		 * @param equivalentDataPropertySelectionProbability
+		 *            The probability of selecting an equivalent data property (direct
+		 *            or inferred) of a data property for data property assertion
+		 *            generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setEquivalentDataPropertySelectionProbability(
+				double equivalentDataPropertySelectionProbability) {
+			this.equivalentDataPropertySelectionProbability = equivalentDataPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting a disjoint object property (direct or
+		 * inferred) of an object property for negative object property assertion
+		 * generation.
+		 * 
+		 * @param disjointObjectPropertySelectionProbability
+		 *            The probability of selecting a disjoint object property (direct or
+		 *            inferred) of an object property for negative object property
+		 *            assertion generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setDisjointObjectPropertySelectionProbability(
+				double disjointObjectPropertySelectionProbability) {
+			this.disjointObjectPropertySelectionProbability = disjointObjectPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting a disjoint data property (direct or
+		 * inferred) of a data property for negative data property assertion generation.
+		 * 
+		 * @param disjointDataPropertySelectionProbability
+		 *            The probability of selecting a disjoint data property (direct or
+		 *            inferred) of a data property for negative data property assertion
+		 *            generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setDisjointDataPropertySelectionProbability(double disjointDataPropertySelectionProbability) {
+			this.disjointDataPropertySelectionProbability = disjointDataPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting a super object property (directed or
+		 * inferred) of an object property for object property assertion generation.
+		 * 
+		 * @param superObjectPropertySelectionProbability
+		 *            The probability of selecting a super object property (directed or
+		 *            inferred) of an object property for object property assertion
+		 *            generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setSuperObjectPropertySelectionProbability(double superObjectPropertySelectionProbability) {
+			this.superObjectPropertySelectionProbability = superObjectPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting a super data property (directed or inferred)
+		 * of a data property for data property assertion generation
+		 * 
+		 * @param superDataPropertySelectionProbability
+		 *            The probability of selecting a super data property (directed or
+		 *            inferred) of a data property for data property assertion
+		 *            generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setSuperDataPropertySelectionProbability(double superDataPropertySelectionProbability) {
+			this.superDataPropertySelectionProbability = superDataPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting an inverse property (direct or inferred) of
+		 * an object property for object property assertion generation
+		 * 
+		 * @param inverseObjectPropertySelectionProbability
+		 *            The probability of selecting an inverse property (direct or
+		 *            inferred) of an object property for object property assertion
+		 *            generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setInverseObjectPropertySelectionProbability(double inverseObjectPropertySelectionProbability) {
+			this.inverseObjectPropertySelectionProbability = inverseObjectPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting symmetric characteristic of an object
+		 * property for object property assertion generation.
+		 * 
+		 * @param symmetricObjectPropertySelectionProbability
+		 *            The probability of selecting symmetric characteristic of an object
+		 *            property for object property assertion generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setSymmetricObjectPropertySelectionProbability(
+				double symmetricObjectPropertySelectionProbability) {
+			this.symmetricObjectPropertySelectionProbability = symmetricObjectPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting asymmetric characteristic of an object
+		 * property for negative object property assertion generation.
+		 * 
+		 * @param asymmetricObjectPropertySelectionProbability
+		 *            The probability of selecting asymmetric characteristic of an
+		 *            object property for negative object property assertion generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setAsymmetricObjectPropertySelectionProbability(
+				double asymmetricObjectPropertySelectionProbability) {
+			this.asymmetricObjectPropertySelectionProbability = asymmetricObjectPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Set the probability of selecting irreflexive characteristic of an object
+		 * property for negative object property assertion generation.
+		 * 
+		 * @param irreflexiveObjectPropertySelectionProbability
+		 *            The probability of selecting irreflexive characteristic of an
+		 *            object property for negative object property assertion generation.
+		 * @return Current Builder object.
+		 */
+		public Builder setIrreflexiveObjectPropertySelectionProbability(
+				double irreflexiveObjectPropertySelectionProbability) {
+			this.irreflexiveObjectPropertySelectionProbability = irreflexiveObjectPropertySelectionProbability;
+			return this;
+		}
+
+		/**
+		 * Create an instance of Controller with Builder.
+		 * 
+		 * @return An instance of Controller.
+		 */
+		public Controller build() {
+			return new Controller(this);
+		}
+	}
+
+	/**
+	 * Private constructor.
+	 * 
+	 * @param builder
+	 *            Builder that instantiates Controller using Builder design pattern.
+	 */
+	private Controller(Builder builder) {
+		this.ontologyIRI = builder.ontologyIRI;
+		this.rootIRIString = builder.rootIRIString;
+		this.inputFile = builder.inputFile;
+		this.devNumber = builder.devNumber;
+		this.seed = builder.seed;
+		this.outputFile = builder.outputFile;
+		this.classConstraintSelectionProbability = builder.classConstraintSelectionProbability;
+		this.newIndividualProbability = builder.newIndividualProbability;
+		this.classAssertionProbability = builder.classAssertionProbability;
+		this.objectPropertyAssertionProbability = builder.objectPropertyAssertionProbability;
+		this.dataPropertyAssertionProbability = builder.dataPropertyAssertionProbability;
+		this.superClassSelectionProbability = builder.superClassSelectionProbability;
+		this.equivalentObjectPropertySelectionProbability = builder.equivalentObjectPropertySelectionProbability;
+		this.equivalentDataPropertySelectionProbability = builder.equivalentDataPropertySelectionProbability;
+		this.disjointObjectPropertySelectionProbability = builder.disjointObjectPropertySelectionProbability;
+		this.disjointDataPropertySelectionProbability = builder.disjointDataPropertySelectionProbability;
+		this.superObjectPropertySelectionProbability = builder.superObjectPropertySelectionProbability;
+		this.superDataPropertySelectionProbability = builder.superDataPropertySelectionProbability;
+		this.inverseObjectPropertySelectionProbability = builder.inverseObjectPropertySelectionProbability;
+		this.symmetricObjectPropertySelectionProbability = builder.symmetricObjectPropertySelectionProbability;
+		this.asymmetricObjectPropertySelectionProbability = builder.asymmetricObjectPropertySelectionProbability;
+		this.irreflexiveObjectPropertySelectionProbability = builder.irreflexiveObjectPropertySelectionProbability;
 	}
 
 	/**
