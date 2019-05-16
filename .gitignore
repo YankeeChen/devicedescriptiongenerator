@@ -46,6 +46,9 @@ conf/
 # ignore all files in the javadoc/ directory
 javadoc/
 
+# ignore all files in the src/ directory
+src/
+
 # Package Files #
 #*.jar
 *.war
