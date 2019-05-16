@@ -16,6 +16,18 @@ catalog-v*.xml
 # Evaluation result files
 evaluationresults/SpaceCoverageEvaluationResults_DeviceDescription*.txt
 
+# .classpath                           
+.classpath
+
+# .project
+.project
+
+# pom file
+pom.xml
+
+# ignore all files in the .settings/ directory
+.settings/
+
 # ignore all files in the instancedata/ directory
 instancedata/
 
@@ -27,6 +39,12 @@ logs/
 
 # ignore all files in the target/ directory
 target/
+
+# ignore all files in the conf/ directory
+conf/
+
+# ignore all files in the javadoc/ directory
+javadoc/
 
 # Package Files #
 #*.jar

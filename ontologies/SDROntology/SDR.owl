@@ -1,0 +1,2822 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ece.neu.edu/ontologies/SDR.owl#"
+     xml:base="http://ece.neu.edu/ontologies/SDR.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:Nuvio="http://cogradio.org/ont/Nuvio.owl#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:RFDevice="http://ece.neu.edu/ontologies/RFDevice.owl#">
+    <owl:Ontology rdf:about="http://ece.neu.edu/ontologies/SDR.owl">
+        <owl:imports rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl"/>
+        <owl:versionInfo>----------------
+Version 1.0.0 (July, 2018)
+----------------
+ - Includes the conceptual model of USRP networked series, X series, bus series and embedded series from Ettus Research (https://www.ettus.com/product).</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#ARMProcessor -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#ARMProcessor">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Processor"/>
+        <rdfs:label>ARM Processor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Artix7FPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Artix7FPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Series7FPGA"/>
+        <rdfs:label>Artix-7 FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#CR -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#CR">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#SDR"/>
+        <rdfs:label>Cognitive Radio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#CortexA9 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#CortexA9">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#ARMProcessor"/>
+        <rdfs:label>Cortex-A9</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#FPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#FPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#GNURadio -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#GNURadio">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#SDR"/>
+        <rdfs:label>GNU Radio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Kintex7FPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Kintex7FPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Series7FPGA"/>
+        <rdfs:label>Kintex-7 FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#SDR -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#SDR">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RFSystem"/>
+        <rdfs:label>Software Defined Radio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Series7FPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Series7FPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxFPGA"/>
+        <rdfs:label>7 Series FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Spartan3ADSPFPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Spartan3ADSPFPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxFPGA"/>
+        <rdfs:label>Spartan-3A DSP FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Spartan6FPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Spartan6FPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxFPGA"/>
+        <rdfs:label>Spartan 6 FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPB200 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPB200">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB200-210"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX75FPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP B200</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPB200-210 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPB200-210">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasHeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_1.5cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasLength"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_15.5cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_350g"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWidth"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_9.7cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP B200/210</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPB200mini -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPB200mini">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xxmini"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX75FPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP B200mini</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPB200mini-i -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPB200mini-i">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xxmini"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX75FPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP B200mini-i</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPB205mini-i -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPB205mini-i">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xxmini"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX150FPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP B205mini-i</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPB210 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPB210">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB200-210"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX150FPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP B210</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPB2xx -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xx">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#GNURadio"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Spartan6FPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#ADC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61.44MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#DAC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61.44MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasNoiseFigure"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#NoiseFigure"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasValue"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveDecimalValue"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasUnitOfMeasure"/>
+                                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDecimalValue"/>
+                                                <owl:allValuesFrom>
+                                                    <rdfs:Datatype>
+                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                            <rdf:Description>
+                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</xsd:minExclusive>
+                                                            </rdf:Description>
+                                                            <rdf:Description>
+                                                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8</xsd:maxExclusive>
+                                                            </rdf:Description>
+                                                        </owl:withRestrictions>
+                                                    </rdfs:Datatype>
+                                                </owl:allValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasMaxOutputPower"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Power"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasValue"/>
+                                                <owl:allValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveDecimalValue"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasUnitOfMeasure"/>
+                                                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel_milliwatts"/>
+                                                            </owl:Restriction>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDecimalValue"/>
+                                                                <owl:allValuesFrom>
+                                                                    <rdfs:Datatype>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</xsd:minExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdfs:Datatype>
+                                                                </owl:allValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:allValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDataTransmissionMode"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsSpectrumSensing"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP B2xx</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPB2xxmini -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xxmini">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasHeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_8.4mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasLength"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_83.3mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_24g"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWidth"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_50.8mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP B2xxmini</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPE310 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPE310">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPE3xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasHeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_26.4mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasLength"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_133mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_375g"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWidth"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_68.2mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP E310</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPE312 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPE312">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPE3xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Battery"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasCapacity"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Capacity_3200mAh"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasChargingTime"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Time_120min"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasVoltage"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Voltage_3.7V"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasHeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_31.8mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasLength"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_133mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_446g"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWidth"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_68.2mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP E312</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPE313 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPE313">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPE3xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasHeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_106mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasLength"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_186mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1.8kg"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWidth"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_200mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP E313</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPE3xx -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPE3xx">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#GNURadio"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7020SoC"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#ADC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61.44MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#DAC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61.44MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasNoiseFigure"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#NoiseFigure"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasValue"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveDecimalValue"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasUnitOfMeasure"/>
+                                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDecimalValue"/>
+                                                <owl:allValuesFrom>
+                                                    <rdfs:Datatype>
+                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                            <rdf:Description>
+                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</xsd:minExclusive>
+                                                            </rdf:Description>
+                                                            <rdf:Description>
+                                                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8</xsd:maxExclusive>
+                                                            </rdf:Description>
+                                                        </owl:withRestrictions>
+                                                    </rdfs:Datatype>
+                                                </owl:allValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasMaxOutputPower"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Power"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasValue"/>
+                                                <owl:allValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveDecimalValue"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasUnitOfMeasure"/>
+                                                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel_milliwatts"/>
+                                                            </owl:Restriction>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDecimalValue"/>
+                                                                <owl:allValuesFrom>
+                                                                    <rdfs:Datatype>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</xsd:minExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdfs:Datatype>
+                                                                </owl:allValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:allValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDataTransmissionMode"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsSpectrumSensing"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP E3xx</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPN200 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPN200">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN2xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC3SD1800AFPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP N200</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPN210 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPN210">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN2xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC3SD3400AFPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP N210</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPN2xx -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPN2xx">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#GNURadio"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#ADC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_14bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_100MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#DAC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Data_16bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_400MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasMaxOutputPower"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_15dBm"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDataTransmissionMode"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasHeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_5cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasLength"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_22cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasNoiseFigure"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_5dB"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1.2kg"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWidth"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_16cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsSpectrumSensing"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsSpectrumSensing"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsSpectrumSensing"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance3"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP N2xx</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPN300 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPN300">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN3xx"/>
+        <rdfs:label>USRP N300</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPN310 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPN310">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN3xx"/>
+        <rdfs:label>USRP N310</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPN3xx -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPN3xx">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#GNURadio"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7100SoC"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#ADC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Data_16bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_122.88MHz"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_125MHz"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_153.6MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#DAC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_14bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_122.88MHz"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_125MHz"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_153.6MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDataTransmissionMode"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasHeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_43.7mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasLength"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_357mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasPowerConsumptionRange"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_50W-80W"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_3.13kg"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWidth"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_211mm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsSpectrumSensing"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance0"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance3"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP N3xx</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPX300 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPX300">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPX3xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC7K325TFPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP X300</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPX310 -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPX310">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPX3xx"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC7K410TFPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP X310</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRPX3xx -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRPX3xx">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#GNURadio"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#ADC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_14bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_200MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#DAC"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasResolution"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Data_16bit"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasSamplingRate"/>
+                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_800MHz"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsTransmitting"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasMaxOutputPower"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Power"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasValue"/>
+                                                <owl:allValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveDecimalValue"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasUnitOfMeasure"/>
+                                                                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel_milliwatts"/>
+                                                            </owl:Restriction>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDecimalValue"/>
+                                                                <owl:allValuesFrom>
+                                                                    <rdfs:Datatype>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</xsd:minExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdfs:Datatype>
+                                                                </owl:allValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:allValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasDataTransmissionMode"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasHeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_3.9cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasLength"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_27.7cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasMaxPowerConsumption"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_45W"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasNoiseFigure"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_8dB"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWeight"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1.7kg"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasWidth"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_21.8cm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#supportsSpectrumSensing"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance5"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>USRP X3xx</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XC3SD1800AFPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XC3SD1800AFPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Spartan3ADSPFPGA"/>
+        <rdfs:label>XC3SD1800A FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XC3SD3400AFPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XC3SD3400AFPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Spartan3ADSPFPGA"/>
+        <rdfs:label>XC3SD3400A FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XC6SLX150FPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX150FPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Spartan6FPGA"/>
+        <rdfs:label>XC6LX150 FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XC6SLX75FPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX75FPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Spartan6FPGA"/>
+        <rdfs:label>XC6SLX75 FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XC7K325TFPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XC7K325TFPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Kintex7FPGA"/>
+        <rdfs:label>XC7K325T FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XC7K410TFPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XC7K410TFPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Kintex7FPGA"/>
+        <rdfs:label>XC7K410T FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XilinxFPGA -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XilinxFPGA">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#FPGA"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasProducer"/>
+                <owl:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Xilinx FPGA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7000Family -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7000Family">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Processor"/>
+        <rdfs:label>Xilinx Zynq 7000 Family</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7020SoC -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7020SoC">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7000Family"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#compositeOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Artix7FPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#compositeOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#CortexA9"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Xilinx Zynq 7020 SoC</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7100SoC -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7100SoC">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7000Family"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#compositeOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#CortexA9"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#compositeOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Kintex7FPGA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Xilinx Zynq 7100 SoC</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Accuracy_2.0ppm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Accuracy_2.0ppm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FrequencyAccuracy"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_2.0ppm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Accuracy_2.5ppm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Accuracy_2.5ppm">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_2.5ppm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Capacity_3200mAh -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Capacity_3200mAh">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ElectricCharge"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_3200mAh"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Data_12bit -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DataSize"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_12bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Data_14bit -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Data_14bit">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DataSize"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_14bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Data_8bit -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Data_8bit">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DataSize"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_8bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_0.5GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_0.5GHz">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_0.5GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_100MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_100MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_100MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_10MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_10MHz">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_10MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_122.88MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_122.88MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_122.88MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_125MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_125MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_125MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_153.6MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_153.6MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_153.6MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_160MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_160MHz">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_160MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_200MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_200MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_200MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_200kHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_200kHz">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_200kHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_25MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_25MHz">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_25MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_400MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_400MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_400MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_56MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_56MHz">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_56MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_61.44MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_61.44MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_61.44MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_6GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_6GHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_6GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_70MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_70MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_70MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Freq_800MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Freq_800MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_800MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Gain_-30dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Gain_-30dB">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_-30dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Gain_-40dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Gain_-40dB">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_-40dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Gain_20dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Gain_20dB">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_20dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Gain_25dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Gain_25dB">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_25dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Gain_30dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Gain_30dB">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_30dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Gram -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Gram">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#WeightUnit"/>
+        <Nuvio:symbol>g</Nuvio:symbol>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Height_1.5cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Height_1.5cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Height"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_1.5cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Height_106mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Height_106mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Height"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_106mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Height_26.4mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Height_26.4mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Height"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_26.4mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Height_3.9cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Height_3.9cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Height"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_3.9cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Height_31.8mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Height_31.8mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Height"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_31.8mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Height_43.7mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Height_43.7mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Height"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_43.7mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Height_5cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Height_5cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Height"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_5cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Height_8.4mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Height_8.4mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Height"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_8.4mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Kilogram -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Kilogram">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#WeightUnit"/>
+        <Nuvio:symbol>kg</Nuvio:symbol>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Length_133mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Length_133mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Length"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_133mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Length_15.5cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Length_15.5cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Length"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_15.5cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Length_186mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Length_186mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Length"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_186mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Length_22cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Length_22cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Length"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_22cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Length_27.7cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Length_27.7cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Length"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_27.7cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Length_357mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Length_357mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Length"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_357mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Length_83.3mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Length_83.3mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Length"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_83.3mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Noise_5dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Noise_5dB">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NoiseFigure"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_5dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Noise_8dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Noise_8dB">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NoiseFigure"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_8dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Power_12dBm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Power_12dBm">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_12dBm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Power_15dBm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Power_15dBm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Power"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_15dBm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Power_16dBm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Power_16dBm">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_16dBm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Power_18dBm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Power_18dBm">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_18dBm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Power_45W -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Power_45W">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Power"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_45W"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Power_50W -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Power_50W">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_50W"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Power_80W -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Power_80W">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_80W"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_-30dB-20dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_-30dB-20dB">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gain_20dB"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gain_-30dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_-30dB-25dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_-30dB-25dB">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gain_25dB"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gain_-30dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_-40dB-30dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_-40dB-30dB">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gain_30dB"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gain_-40dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_0-100MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_0-100MHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_100MHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_0Hz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_0-160MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_0-160MHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_160MHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_0Hz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_0-6GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_0-6GHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_6GHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_0Hz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_0.5GHz-4GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_0.5GHz-4GHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_4GHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_0.5GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-0.5GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-0.5GHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_0.5GHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_10MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-300MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-300MHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_300MHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_10MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-6GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-6GHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_6GHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_10MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_200kHz-56MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_200kHz-56MHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FreqencyRange"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_56MHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_200kHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_300MHz-6GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_300MHz-6GHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_6GHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_300MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_4GHz-6GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_4GHz-6GHz">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_6GHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_4GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_50W-80W -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_50W-80W">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PowerRange"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_80W"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_50W"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Range_70MHz-6GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Range_70MHz-6GHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FreqencyRange"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_6GHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_70MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Time_120min -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Time_120min">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Time"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_120min"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+        <RFDevice:hasBandwidthRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_200kHz-56MHz"/>
+        <RFDevice:hasFrequencyAccuracy rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Accuracy_2.0ppm"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_70MHz-6GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+        <RFDevice:hasFrequencyAccuracy rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Accuracy_2.5ppm"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_0-6GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance2 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+        <RFDevice:hasBandwidth rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_50MHz"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_8bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance3 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+        <RFDevice:hasBandwidth rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_25MHz"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Data_16bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance4 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+        <RFDevice:hasBandwidthRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_0-100MHz"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-6GHz"/>
+        <RFDevice:hasGainRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_-40dB-30dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance5 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance5">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+        <RFDevice:hasBandwidthRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_0-160MHz"/>
+        <RFDevice:hasFrequencyAccuracy rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Accuracy_2.5ppm"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_0-6GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance0 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-300MHz"/>
+        <RFDevice:hasGainRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_-30dB-25dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_300MHz-6GHz"/>
+        <RFDevice:hasGainRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_-30dB-20dB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance2 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_10MHz-0.5GHz"/>
+        <RFDevice:hasMaxOutputPower rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_16dBm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance3 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_0.5GHz-4GHz"/>
+        <RFDevice:hasMaxOutputPower rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_18dBm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance4 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_4GHz-6GHz"/>
+        <RFDevice:hasMaxOutputPower rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_12dBm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_-30dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_-30dB">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-30</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_-40dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_-40dB">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-40</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_0.5GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_0.5GHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Gigahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.5</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_1.2kg -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_1.2kg">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Kilogram"/>
+        <RFDevice:hasFloatValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.2</RFDevice:hasFloatValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_1.5cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_1.5cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.5</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_1.7kg -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_1.7kg">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Kilogram"/>
+        <RFDevice:hasFloatValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.7</RFDevice:hasFloatValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_1.8kg -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_1.8kg">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Kilogram"/>
+        <RFDevice:hasFloatValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.8</RFDevice:hasFloatValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_100MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_100MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_106mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_106mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">106</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_10MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_10MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_120min -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_120min">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Minute"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120.0</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_122.88MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_122.88MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">122.88</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_125MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_125MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">125</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_12bit -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_12bit">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Bit"/>
+        <Nuvio:hasDataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</Nuvio:hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_12dBm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_12dBm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel_milliwatts"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_133mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_133mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">133</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_14bit -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_14bit">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Bit"/>
+        <RFDevice:hasIntegerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</RFDevice:hasIntegerValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_15.5cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_15.5cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.5</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_153.6MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_153.6MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">153.6</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_15dBm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_15dBm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel_milliwatts"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_160MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_160MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">160</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_16cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_16cm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_16dBm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_16dBm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel_milliwatts"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_186mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_186mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">186</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_18dBm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_18dBm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel_milliwatts"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_2.0ppm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_2.0ppm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ppm"/>
+        <RFDevice:hasFloatValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0</RFDevice:hasFloatValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_2.5ppm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_2.5ppm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ppm"/>
+        <Nuvio:hasDataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.5</Nuvio:hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_200MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_200MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">200</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_200kHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_200kHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Kilohertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">200</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_200mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_200mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">200</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_20dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_20dB">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_21.8cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_21.8cm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">21.8</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_211mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_211mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">211</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_22cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_22cm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">22</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_24g -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_24g">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Value"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gram"/>
+        <Nuvio:hasDataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">24.0</Nuvio:hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_25MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_25MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_25dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_25dB">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_26.4mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_26.4mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">26.4</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_27.7cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_27.7cm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">27.7</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_3.13kg -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_3.13kg">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Kilogram"/>
+        <RFDevice:hasFloatValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.13</RFDevice:hasFloatValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_3.7V -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_3.7V">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Volt"/>
+        <RFDevice:hasFloatValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.7</RFDevice:hasFloatValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_3.9cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_3.9cm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.9</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_30dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_30dB">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_31.8mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_31.8mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">31.8</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_3200mAh -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_3200mAh">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#MilliampereHour"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3200</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_350g -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_350g">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Value"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gram"/>
+        <Nuvio:hasDataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">350.0</Nuvio:hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_357mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_357mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">357</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_375g -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_375g">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveFloatValue"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gram"/>
+        <RFDevice:hasFloatValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">375.0</RFDevice:hasFloatValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_400MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_400MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">400</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_43.7mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_43.7mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">43.7</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_446g -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_446g">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Value"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gram"/>
+        <RFDevice:hasFloatValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">446.0</RFDevice:hasFloatValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_45W -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_45W">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Watt"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">45</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_50.8mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_50.8mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50.8</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_50W -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_50W">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Watt"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_56MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_56MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">56</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_5cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_5cm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_5dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_5dB">
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_61.44MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_61.44MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">61.44</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_68.2mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_68.2mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">68.2</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_6GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_6GHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Gigahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_70MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_70MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">70</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_8.4mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_8.4mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.4</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_800MHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_800MHz">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Megahertz"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">800</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_80W -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_80W">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Watt"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_83.3mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_83.3mm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Millimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">83.3</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_8bit -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_8bit">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Bit"/>
+        <RFDevice:hasIntegerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</RFDevice:hasIntegerValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_8dB -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_8dB">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Decibel"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_9.7cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_9.7cm">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.7</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Voltage_3.7V -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Voltage_3.7V">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Voltage"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_3.7V"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Weight_1.2kg -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Weight_1.2kg">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_1.2kg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Weight_1.7kg -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Weight_1.7kg">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_1.7kg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Weight_1.8kg -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Weight_1.8kg">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_1.8kg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Weight_24g -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Weight_24g">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_24g"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Weight_3.13kg -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Weight_3.13kg">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_3.13kg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Weight_350g -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Weight_350g">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_350g"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Weight_375g -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Weight_375g">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_375g"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Weight_446g -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Weight_446g">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_446g"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Width_16cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Width_16cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Width"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_16cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Width_200mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Width_200mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Width"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_200mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Width_21.8cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Width_21.8cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Width"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_21.8cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Width_211mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Width_211mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Width"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_211mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Width_50.8mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Width_50.8mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Width"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_50.8mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Width_68.2mm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Width_68.2mm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Width"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_68.2mm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Width_9.7cm -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Width_9.7cm">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Width"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Value_9.7cm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Xilinx -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Xilinx">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi -->
+

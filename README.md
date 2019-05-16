@@ -85,7 +85,7 @@ What RDDG will do is:
 1. Load ontology.
 2. Process ontology (that includes Process Entities, Process Axioms and Infer New Knowledge). 
 3. Generate device descriptions.
-4. Collect space coverage evaluation metrics and dump them into file with local path evaluationresults/SpaceCoverageEvaluationResults_DeviceDescription<DEVICE-NUMBER>.txt
+4. Collect space coverage evaluation metrics and dump them into file with local path evaluationresults/SpaceCoverageEvaluationResults_DeviceDescription\<DEVICE-NUMBER\>.txt
 
 ## Contact
 Yanji Chen
