@@ -1,4 +1,4 @@
-# RDDG - Random Device Description Generator
+# RDDG - RDF Device Description Generator
 RDDG is a generic RDF instance generator. It is implemented in Java with the use of the OWL API, a high level Application Programming Interface for working with OWL  ontologies. It is able to generate large numbers of synthetic random RF device descriptions in RDF/XML from an RF ontology schema.
 
 ## RDFUnit Command Line Interface
