@@ -15,14 +15,17 @@ $ git clone https://github.com/YankeeChen/devicedescriptiongenerator.git
 $ java -jar devicedescriptiongenerator-1.0-SNAPSHOT.jar -h
 
 # Simple call (Load input ontology from ontology IRI or a local file)
-$ java -jar devicedescriptiongenerator-1.0-SNAPSHOT.jar -rootIRI <IRI> {-inputFilePath <PATH> | -inputIRI <IRI>} [-devNumber <NUMBER>] [-outputFilePath <PATH>] [-ramSeed <SEED>] [-newIndividualProbability <PROBABILITY>] [-classConstraintSelectionProbability <PROBABILITY>] [-dataPropertyAssertionProbability <PROBABILITY>] [-objectPropertyAssertionProbability <PROBABILITY>] [-classAssertionProbability <PROBABILITY>] [-superClassSelectionProbability <PROBABILITY>] [-superDataPropertySelectionProbability <PROBABILITY>] [-superObjectPropertySelectionProbability <PROBABILITY>] [-disjointDataPropertySelectionProbability <PROBABILITY>] [-disjointObjectPropertySelectionProbability <PROBABILITY>] [-equivalentDataPropertySelectionProbability <PROBABILITY>] [-equivalentObjectPropertySelectionProbability <PROBABILITY>] [-inverseObjectPropertySelectionProbability <PROBABILITY>] [-asymmetricObjectPropertySelectionProbability <PROBABILITY>] [-symmetricObjectPropertySelectionProbability <PROBABILITY>] [-irreflexiveObjectPropertySelectionProbability <PROBABILITY>] 
+$ java -jar devicedescriptiongenerator-1.0-SNAPSHOT.jar -rootIRI <IRI> -ontologyURI <URI> [-IRIMapping <IRIMapping1,IRIMapping2,IRIMapping3...>] [-devNumber <NUMBER>] [-outputFilePath <PATH>] [-ramSeed <SEED>] [-newIndividualProbability <PROBABILITY>] [-classConstraintSelectionProbability <PROBABILITY>] [-dataPropertyAssertionProbability <PROBABILITY>] [-objectPropertyAssertionProbability <PROBABILITY>] [-classAssertionProbability <PROBABILITY>] [-superClassSelectionProbability <PROBABILITY>] [-superDataPropertySelectionProbability <PROBABILITY>] [-superObjectPropertySelectionProbability <PROBABILITY>] [-disjointDataPropertySelectionProbability <PROBABILITY>] [-disjointObjectPropertySelectionProbability <PROBABILITY>] [-equivalentDataPropertySelectionProbability <PROBABILITY>] [-equivalentObjectPropertySelectionProbability <PROBABILITY>] [-inverseObjectPropertySelectionProbability <PROBABILITY>] [-asymmetricObjectPropertySelectionProbability <PROBABILITY>] [-symmetricObjectPropertySelectionProbability <PROBABILITY>] [-irreflexiveObjectPropertySelectionProbability <PROBABILITY>] 
 
 ```
 `-rootIRI <IRI>` e.g. http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject 
 is required in all cases and states a IRI that relates to the root class of the input ontology. 
 
-`-inputFilePath <PATH> | -inputIRI <IRI>` e.g. ontologies/IoTOntology/IoT.owl, http://ontology.tno.nl/saref.ttl
-is required in all cases and states an ontology IRI **OR** a local path that relates to the input ontology.
+`-ontologyURI <URI>` e.g. http://ontology.tno.nl/saref.ttl,file:ontologies/IoTOntology/IoT.owl
+is required in all cases and states a URI that relates to the input ontology.
+
+`-IRIMapping <IRIMapping1,IRIMapping2,IRIMapping3...>` e.g. http://purl.oclc.org/NET/ssnx/ssn,file:ontologies/WM30Ontology/SSN.owl;http://purl.oclc.org/NET/ssnx/qu/qu,file:ontologies/WM30Ontology/qu.owl
+is optional and states ontology IRIs to document IRIs mapping. Mappings are splitted by semicolon whereas ontology IRI and document IRI within each mapping are splitted by comma.
 
 `-devNumber <NUMBER>` 
 is optional and states the number of device descriptions; 1 by default.
