@@ -1,0 +1,1071 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#"
+     xml:base="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#">
+    <owl:Ontology rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#accepted_commands -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#accepted_commands">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Actuator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#composing_devices -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#composing_devices">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Complex_Device"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#direction -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#direction">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#User_Interface"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Direction_Information"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Device"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_appliance -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_appliance">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Actuator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_comfort_properties -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_comfort_properties">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Actuator"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Comfort_Variable_Information"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#coverage_area -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#coverage_area">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#gas_type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#gas_type">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Gas_Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_calibrable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_calibrable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_digital -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_digital">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Actuator"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_generated -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_generated">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Power_Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_graphical -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_graphical">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#User_Interface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_programmable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_programmable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#location -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#location">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#max_value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#max_value">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Actuator"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#min_value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#min_value">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Actuator"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#priority -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#priority">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#unit -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#unit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Actuator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#User_Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Airflow_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Airflow_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Gas_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Light_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Power_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sound_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#User_Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Boolean_Actuator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Boolean_Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Actuator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Reset_Command_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Command_Write_iEi_Service"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Actuator"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#CDC -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#CDC">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Concentrator"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#MCC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Change_Configuration_Command_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Change_Configuration_Command_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_Off_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_On_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_Off_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_On_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Change_Parameter_Command_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Change_Parameter_Command_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Change_Configuration_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Switch_Mode_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Comfort_Variable_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Comfort_Variable_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Direction_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Actuator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Actuator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Command_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Write_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Write_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Write_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#LogData_Write_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Complex_Device -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Complex_Device">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Device"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Concentrator"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Complex_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Complex_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Threshold_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Concentrator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Concentrator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#External_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#c2MCCi_Service"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#SensorData_Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#UserData_Read_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Write_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#LogData_Write_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_Off_Command_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_Off_Command_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_On_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_Off_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_On_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_On_Command_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_On_Command_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_Off_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_On_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Device -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Device">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Direction_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Direction_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#External_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#External_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Internal_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Fire_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Fire_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Threshold_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Movement_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smoke_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Gas_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Gas_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Light_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Power_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sound_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Generator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Generator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Load"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Comfort_Variable_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Luminosity_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Noise_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_comfort_properties"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Information"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Light_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Power_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sound_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Information">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Input_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Input_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Direction_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Output_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Internal_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Internal_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Light_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Light_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_comfort_properties"/>
+                <owl:hasValue rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Luminosity_Information"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Power_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sound_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Load -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Load">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#LogData_Write_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#LogData_Write_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Write_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Luminosity_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Luminosity_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Comfort_Variable_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Noise_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#MCC -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#MCC">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Concentrator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Movement_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Movement_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Threshold_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smoke_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Noise_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Noise_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Comfort_Variable_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Output_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Output_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Direction_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Threshold_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Power_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Power_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sound_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#SensorData_Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#UserData_Read_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#PwGRIDi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#PwGRIDi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#External_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#WWWi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Read_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Read_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Write_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Reset_Command_Write_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Reset_Command_Write_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Write_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Command_Write_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Command_Write_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Reset_Command_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#SensorData_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#User_Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#SensorData_Read_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#SensorData_Read_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#UserData_Read_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Service"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Command_Write_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Command_Write_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Write_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Command_Write_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smoke_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smoke_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Threshold_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sound_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sound_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_comfort_properties"/>
+                <owl:hasValue rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Noise_Information"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Read_iEi_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#UserData_Read_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Storage -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Storage">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Switch_Actuator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Switch_Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Boolean_Actuator"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Trigger_Actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Switch_Mode_Command_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Switch_Mode_Command_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Change_Configuration_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Comfort_Variable_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_comfort_properties"/>
+                <owl:hasValue rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Threshold_Sensor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Threshold_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Trigger_Actuator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Trigger_Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Boolean_Actuator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_Off_Command_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_Off_Command_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_On_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_On_Command_Information -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_On_Command_Information">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#UserData_Read_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#UserData_Read_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Read_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#User_Interface -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#User_Interface">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#LogData_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#UserData_Read_iEi_Service"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Actuator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Actuator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Command_Write_iEi_Service"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Command_Write_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Command_Write_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Write_iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Video_Camera -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Video_Camera">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Complex_Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#WWWi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#WWWi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#External_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Write_iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Write_iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#c2MCCi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#c2MCCi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Internal_Service"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#iEi_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#iEi_Service -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#iEi_Service">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Internal_Service"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Luminosity_Information -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Luminosity_Information"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Noise_Information -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Noise_Information"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi -->
+
