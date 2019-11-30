@@ -1,9 +1,9 @@
 # RODG - RDF Object Description Generator
 RODG is a generic RDF instance generator. It is implemented in Java with the use of the OWL API, a high level Application Programming Interface for working with OWL ontologies. It is able to generate large numbers of synthetic random object descriptions in RDF/XML from an ontology.
 
-## RDDG Command Line Interface
+## RODG Command Line Interface
 
-#### Download RDDG
+#### Download RODG
 You can get a copy of it stored in Github repository with the following command:
 ```console
 $ git clone https://github.com/YankeeChen/devicedescriptiongenerator.git
@@ -84,7 +84,7 @@ is optional and states the probabilty of selecting symmetric characteristic of a
 `-irreflexiveObjectPropertySelectionProbability <PROBABILITY>`
 is optional and states the probabilty of selecting irreflexive characteristic of an object property for negative object property assertion generation; 0.8 by default.
 
-What RDDG will do is:
+What RODG will do is:
 1. Load ontology.
 2. Process ontology (that includes Process Entities, Process Axioms and Infer New Knowledge). 
 3. Generate object descriptions.
