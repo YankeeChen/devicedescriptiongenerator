@@ -1,0 +1,104 @@
+70 out of 70 OWL classes are selected:
+80       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Actuator                                  
+43       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Airflow_Sensor                            
+62       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Appliance                                 
+62       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Boolean_Actuator                          
+47       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#CDC                                       
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Change_Configuration_Command_Information  
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Change_Parameter_Command_Information      
+2        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Comfort_Variable_Information              
+43       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Actuator                          
+17       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Command_Write_iEi_Service                 
+42       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Complex_Device                            
+47       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Complex_Sensor                            
+53       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Concentrator                              
+62       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Read_iEi_Service            
+60       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Configuration_Write_iEi_Service           
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_Off_Command_Information      
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Delayed_Turn_On_Command_Information       
+338      http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Device                                    
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Direction_Information                     
+17       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#External_Service                          
+43       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Fire_Sensor                               
+55       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Gas_Sensor                                
+44       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Generator                                 
+10       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Information                      
+42       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Humidity_Sensor                           
+1        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Information                               
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Input_Information                         
+37       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Internal_Service                          
+39       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Light_Sensor                              
+41       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Load                                      
+4        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#LogData_Write_iEi_Service                 
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Luminosity_Information                    
+44       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#MCC                                       
+44       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Movement_Sensor                           
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Noise_Information                         
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Output_Information                        
+101      http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Physical_Sensor                           
+47       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Power_Sensor                              
+92       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Profile_Read_iEi_Service                  
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#PwGRIDi_Service                           
+30       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Read_iEi_Service                          
+35       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Reset_Command_Write_iEi_Service           
+133      http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sensor                                    
+30       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#SensorData_Read_iEi_Service               
+72       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Service                                   
+242      http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Simple_Device                             
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Actuator_Command_Information        
+5        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smart_Command_Write_iEi_Service           
+48       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Smoke_Sensor                              
+53       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sound_Sensor                              
+65       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Status_Read_iEi_Service                   
+49       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Storage                                   
+51       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Sun_Radiation_Sensor                      
+39       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Switch_Actuator                           
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Switch_Mode_Command_Information           
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Information                   
+46       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Temperature_Sensor                        
+67       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Threshold_Sensor                          
+43       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Trigger_Actuator                          
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_Off_Command_Information              
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Turn_On_Command_Information               
+1        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#UserData_Read_iEi_Service                 
+54       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#User_Interface                            
+51       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Actuator                            
+12       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Value_Command_Write_iEi_Service           
+45       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Video_Camera                              
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#WWWi_Service                              
+20       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#Write_iEi_Service                         
+13       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#c2MCCi_Service                            
+53       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#iEi_Service                               
+
+
+6 out of 6 OWL object properties are selected:
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#accepted_commands                         
+12       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#composing_devices                         
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#direction                                 
+723      http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#provided_services                         
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_appliance                         
+75       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#related_comfort_properties                
+
+
+12 out of 12 OWL data properties are selected:
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#coverage_area                             
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#gas_type                                  
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_calibrable                             
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_digital                                
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_generated                              
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_graphical                              
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#is_programmable                           
+16       http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#location                                  
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#max_value                                 
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#min_value                                 
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#priority                                  
+0        http://www.owl-ontologies.com/ContextAwareness_eDIANA.owl#unit                                      
+
+
+Space coverage of datasets is summarized below:
+Distribution of individuals per class (DIPC) = 0.0181
+Distribution of data properties (DDP) = 0.2764
+Distribution of object properties (DOP) = 0.3263
+Class coverage (CC) = 77.14%
+Data property coverage (DPC) = 8.33%
+Object property coverage (OPC) = 50.00%

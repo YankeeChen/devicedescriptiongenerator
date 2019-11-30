@@ -1,0 +1,79 @@
+42 out of 43 OWL classes are selected:
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#AdministrativeStaff                                  
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Article                                              
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#AssistantProfessor                                   
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#AssociateProfessor                                   
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Book                                                 
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Chair                                                
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#ClericalStaff                                        
+74       http://swat.cse.lehigh.edu/onto/univ-bench.owl#College                                              
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#ConferencePaper                                      
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Course                                               
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Dean                                                 
+74       http://swat.cse.lehigh.edu/onto/univ-bench.owl#Department                                           
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Director                                             
+2        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Employee                                             
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Faculty                                              
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#FullProfessor                                        
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#GraduateCourse                                       
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#GraduateStudent                                      
+88       http://swat.cse.lehigh.edu/onto/univ-bench.owl#Institute                                            
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#JournalArticle                                       
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Lecturer                                             
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Manual                                               
+283      http://swat.cse.lehigh.edu/onto/univ-bench.owl#Organization                                         
+4        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Person                                               
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#PostDoc                                              
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Professor                                            
+75       http://swat.cse.lehigh.edu/onto/univ-bench.owl#Program                                              
+5        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Publication                                          
+10       http://swat.cse.lehigh.edu/onto/univ-bench.owl#Research                                             
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#ResearchAssistant                                    
+62       http://swat.cse.lehigh.edu/onto/univ-bench.owl#ResearchGroup                                        
+2        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Software                                             
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Specification                                        
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Student                                              
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#SystemsStaff                                         
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#TeachingAssistant                                    
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#TechnicalReport                                      
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#UndergraduateStudent                                 
+66       http://swat.cse.lehigh.edu/onto/univ-bench.owl#University                                           
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#UnofficialPublication                                
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#VisitingProfessor                                    
+6        http://swat.cse.lehigh.edu/onto/univ-bench.owl#Work                                                 
+
+
+21 out of 25 OWL object properties are selected:
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#advisor                                              
+15       http://swat.cse.lehigh.edu/onto/univ-bench.owl#affiliateOf                                          
+14       http://swat.cse.lehigh.edu/onto/univ-bench.owl#affiliatedOrganizationOf                             
+20       http://swat.cse.lehigh.edu/onto/univ-bench.owl#degreeFrom                                           
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#doctoralDegreeFrom                                   
+23       http://swat.cse.lehigh.edu/onto/univ-bench.owl#hasAlumnus                                           
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#headOf                                               
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#mastersDegreeFrom                                    
+8        http://swat.cse.lehigh.edu/onto/univ-bench.owl#member                                               
+7        http://swat.cse.lehigh.edu/onto/univ-bench.owl#memberOf                                             
+15       http://swat.cse.lehigh.edu/onto/univ-bench.owl#orgPublication                                       
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#publicationAuthor                                    
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#publicationResearch                                  
+20       http://swat.cse.lehigh.edu/onto/univ-bench.owl#researchProject                                      
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#softwareDocumentation                                
+13       http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf                                    
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#takesCourse                                          
+1        http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf                                            
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#teachingAssistantOf                                  
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom                              
+0        http://swat.cse.lehigh.edu/onto/univ-bench.owl#worksFor                                             
+
+
+0 out of 7 OWL data properties are selected:
+
+
+Space coverage of datasets is summarized below:
+Distribution of individuals per class (DIPC) = 0.0633
+Distribution of data properties (DDP) = 0
+Distribution of object properties (DOP) = 0.0568
+Class coverage (CC) = 66.67%
+Data property coverage (DPC) = 100.00%
+Object property coverage (OPC) = 66.67%

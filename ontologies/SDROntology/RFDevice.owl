@@ -3591,24 +3591,6 @@ Choke ring antennas are notable for their ability to reject multipath signals fa
     
 
 
-    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2.4GHz -->
-
-    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2.4GHz">
-        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
-        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2.4GHz"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2.5GHz -->
-
-    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2.5GHz">
-        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
-        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2.5GHz"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Freq_27GHz -->
 
     <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_27GHz">
@@ -3623,6 +3605,24 @@ Choke ring antennas are notable for their ability to reject multipath signals fa
     <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2GHz">
         <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
         <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2_4GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2_4GHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2_4GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2_5GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2_5GHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2_5GHz"/>
     </owl:NamedIndividual>
     
 
@@ -3815,12 +3815,12 @@ Choke ring antennas are notable for their ability to reject multipath signals fa
     
 
 
-    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#ISM_Band_2.4GHz -->
+    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#ISM_Band_2_4GHz -->
 
-    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#ISM_Band_2.4GHz">
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#ISM_Band_2_4GHz">
         <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FreqencyRange"/>
-        <hasMax rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2.5GHz"/>
-        <hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2.4GHz"/>
+        <hasMax rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2_5GHz"/>
+        <hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2_4GHz"/>
     </owl:NamedIndividual>
     
 
@@ -4231,26 +4231,6 @@ Choke ring antennas are notable for their ability to reject multipath signals fa
     
 
 
-    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Value_2.4GHz -->
-
-    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2.4GHz">
-        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
-        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Gigahertz"/>
-        <hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.4</hasDecimalValue>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Value_2.5GHz -->
-
-    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2.5GHz">
-        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
-        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Gigahertz"/>
-        <hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.5</hasDecimalValue>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Value_27GHz -->
 
     <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Value_27GHz">
@@ -4267,6 +4247,26 @@ Choke ring antennas are notable for their ability to reject multipath signals fa
         <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
         <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Gigahertz"/>
         <hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Value_2_4GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2_4GHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Gigahertz"/>
+        <hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.4</hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/RFDevice.owl#Value_2_5GHz -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/RFDevice.owl#Value_2_5GHz">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Gigahertz"/>
+        <hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.5</hasDecimalValue>
     </owl:NamedIndividual>
     
 
@@ -4452,5 +4452,5 @@ ppm is dimensionless quantity, a ratio of 2 quantities of the same unit</rdfs:co
 
 
 
-<!-- Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 

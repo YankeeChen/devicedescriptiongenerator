@@ -1,5 +1,5 @@
-# RDDG - RDF Device Description Generator
-RDDG is a generic RDF instance generator. It is implemented in Java with the use of the OWL API, a high level Application Programming Interface for working with OWL  ontologies. It is able to generate large numbers of synthetic random RF device descriptions in RDF/XML from an RF ontology schema.
+# RODG - RDF Object Description Generator
+RODG is a generic RDF instance generator. It is implemented in Java with the use of the OWL API, a high level Application Programming Interface for working with OWL ontologies. It is able to generate large numbers of synthetic random object descriptions in RDF/XML from an ontology.
 
 ## RDDG Command Line Interface
 
@@ -12,10 +12,10 @@ $ git clone https://github.com/YankeeChen/devicedescriptiongenerator.git
 #### Usage
 ```console
 # argument help to see all available options
-$ java -jar devicedescriptiongenerator-1.0-SNAPSHOT.jar -h
+$ java -jar objectdescriptiongenerator-1.0-SNAPSHOT.jar -h
 
 # Simple call (Load input ontology from ontology IRI or a local file)
-$ java -jar devicedescriptiongenerator-1.0-SNAPSHOT.jar -rootIRI <IRI> -ontologyURI <URI> [-IRIMapping <IRIMapping1,IRIMapping2,IRIMapping3...>] [-devNumber <NUMBER>] [-outputFilePath <PATH>] [-ramSeed <SEED>] [-newIndividualProbability <PROBABILITY>] [-classConstraintSelectionProbability <PROBABILITY>] [-dataPropertyAssertionProbability <PROBABILITY>] [-objectPropertyAssertionProbability <PROBABILITY>] [-classAssertionProbability <PROBABILITY>] [-superClassSelectionProbability <PROBABILITY>] [-superDataPropertySelectionProbability <PROBABILITY>] [-superObjectPropertySelectionProbability <PROBABILITY>] [-disjointDataPropertySelectionProbability <PROBABILITY>] [-disjointObjectPropertySelectionProbability <PROBABILITY>] [-equivalentDataPropertySelectionProbability <PROBABILITY>] [-equivalentObjectPropertySelectionProbability <PROBABILITY>] [-inverseObjectPropertySelectionProbability <PROBABILITY>] [-asymmetricObjectPropertySelectionProbability <PROBABILITY>] [-symmetricObjectPropertySelectionProbability <PROBABILITY>] [-irreflexiveObjectPropertySelectionProbability <PROBABILITY>] 
+$ java -jar objectdescriptiongenerator-1.0-SNAPSHOT.jar -rootIRI <IRI> -ontologyURI <URI> [-IRIMapping <IRIMapping1,IRIMapping2,IRIMapping3...>] [-objNumber <NUMBER>] [-outputFilePath <PATH>] [-ramSeed <SEED>] [-newIndividualProbability <PROBABILITY>] [-classConstraintSelectionProbability <PROBABILITY>] [-dataPropertyAssertionProbability <PROBABILITY>] [-objectPropertyAssertionProbability <PROBABILITY>] [-classAssertionProbability <PROBABILITY>] [-superClassSelectionProbability <PROBABILITY>] [-superDataPropertySelectionProbability <PROBABILITY>] [-superObjectPropertySelectionProbability <PROBABILITY>] [-disjointDataPropertySelectionProbability <PROBABILITY>] [-disjointObjectPropertySelectionProbability <PROBABILITY>] [-equivalentDataPropertySelectionProbability <PROBABILITY>] [-equivalentObjectPropertySelectionProbability <PROBABILITY>] [-inverseObjectPropertySelectionProbability <PROBABILITY>] [-asymmetricObjectPropertySelectionProbability <PROBABILITY>] [-symmetricObjectPropertySelectionProbability <PROBABILITY>] [-irreflexiveObjectPropertySelectionProbability <PROBABILITY>] 
 
 ```
 `-rootIRI <IRI>` e.g. http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject 
@@ -27,14 +27,14 @@ is required in all cases and states a URI that relates to the input ontology.
 `-IRIMapping <IRIMapping1,IRIMapping2,IRIMapping3...>` e.g. http://purl.oclc.org/NET/ssnx/ssn,file:ontologies/WM30Ontology/SSN.owl;http://purl.oclc.org/NET/ssnx/qu/qu,file:ontologies/WM30Ontology/qu.owl
 is optional and states ontology IRIs to document IRIs mapping. Mappings are splitted by semicolon whereas ontology IRI and document IRI within each mapping are splitted by comma.
 
-`-devNumber <NUMBER>` 
-is optional and states the number of device descriptions; 1 by default.
+`-objNumber <NUMBER>` 
+is optional and states the number of object descriptions; 1 by default.
 
 `-outputFilePath <PATH>` 
-is optional and states a local path that relates to the output ontology that describes device descriptons; instancedata/DeviceDescription<NUMBER>.rdf by default.
+is optional and states a local path that relates to the output ontology that describes object descriptons; instancedata/ObjectDescription<NUMBER>.rdf by default.
 
 `-ramSeed <SEED>` 
-is optional and states random seed used for random device description generation; 0 by default.
+is optional and states random seed used for random object description generation; 0 by default.
 
 `-newIndividualProbability <PROBABILITY>`
 is optional and states the probability of creating an OWL named individual; 0.5 by default.
@@ -87,8 +87,8 @@ is optional and states the probabilty of selecting irreflexive characteristic of
 What RDDG will do is:
 1. Load ontology.
 2. Process ontology (that includes Process Entities, Process Axioms and Infer New Knowledge). 
-3. Generate device descriptions.
-4. Collect space coverage evaluation metrics and dump them into file with local path evaluationresults/SpaceCoverageEvaluationResults_DeviceDescription\<DEVICE-NUMBER\>.txt
+3. Generate object descriptions.
+4. Collect space coverage evaluation metrics and dump them into file with local path evaluationresults/SpaceCoverageEvaluationResults_ObjectDescription\<NUMBER\>.txt
 
 ## Contact
 Yanji Chen
