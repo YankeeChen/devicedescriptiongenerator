@@ -2310,15 +2310,6 @@ Version 1.0.0 (July, 2018)
     
 
 
-    <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_21.8cm -->
-
-    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_21.8cm">
-        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Centimeter"/>
-        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">21.8</RFDevice:hasDecimalValue>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://ece.neu.edu/ontologies/SDR.owl#Value_211mm -->
 
     <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Value_211mm">
