@@ -47,7 +47,7 @@ target/
 javadoc/
 
 # ignore all files in the src/ directory
-src/
+#src/
 
 # Package Files #
 #*.jar
