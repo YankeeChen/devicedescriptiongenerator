@@ -23,7 +23,7 @@ evaluationresults/SpaceCoverageEvaluationResults_DeviceDescription*.txt
 .project
 
 # pom file
-pom.xml
+#pom.xml
 
 # ignore all files in the .settings/ directory
 .settings/
